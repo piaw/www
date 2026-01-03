@@ -1,0 +1,180 @@
+<html>
+<head>
+<LINK REL=StyleSheet HREF="style.css" TYPE="text/css">
+
+<title>Startup Engineering Management, 2nd Edition</title>
+</head>
+
+<body style="margin: 0em 0em 0em 0em">
+
+<DIV style="background-color: #DD5; margin:1px; padding:2px .5em 1px .5em">
+<a href="#buynow"><img border=0 src="http://books.piaw.net/management/front_cover2_thumbnail.jpg" style="float: right; margin-left: 1.5em; margin-top:0.25in"></a>
+<center>
+<h1>Startup Engineering Management, 2nd Edition</h1>
+</center>
+</DIV>
+
+<DIV class="body2">
+<p>
+I've been promoted or hired into management at startups at Mpath Interactive,
+Escalate, and Mirapoint. At Google, I was tech lead for the
+daily/hourly indexing team, and I also built the release engineering
+team from ground up a year before the IPO. As an engineer, I've
+experienced bad managers, good managers, and everyone in between.
+
+This book covers topics of interest to who's going to do engineering
+management at startups, or who would like to know what to expect from
+a manager in a non-political environment:
+
+<h2>Table of Contents</h2>
+<ul>
+<li>Should you become a manager? Why manage? What&apos;s in it for you?
+Who should not become managers. Myths about management.
+<li>Getting Started. Basic tools of the trade. 1-on-1s, group
+meetings, status reports and why they are bad for you. Scheduling and the lack of need for them at startups.
+<li>Putting together a team. Getting your group to gel. What roles
+different people play in a team. Resolving group
+conflicts. Communicating vision. Leadership vs. Management. Dealing with difficult people: case studies and practical approaches.
+<li> Priorities: Hiring and why it should always be priority #1 at a
+startup. How to recruit. How to interview. How to avoid group think
+when considering a candidate. The presentation-style group
+interview. The coding interview. The design interview. Making time for
+people. Management by walking around. How to develop broad, deep
+expertise within the team.
+<li>Succession planning. Tech leads and their roles. Tech leading
+versus management versus leadership. Picking Engineering Leaders.
+<li>Process. When do you need one. When do you not need one. Learning the wrong
+lessons from mistakes. Processes as enforced by tools and
+automation. Processes as enforced by people. How to eliminate unnecessary processes.
+<li>A Process Cookbook. A discussion of various useful processes and their context, including when to introduce them, and what the potential consequences of introducing them is.
+<li>Managing up. How to manage your managers. Expectations, results, and other controls.
+Interacting with non-manager customers.
+<li> Compensation. Mentoring managers. Incentive systems. Informal Recognition. Fast Growth.
+their harmful effects..
+</ul>
+
+This book is not just for management, however. It is also for those engineers who are wondering if their managers are truly doing the best job they can. In particular, the techniques in this book can help you suggest ways to improve your group dynamics regardless of your position, and that would result in an improvement in your operating environment.
+
+<a href="https://docs.google.com/viewer?a=v&pid=explorer&chrome=true&srcid=0B03ORlLW4CrCY2IzMGE2NTAtNTVlYi00YTU0LWI1NDgtNjA0NGE5OTdiYzI4&hl=en_US">Download the Sample</a>
+<iframe src="http://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FStartup-Engineering-Management%2F243740425667555&amp;width=292&amp;colorscheme=light&amp;show_faces=true&amp;border_color&amp;stream=true&amp;header=true&amp;height=590" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:590px;" allowTransparency="true" align="right"></iframe>
+<h3>Here's Why Engineers Should Read This Book</h3>
+Corporations have extremely low standards for managers compared to
+engineers. A lot of this is because in most companies, managers hold
+the strings: they decide compensation, they figure out who should get
+promoted, and they figure out the strategic direction. So when they
+get things wrong, they get to apologize to themselves.
+<p>
+Let&apos;s use an extremely well-managed company as an example. Google, as
+described
+by <a href="http://www.nytimes.com/2011/03/13/business/13hire.html?pagewanted=all">The
+    New York Times</a>. The article proudly brags that Google has
+figured out a way to build a better manager. Yet, if you read the
+article carefully, here's what you actually extract out of it:
+<blockquote>
+He tells the story of one manager whose employees seemed to despise him. He was driving them too hard. They found him bossy, arrogant, political, secretive. They wanted to quit his team.
+<p>
+&quot;He&apos;s brilliant, but he did everything wrong when it came to leading a team,&quot; Mr. Bock recalls.
+<p>
+Because of that heavy hand, this manager was denied a promotion he wanted, and was told that his style was the reason. But Google gave him one-on-one coaching&mdash;the company has coaches on staff, rather than hiring from the outside. Six months later, team members were grudgingly acknowledging in surveys that the manager had improved.
+<p>
+&quot;And a year later, it&apos;s actually quite a bit better,&quot; Mr. Bock
+says. &quot;It&apos;s still not great. He&apos;s nowhere near one of our best
+managers, but he&apos;s not our worst anymore. And he got
+promoted.&quot;</blockquote>
+<p>
+
+Think about this: as an engineer, if you were the worst engineer in
+the company, you wouldn't get one-on-one coaching. You&apos;d get fired!
+Not only that, even if you managed to work your way out of a
+performance-improvement-plan, you wouldn&apos;t expect a promotion just for
+not being the worst engineer. Yet this type of performance review
+process is par for the course, and Google is not by far the worst
+offender.
+<p>
+If you read this book, you&apos;ll learn to recognize when your manager
+isn't doing his job. If it doesn&apos;t impact you, you can let it
+slide. But if your group&apos;s performance could be improved by getting
+your manager (or your group) to do the right thing, this book will
+make your work environment just that much better. That&apos;s why every
+engineer should read this book, not just engineers who want to aspire
+to management or recently promoted engineers. I once worked for a team
+where the manager did not get the team together for informal
+lunches. I suggested that the team do that and made it look like her
+idea. The team&apos;s dynamics improved within a few weeks. That&apos;s the kind
+of thing you can do even if you're not a manager.
+<h3>Differences in the 2nd Edition</h3>
+<ol>
+<li>Entire new chapter: A Process Cookbook, involving in-depth discussion of processes, when they are useful, and the consequences of introducing them.
+<li>Foreword by Harper Reed.
+<li>Justifying New Hardware for Engineers.
+<li>The importance of controlling input into Engineering.
+</ol>
+<h3>Reviews</h3>
+<ul>
+<li> It's short&mdash;you can read it in a couple of long bus rides. But it's packed with good advice. If you're a beginning manager, you probably want to drag it out from time to time to review and remind yourself of things you should be doing... or avoiding. If you're an experienced manager, you'll probably enjoy the anecdotes. Larry Hosken (read <a href="https://profiles.google.com/lahosken/posts/41xQnChguJ8">Full Review</a>)
+<li>If you re a software engineer, especially at a startup, you should read Piaw Na s Startup Engineering Management. It s good. Full disclosure: I played a very small part in the book s creation and completion, so I m a bit biased. With that said, this is solid, succinct, and sage advice. It s good for those in management, those being managed, and those thinking about management. It s focused on startup environments, but very little of the advice is relevant only in a startup context. Go read it. Aaron Tubbs. <a href="http://latentcontent.net/entries/1663/review-startup-engineering-management">Full Review</a>
+<li>"Just finished Startup Engineering Management. Great Job!" Ian Langworth, co-founder and CTO, <a href="https://artillery.com/">Artillery</a>.
+<li>I have suggested to all of the tech leadership on the Obama campaign (and the DNC too) to read your book. I hope they take the advice and check it out. It was very good and worthwhile to read.  We are not failing. --- Harper Reed, CTO, <a href="http://www.barackobama.com/">Obama Campaign</a>.
+<li>Piaw Na is a very smart person and his book contains a lot of good advices for an engineer turned manager. --- Dusan Omercevic (<a href="http://restreaming.me/2012/07/17/startup-engineering-management-by-piaw-na/?wpst=1">Full Review</a>).
+<li>"A thoughtful overview of the basics of helping a software engineering team work effectively -- basics that are all too easy to neglect or get wrong. I wish more people read books like this." --- Joshua Levy, <a href="http://viv.ai/">Viv Labs</a>.
+</ul>
+
+<div style="float: right;" class="roundedMessage">
+<h2>Bonus Free Material by Piaw</h2>
+<ul>
+<li><a href="http://piaw.blogspot.com/2011/09/location-still-matters.html">Location Still Matters</a>
+<li><a href="http://piaw.blogspot.com/2011/09/span-of-controls.html">Spans of Control</a>
+More at <a href="http://piaw.blogspot.com">Piaw's Blog</a>!
+<br/>
+<br/>
+</div>
+
+<h3>Book Specifications</h3>
+DRM-free electronic edition: 346KB PDF, 4695KB MobiPocket (Kindle Compatible), 329KB EPUB. (5.3MB zipped file as shipped)
+<a href="license.html">Hassle
+  Free License</a>.
+
+<h3>Purchasing</h3>
+<a name="buynow"></a>
+<table border=0 cellpadding=0 cellspacing=0>
+<TR>
+<TD align="right">
+     Buy paperback $43.95 on Amazon.com.
+</td>
+<td align="center" nowrap>
+<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=ss_til&ad_type=product_link&tracking_id=piasblo-20&marketplace=amazon&region=US&placement=1500621064&asins=1500621064&linkId=YBYTQQ5RAY5H2ZX7&show_border=true&link_opens_in_new_window=true">
+</iframe>
+</td>
+</td>
+<tr>
+<td align="right">
+  Buy digital edition: $24.95:
+</td>
+<td align="center" nowrap>
+<a href="https://www.e-junkie.com/ecom/gb.php?i=1095180&c=single&cl=159217" target="ejejcsingle"><img src="http://www.e-junkie.com/ej/x-click-butcc.gif" border="0" alt="Buy Now"/></a>
+</td>
+</tr>
+</table>
+
+<h2>Author's Biography</h2>
+Piaw Na has worked as an engineering manager at Mpath Interactive,
+Escalate Inc, and Mirapoint. At Google, he built the release
+engineering team, and was the tech lead for the hourly/daily
+crawl/indexing group. He also helped to scale the Munich engineering office.
+He maintains a blog at <a href="http://piaw.blogspot.com">http://piaw.blogspot.com</a>.
+
+<!-- Layout and design by Kevin Chang. Thanks, Kevin! -->
+
+</DIV> <!-- body2 -->
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-50519-5");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

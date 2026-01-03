@@ -1,0 +1,78 @@
+<html>
+<head>
+<LINK REL=StyleSheet HREF="style.css" TYPE="text/css">
+
+<title>Consultancy Service: Compensation Negotiation</title>
+</head>
+
+<body style="margin: 0em 0em 0em 1em">
+
+<DIV style="background-color: #DD5; margin:5px; padding:2px .5em 1px .5em">
+<a href="#buynow"><img border=0 src="http://books.piaw.net/guide/cover_thumbnail.jpg" style="float: right; margin-left: 1.5em; margin-top:0.25in"></a>
+<center>
+<h1>Consultancy Service: Compensation Negotiation</h1>
+</center>
+</DIV>
+
+<p>
+One of the most popular chapters in <a href="http://books.piaw.net/guide/index.html">An Engineer's Guide to Silicon Valley Startups</a> is the one on negotiating compensation. Over the last year, I've helped at least one engineer a quarter negotiate his compensation package. That's about as much experience negotiating in a year as any engineer will have during his typical career.
+<p>
+Furthermore, these packages were not small! In one case, I got within 20% of the <a href="http://techcrunch.com/2010/11/11/google-offers-staff-engineer-3-5-million-to-turn-down-facebook-offer/">$3.5M offer reported in the press</a> for someone who was "only" a senior engineer.
+<p>
+In another case, I netted two greater than $500K offers for someone who was 18 months out of school. Not only that, I told him which offer to accept. The company he accepted that offer with went on to increase its stock value by more than 3X in 12 months, which meant that by his <b>first vesting date</b>, his offer's value had ballooned to well over $1.5M (spread out over 4 years). The alternative job-offer did not do so well!
+<p>
+As a result of negotiating such offers, the requests for my free time to help negotiate such offers has gone up to the point where I now need to meter my time and charge a fair market rate.
+<p>
+How much would you pay to have me tell you exactly what to say to your employer/future employer in order to net the highest possible offer? If I asked for just 10% of the increase I got, I could probably negotiate just 2-3 such offers and then stop taking more requests. But I won't do that. Not only would the contract be involved and difficult to enforce, I also don't believe that I add that much value. The real value add comes from your ability to attract and get multiple offers, so I will only bill for my time at a reasonable rate.
+<p>
+That rate is $360/hour ($360 minimum). In most cases, you will not need more than an hour of my time (that time includes the time I spend evaluating your resume and deciding whether I can help you: if I can't I'll refund you the money less what it took for me to tell you that I can't help you). Unlike law firms, I won't round to the nearest quarter hour or play accounting games like that. Unlike a recruiter (working as an independent or for a company) I will truly be on your side, because you're the only one paying me! If I tell you you need to interview to get a second or third offer on the table, I will also try to provide connections so you can do so fairly quickly.
+<h2>Who can I help?</h2>
+My primary area of expertise is in helping engineers. I think I can help other types of employees as well, but I have no track record there (yet!).
+<p>
+Your hour can be used however you like. If you've yet to start your job search, I can tell you whether or not you are at market for your services, and whether it's worth your while to start searching. If you're in the middle of your job search, I can suggest additional avenues to explore. If you're at the offer stage, I can try to help you find ways to boost those offers! If I don't think I can help you I will refund your money to avoid wasting both our time.
+<p>
+If it turns out that you need more than an hour I will let you know and bill you according to use. In my experience, however, very few people need more than an hour's worth of my time, as it's an hour leveraged with more experience negotiating offers than most people will have in a lifetime.
+<h2>Testimonials</h2>
+<b>Thanks for your advice.  It certainly opened my eyes and improved my offers.</b> --- An Engineer with Multiple offers.
+<p>
+<b>This might be the best money I've ever spent</b> --- Maxim, an engineer with multiple offers.
+<h2>The Process</h2>
+By selecting the "Buy Now" button below, you will have generated a payment to me through Google checkout which signals your interest and intent. I will then contact you to discuss how to proceed, usually by e-mailing me your resume and telling me (through whatever means you find comfortable) what your current situation is, and how you want me to help.
+
+After that, I can help you via e-mail, phone calls, IM, whatever form you need as you need it.
+
+<h2>Interested?</h2>
+
+<center><form action="https://checkout.google.com/api/checkout/v2/checkoutForm/Merchant/424504570108182" id="BB_BuyButtonForm" method="post" name="BB_BuyButtonForm" target="_top">
+    <input name="item_name_1" type="hidden" value="1 hour"/>
+    <input name="item_description_1" type="hidden" value="1 Hour of my time, for negotiation, tax advice, and anything else."/>
+    <input name="item_quantity_1" type="hidden" value="1"/>
+    <input name="item_price_1" type="hidden" value="360.0"/>
+    <input name="item_currency_1" type="hidden" value="USD"/>
+    <input name="_charset_" type="hidden" value="utf-8"/>
+    <input alt="" src="https://checkout.google.com/buttons/buy.gif?merchant_id=424504570108182&amp;w=117&amp;h=48&amp;style=white&amp;variant=text&amp;loc=en_US" type="image"/>
+</form>
+</center>
+
+<h2>Biography</h2>
+Piaw Na has worked as a pre-IPO employee at 3 companies (<a href="http://en.wikipedia.org/wiki/Pure_Software">Pure Software</a>,
+<a href="http://en.wikipedia.org/wiki/Mpath">Mpath
+  Interactive/HearMe</a>,
+  and <a href="http://www.google.com">Google</a>), and 2 unsuccessful
+  startups (<a href="http://www.escalate.com/">Escalate</a>,
+  and <a href="http://www.mirapoint.com/">Mirapoint</a>). He maintains
+  a blog at <a href="http://piaw.blogspot.com">http://piaw.blogspot.com</a>.
+
+He is the author of <a href="http://books.piaw.net/guide/index.html">An Engineer's Guide to Silicon Valley Startups</a>.
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-50519-5");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

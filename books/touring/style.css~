@@ -1,0 +1,63 @@
+body {
+  margin: 0em 1.5em 0em 1.5em;
+  color : #000;
+  background: #fff;
+ background-image:url(cyclist.jpg);
+ background-position:center top;
+ background-repeat:no-repeat;
+ /*font-family:"Courier New",Courier,Monaco,monospace;*/
+}
+.body2 {
+  margin: 0em 1.5em 0em 1.5em;
+}
+h1, h2, h3 {
+  color: #0085b3;
+  font-family: Tahoma,Arial,Helvetica,Geneva,sans-serif;
+}
+h1 {
+  text-shadow: 0.08em 0.08em 0.08em #aaa;
+}
+p, ul {
+  font-family: Tahoma,Arial,Helvetica,Geneva,sans-serif;
+}
+ul {
+  list-style-position: outside;
+}
+li {
+  font-size: 0.85em;
+}
+.smallLetters {
+  font-size: 75%;
+}
+.bigLetters {
+  font-size:150%;
+}
+.bigPopout {
+  position: absolute;
+  left: 15%;
+  right: 30%;
+  top: 30%;
+  padding: 1.5em;
+  background-color: yellow;
+  opacity: 0.90;
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
+  -moz-box-shadow:10px 10px 5px #888; 
+  border: 1px solid #000;
+  width: 66%;
+}
+.link {
+  text-decoration: underline;
+  text-underline-style: dotted;
+  color: blue;
+  cursor: pointer;
+}
+.roundedMessage {
+  padding: 0px 1.5em 1px 1.5em;
+  -moz-box-shadow:5px 5px 2px #888;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  background-color: #EED;
+}
+</style>
+

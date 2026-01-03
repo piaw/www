@@ -1,0 +1,73 @@
+<html>
+<head>
+      <title>Bibliography for Indepdendent Cycle Touring</title>
+</head>
+
+<LINK REL=StyleSheet HREF="style.css" TYPE="text/css">
+<style type="text/css">
+body {
+  padding: 0 2em 0 2em;
+}
+</style>
+
+
+<body>
+<h1>Bibliography</h1>
+<p>This is a bibliography for reader's convenience. Short URLs are also
+embedded in the book.
+<h3>Chapter One</h3>
+<ul>
+<li><a href="http://goo.gl/S2Mt">Miles from Nowhere: A Round the World Bicycle Adventure</a>
+<li><a href="http://goo.gl/3uGX">Around the World on a Bicycle</a>
+</ul>
+<h3>Chapter Two</h3>
+<ul>
+<li><a href="http://goo.gl/AqFK">
+    Bicycling the Pacific Coast</a>
+<li><a href="http://goo.gl/5cTl">Germany by Bike:
+    20 Tours Geared for Discovery</a>
+<li><a href="http://trentobike.org">
+    Trento Bike Pages</a>
+<li><a href="http://www.crazyguyonabike.com/">Crazy Guy On A Bike</a>
+<li><a href="http://touring.piaw.net">Piaw's tour reports</a>
+</ul>
+<h3>Chapter Three</h3>
+<ul>
+<li><a href="http://goo.gl/DKap">Effective Cycling</a>
+<li><a href="http://goo.gl/tU8C">A Twist of the Wrist I: Motor Cycle Road Racer's Handbook</a>
+<li><a href="http://www.bbinstitute.com/the-barnett-manual">Barnett's Manual DX</a>
+<li><a href="http://goo.gl/kqHF">The Cyclist's Training Bible</a>
+</ul>
+<h3>Chapter Four</h3>
+<ul>
+<li><a href="http://goo.gl/hnOo">Omega Engineering Rim Temperature Sensor Stickers</a>
+<li><a href="http://goo.gl/SBLY">The Bicycle Wheel</a>
+<li><a href="http://goo.gl/9GU8">Bicycle Wheel Video Lectures</a>
+</ul>
+<h3>Chapter Six</h3>
+<ul>
+<li><a href="http://goo.gl/l3Jn">Roads to Ride</a>
+<li><a href="http://goo.gl/1uZO">Roads to Ride South</a>
+<li><a href="http://goo.gl/EUGU">Raising the Bar</a>
+<li><a href="http://omnimap.com">Omnimap</a>
+</ul>
+<h3>Chapter Seven</h3>
+<ul>
+<li><a href="http://goo.gl/tAND">Krebs Cycle Products</a>
+<li><a href="http://goo.gl/y0pA">Michelin Atlas France</a>
+<li><a href="http://goo.gl/Zp5u">Jobst Brandt's Tour of hte Alps Collection</a>
+<li><a href="http://goo.gl/f8n1">Touring Mapple</a>
+<li><a href="http://goo.gl/Q6Zp">John and Pamela Blayley</a>
+</ul>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-50519-5");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>
