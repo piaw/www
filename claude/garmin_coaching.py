@@ -91,12 +91,14 @@ def main():
     # ── Wellness data (sleep, HRV, weight, resting HR) ──
     wellness = fetch("wellness", params)
 
-    hrv_vals    = [w.get("hrv")              for w in wellness]
-    hr_vals     = [w.get("restingHR")        for w in wellness]
-    sleep_secs  = [w.get("sleepSecs")        for w in wellness]
-    sleep_score = [w.get("sleepScore")       for w in wellness]
-    weight_vals = [w.get("weight")           for w in wellness]
-    dates       = [w.get("id")               for w in wellness]
+    hrv_vals      = [w.get("hrv")           for w in wellness]  # overnight rMSSD (Garmin)
+    hrv_sdnn_vals = [w.get("hrvSDNN")         for w in wellness]  # overnight SDNN
+    hr_vals       = [w.get("restingHR")       for w in wellness]
+    sleep_hr_vals = [w.get("avgSleepingHR")   for w in wellness]  # avg HR during sleep
+    sleep_secs    = [w.get("sleepSecs")       for w in wellness]
+    sleep_score   = [w.get("sleepScore")      for w in wellness]
+    weight_vals   = [w.get("weight")          for w in wellness]
+    dates         = [w.get("id")              for w in wellness]
 
     sleep_hrs   = [s / 3600 if s else None for s in sleep_secs]
 
@@ -131,8 +133,10 @@ def main():
     def fmt(val, unit="", na="–"):
         return f"{val}{unit}" if val is not None else na
 
-    avg_hrv    = safe_avg(hrv_vals)
-    avg_hr     = safe_avg(hr_vals, 0)
+    avg_hrv      = safe_avg(hrv_vals)
+    avg_sdnn     = safe_avg(hrv_sdnn_vals)
+    avg_sleep_hr = safe_avg(sleep_hr_vals, 0)
+    avg_hr       = safe_avg(hr_vals, 0)
     avg_sleep  = safe_avg(sleep_hrs)
     avg_score  = safe_avg(sleep_score, 0)
     latest_wt  = next((w for w in reversed(weight_vals) if w), None)
@@ -161,7 +165,9 @@ def main():
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 🫀  RECOVERY & WELLNESS
-   HRV (avg):          {fmt(avg_hrv, 'ms')}{trend(hrv_vals)}
+   HRV rMSSD (avg):    {fmt(avg_hrv, 'ms')}{trend(hrv_vals)}
+   HRV SDNN (avg):     {fmt(avg_sdnn, 'ms')}{trend(hrv_sdnn_vals)}
+   Avg sleeping HR:    {fmt(avg_sleep_hr, ' bpm')}{trend(sleep_hr_vals)}
    Resting HR (avg):   {fmt(avg_hr, ' bpm')}{trend(hr_vals)}
    Sleep (avg):        {fmt(avg_sleep, ' hrs')}{trend(sleep_hrs)}
    Sleep score (avg):  {fmt(avg_score)}
@@ -186,15 +192,29 @@ Based on the above, please:
     # ── Output ──
     print("\n" + brief + "\n")
 
-    # Try to copy to clipboard automatically
+    # ── Save to file (works on all platforms including Pydroid on Android) ──
+    import platform
+    if platform.system() == "Linux" and "ANDROID_ROOT" in os.environ:
+        # Pydroid on Android — save to shared storage so any app can open it
+        output_path = "/sdcard/coaching_brief.txt"
+    else:
+        output_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "coaching_brief.txt")
+
+    try:
+        with open(output_path, "w", encoding="utf-8") as f:
+            f.write(brief)
+        print(f"✅  Brief saved to: {output_path}")
+        print("    Open it in any text app, select all, copy, paste into Claude!")
+    except Exception as e:
+        print(f"⚠️  Couldn't save file ({e}) — copy the text above manually.")
+
+    # ── Also try clipboard (works on desktop, silently skipped on Android) ──
     try:
         import pyperclip
         pyperclip.copy(brief)
-        print("✅  Brief copied to clipboard — paste it into your Claude chat!")
-    except ImportError:
-        print("💡  Install pyperclip to auto-copy:  pip install pyperclip")
-    except Exception as e:
-        print(f"💡  Clipboard unavailable ({e}) — copy the text above manually.")
+        print("✅  Also copied to clipboard!")
+    except Exception:
+        pass  # Clipboard unavailable on Android — file is enough
 
 
 if __name__ == "__main__":
