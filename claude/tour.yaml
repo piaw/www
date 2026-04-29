@@ -1,0 +1,506 @@
+# 2026 Tour of the Alps — Geneva Start
+# Source of truth for segments and variants. Edit this file freely.
+# The artifact (tour-of-alps-2026-planner) reads this structure to render the timeline.
+#
+# CONCEPTS
+#   - segment       : A stretch between two anchor towns. Has 1+ variants.
+#   - variant       : A specific sequence of days connecting the anchors. The
+#                     thing you toggle to "rule out" or "consider" an option.
+#   - day (leg)     : One calendar day inside a variant. Has a `kind`:
+#                       ride   – cycling day with distance/climb
+#                       rest   – designated rest day (no riding)
+#                       hike   – hiking day at a base location
+#                       easy   – very short ride, treated as recovery
+#                       spare  – buffer day (mechanicals, weather)
+#                       setup  – arrival/assembly/pack/depart
+#   - default       : Which variant is selected when the artifact first loads
+#   - locked: true  : Lodging or schedule is committed; no variant chooser shown
+#   - flag          : "blocked" (visual red) or "constraint" (visual amber)
+#                     with `flag_note` explaining what's locking it out
+#
+# To designate a day as rest/hike later: change its `kind:` field, OR do it
+# from the artifact UI (state persists in the URL hash).
+
+tour:
+  name: "2026 Tour of the Alps — Geneva Start"
+  start_date: "2026-06-05"
+  end_date:   "2026-07-07"
+  rwgps_collection: "https://ridewithgps.com/collections/9371601"
+
+segments:
+
+  # ─────────────────────────────────────────────────────────────────
+  - id: setup
+    label: "Geneva — arrival & assembly"
+    from: "Geneva"
+    to:   "Geneva"
+    default: only
+    locked: true
+    variants:
+      - id: only
+        label: "Standard arrival"
+        days:
+          - { kind: setup, location: "Geneva", name: "Arrive Geneva, assemble bikes",
+              notes: "6/6 is Saturday → bike shops may be closed; assemble on 6/5 if possible." }
+
+  # ─────────────────────────────────────────────────────────────────
+  - id: geneva-bonneville
+    label: "Geneva → Bonneville (start riding + spare)"
+    from: "Geneva"
+    to:   "Bonneville"
+    default: standard
+    variants:
+      - id: standard
+        label: "Standard (1 ride day + 1 spare)"
+        days:
+          - { kind: ride, name: "Geneva → Bonneville",
+              distance_km: 34.9, climb_m: 305,
+              rwgps: "https://ridewithgps.com/routes/54838860" }
+          - { kind: spare, location: "Bonneville",
+              notes: "Spare day for mechanicals, lost bikes, etc." }
+      - id: skip-spare
+        label: "Skip spare day (save 1 day)"
+        days:
+          - { kind: ride, name: "Geneva → Bonneville",
+              distance_km: 34.9, climb_m: 305,
+              rwgps: "https://ridewithgps.com/routes/54838860" }
+
+  # ─────────────────────────────────────────────────────────────────
+  - id: bonneville-bsm
+    label: "Bonneville → Flumet → Bourg St Maurice"
+    from: "Bonneville"
+    to:   "Bourg St Maurice"
+    default: standard
+    variants:
+      - id: standard
+        label: "Standard (Colombière+Aravis, then Saisies+Roselend)"
+        days:
+          - { kind: ride, name: "Bonneville → Flumet",
+              distance_km: 62.3, climb_m: 1922,
+              climbs: ["Col de la Colombière", "Col des Aravis"],
+              rwgps: "https://ridewithgps.com/routes/54839004" }
+          - { kind: ride, name: "Flumet → Bourg St Maurice",
+              distance_km: 70.5, climb_m: 2270,
+              climbs: ["Col des Saisies", "Cormet de Roselend"],
+              rwgps: "https://ridewithgps.com/routes/54839009" }
+      - id: easy-day-2
+        label: "EASY day 2 (skip Colombière, lighter first ride)"
+        days:
+          - { kind: ride, name: "EASY Bonneville → Flumet",
+              distance_km: 45.9, climb_m: 1248,
+              rwgps: "https://ridewithgps.com/routes/54839003" }
+          - { kind: ride, name: "Flumet → Bourg St Maurice",
+              distance_km: 70.5, climb_m: 2270,
+              climbs: ["Col des Saisies", "Cormet de Roselend"],
+              rwgps: "https://ridewithgps.com/routes/54839009" }
+
+  # ─────────────────────────────────────────────────────────────────
+  - id: bsm-briancon
+    label: "Bourg St Maurice → Briançon — THE SNOW-RISK FORK"
+    from: "Bourg St Maurice"
+    to:   "Briançon"
+    default: iseran-original
+    notes: "Original Iseran route has high snow-closure risk in early June. Madeleine ALT covers the same span in the same number of days, with much lower risk."
+    variants:
+      - id: iseran-original
+        label: "Original: Iseran → rest → easy → Galibier (HIGH snow risk)"
+        risk_pct: 52
+        days:
+          - { kind: ride, name: "Bourg St Maurice → Lanslevillard via Col de l'Iseran",
+              distance_km: 76.3, climb_m: 2267,
+              climbs: ["Col de l'Iseran"], snow_risk: 0.52,
+              rwgps: "https://ridewithgps.com/routes/54839017",
+              notes: "⚠ 52% snow closure risk early June" }
+          - { kind: rest, location: "Lanslevillard",
+              notes: "Hike: alltrails.com/france/savoie/lanslevillard" }
+          - { kind: easy, name: "Lanslevillard → St Michel Maurienne",
+              distance_km: 42, climb_m: 305,
+              notes: "Short 26 mi / 1000 ft. Recover for Galibier tomorrow." }
+          - { kind: ride, name: "St Michel → Briançon via Télégraphe + Galibier + Lautaret",
+              distance_km: 96, climb_m: 2563,
+              climbs: ["Col du Télégraphe", "Col du Galibier", "Col du Lautaret"],
+              snow_risk: 0.68,
+              notes: "⚠ 68% Galibier closure risk. Hotel des Glaciers at Lautaret if stopping short." }
+      - id: madeleine-snow-safe
+        label: "Snow-safe ALT: Madeleine + Croix de Fer + Alpe d'Huez"
+        risk_pct: 18
+        days:
+          - { kind: ride, name: "Bourg St Maurice → St Jean de Maurienne via Col de la Madeleine",
+              distance_km: 83.2, climb_m: 1897,
+              climbs: ["Col de la Madeleine"], snow_risk: 0.18,
+              rwgps: "https://ridewithgps.com/routes/54839674",
+              notes: "Madeleine N side 25.9 km @ 6.5%. Drop to La Chambre → St Jean de Maurienne." }
+          - { kind: ride, name: "St Jean de Maurienne → Bourg d'Oisans via Télégraphe + Croix de Fer",
+              distance_km: 85, climb_m: 2400,
+              climbs: ["Col du Télégraphe", "Col de la Croix de Fer"],
+              notes: "Croix de Fer 2067 m. Bourg d'Oisans has restaurants and bike shops." }
+          - { kind: rest, location: "Bourg d'Oisans",
+              notes: "Rest at foot of Alpe d'Huez. Recovery walk or short spin." }
+          - { kind: ride, name: "Bourg d'Oisans → Briançon via Alpe d'Huez + Sarenne + Lautaret",
+              distance_km: 125.2, climb_m: 2870,
+              climbs: ["Alpe d'Huez", "Col de Sarenne", "Col du Lautaret"],
+              snow_risk: 0.10,
+              rwgps: "https://ridewithgps.com/routes/54864315",
+              notes: "Lautaret always open. Caution: loose gravel on Sarenne descent." }
+
+  # ─────────────────────────────────────────────────────────────────
+  # COMBINED segment (was briancon-barcelonnette + barcelonnette-cuneo).
+  # Some variants bypass Barcelonnette entirely (Agnel goes direct to Italy
+  # from Saint-Véran/Molines), so the two old segments couldn't represent
+  # them cleanly. All "France → Italy" exit options live here now.
+  - id: briancon-cuneo
+    label: "Briançon → Cuneo/Ivrea — exiting France into Italy"
+    from: "Briançon"
+    to:   "Cuneo/Ivrea"
+    default: casterino-reroute
+    notes: |
+      From "Notes on Exiting France into Italy 2026" (2026-04-28):
+       • Col de Tende: French-side construction → must reroute via Casterino (Rte de Peyrefique).
+       • Col de Larche: only feasible Sunday mornings (construction stops, heavy trucks banned both sides).
+       • Col Agnel: pretty + remote; high winds afternoon → finish climb by 11am.
+         Stage at Molines-en-Queyras or Saint-Véran (highest village in Europe, "Plus Beaux
+         Villages de France"; +4km / +300m dead-end spur, but amazing food & hiking).
+       • Connoisseur's route: Cayolle → dirt at Bayesse → Col de Moultière → Isola → Col de la
+         Lombarda → Vinadio. Top of Moultière offers optional Cime de la Bonette loop
+         (highest paved road in Europe) — decision can be made on the day.
+       • Paved variant of the Connoisseur's: Col de la Bonnette (paved all the way) → Isola →
+         Lombarda. Less climbing if you skip the Cime loop; still wind-exposed like Agnel.
+    variants:
+
+      - id: tende-original
+        label: "ORIGINAL: Vars + Cayolle + Turini + Tende"
+        flag: blocked
+        flag_note: "French-side construction on Col de Tende — see Casterino reroute"
+        risk_pct: 30
+        days:
+          - { kind: ride, name: "Briançon → Guillestre via Col d'Izoard",
+              distance_km: 50.3, climb_m: 1410,
+              climbs: ["Col d'Izoard"], snow_risk: 0.22,
+              rwgps: "https://ridewithgps.com/routes/54839145",
+              notes: "Check inforoute05.fr the day before" }
+          - { kind: ride, name: "Guillestre → Barcelonnette via Col de Vars",
+              distance_km: 50.0, climb_m: 1219,
+              climbs: ["Col de Vars"],
+              rwgps: "https://ridewithgps.com/routes/54839150" }
+          - { kind: rest, location: "Barcelonnette",
+              notes: "Hike: alltrails.com/france/alpes-de-haute-provence/barcelonnette" }
+          - { kind: ride, name: "Barcelonnette → Valberg via Col de la Cayolle",
+              distance_km: 75, climb_m: 2170,
+              climbs: ["Col de la Cayolle"], snow_risk: 0.30,
+              rwgps: "https://ridewithgps.com/routes/54839153",
+              notes: "Check inforoute04.fr morning of 6/16" }
+          - { kind: ride, name: "Valberg → Saint Martin-Vésubie via Col de Saint Martin",
+              distance_km: 71.8, climb_m: 2373,
+              climbs: ["Col de Saint Martin"],
+              rwgps: "https://ridewithgps.com/routes/54839154" }
+          - { kind: ride, name: "Saint Martin-Vésubie → Sospel via Col de Turini",
+              distance_km: 91.5, climb_m: 2501,
+              climbs: ["Col de Turini"],
+              rwgps: "https://ridewithgps.com/routes/54839155" }
+          - { kind: ride, name: "Sospel → Cuneo via Col de Tende (then train to Ivrea)",
+              distance_km: 47.6, climb_m: 1235,
+              climbs: ["Col de Tende"],
+              rwgps: "https://ridewithgps.com/routes/54838941",
+              notes: "BLOCKED: French-side construction on Tende in 2026" }
+
+      - id: casterino-reroute
+        label: "Casterino reroute (replaces Tende; preserves Turini & Vésubie scenery)"
+        risk_pct: 30
+        notes: "Same days 1–6 as original; final day swaps Tende for Casterino (Rte de Peyrefique)."
+        days:
+          - { kind: ride, name: "Briançon → Guillestre via Col d'Izoard",
+              distance_km: 50.3, climb_m: 1410,
+              climbs: ["Col d'Izoard"], snow_risk: 0.22,
+              rwgps: "https://ridewithgps.com/routes/54839145" }
+          - { kind: ride, name: "Guillestre → Barcelonnette via Col de Vars",
+              distance_km: 50.0, climb_m: 1219,
+              climbs: ["Col de Vars"],
+              rwgps: "https://ridewithgps.com/routes/54839150" }
+          - { kind: rest, location: "Barcelonnette" }
+          - { kind: ride, name: "Barcelonnette → Valberg via Col de la Cayolle",
+              distance_km: 75, climb_m: 2170,
+              climbs: ["Col de la Cayolle"], snow_risk: 0.30 }
+          - { kind: ride, name: "Valberg → Saint Martin-Vésubie via Col de Saint Martin",
+              distance_km: 71.8, climb_m: 2373,
+              climbs: ["Col de Saint Martin"] }
+          - { kind: ride, name: "Saint Martin-Vésubie → Casterino (Italian side)",
+              distance_km: 99.2, climb_m: 3249,
+              climbs: ["Col de Turini","Casterino approach"],
+              rwgps: "https://ridewithgps.com/routes/54864910",
+              notes: "Big day. Italian side avoids French construction." }
+          - { kind: ride, name: "Casterino → Cuneo (gravel sections)",
+              distance_km: 51.1, climb_m: 629,
+              rwgps: "https://ridewithgps.com/routes/54864934",
+              notes: "Route de Peyrefique. ~23% unpaved." }
+
+      - id: larche-sunday
+        label: "Col de Larche — SUNDAY MORNING ONLY"
+        flag: constraint
+        flag_note: "Only feasible on Sunday mornings (construction stops, heavy trucks banned both sides). Schedule the rest day in Barcelonnette so Larche falls on Sunday."
+        days:
+          - { kind: ride, name: "Briançon → Guillestre via Col d'Izoard",
+              distance_km: 50.3, climb_m: 1410,
+              climbs: ["Col d'Izoard"],
+              rwgps: "https://ridewithgps.com/routes/54839145" }
+          - { kind: ride, name: "Guillestre → Barcelonnette via Col de Vars",
+              distance_km: 50.0, climb_m: 1219,
+              climbs: ["Col de Vars"],
+              rwgps: "https://ridewithgps.com/routes/54839150" }
+          - { kind: rest, location: "Barcelonnette",
+              notes: "Time the rest so Larche falls on Sunday" }
+          - { kind: ride, name: "Barcelonnette → Vinadio via Col de Larche (SUNDAY)",
+              distance_km: 75, climb_m: 1300,
+              climbs: ["Col de Larche"],
+              rwgps: "https://ridewithgps.com/routes/54839018",
+              notes: "Sunday only — confirms day-of-week before committing." }
+          - { kind: ride, name: "Vinadio → Cuneo (descent)",
+              distance_km: 50, climb_m: 200 }
+
+      - id: agnel-saint-veran
+        label: "Col Agnel via Saint-Véran (highest village + hike day)"
+        notes: "Decision after Izoard descent. Saint-Véran +4 km / +300m dead-end spur from Molines, but the village + hiking are exceptional. Hôtel Alta Peyra has heated outdoor pool."
+        days:
+          - { kind: ride, name: "Briançon → Saint-Véran (over Col d'Izoard, then Molines + spur)",
+              distance_km: 48.5, climb_m: 1951,
+              climbs: ["Col d'Izoard","Saint-Véran spur"],
+              rwgps: "https://ridewithgps.com/routes/54869399",
+              notes: "Hard day. Saint-Véran 2042 m; \"Plus Beaux Villages de France\"." }
+          - { kind: hike, location: "Saint-Véran",
+              notes: "Hiking day. Alta Peyra: heated pool. Pedestrian trail to Molines if needed (~1 hr walk)." }
+          - { kind: ride, name: "Saint-Véran → over Col Agnel → Italy (toward Cuneo)",
+              distance_km: 93.2, climb_m: 988,
+              climbs: ["Col Agnel"],
+              rwgps: "https://ridewithgps.com/routes/54870100",
+              notes: "10-min descent to Molines, then 1000 m to Agnel. FINISH CLIMB BY 11am — high winds afterwards." }
+          - { kind: ride, name: "Continue to Cuneo (descent + valley)",
+              distance_km: 35, climb_m: 200,
+              notes: "If RWGPS route doesn't reach Cuneo, finish via valley road." }
+
+      - id: agnel-molines
+        label: "Col Agnel via Molines-en-Queyras (skip Saint-Véran detour)"
+        notes: "Same Agnel pass, but no extra spur to Saint-Véran. Saves the dead-end climb but loses the hiking opportunity."
+        days:
+          - { kind: ride, name: "Briançon → Molines-en-Queyras (Izoard + descent + Molines)",
+              distance_km: 45, climb_m: 1500,
+              climbs: ["Col d'Izoard"],
+              notes: "Estimate: Izoard then descend to Guillestre, ride up to Molines (1400 m)." }
+          - { kind: ride, name: "Molines → over Col Agnel → toward Cuneo",
+              distance_km: 90, climb_m: 1300,
+              climbs: ["Col Agnel"],
+              notes: "1000 m climb up Agnel from Molines. FINISH BY 11am to avoid headwinds." }
+          - { kind: ride, name: "Continue to Cuneo",
+              distance_km: 35, climb_m: 200 }
+
+      - id: connoisseur-bonette-dirt
+        label: "Connoisseur's: Cayolle + Bayesse dirt + Moultière + Lombarda"
+        notes: "Best in clear weather. Dirt traverse from Bayesse. Optional Cime de la Bonette loop at Moultière summit (highest paved road in Europe) — decision on the day. Final paved connection from Moultière is gentle 2–3% grade; the Cime loop is 15% on pavement."
+        days:
+          - { kind: ride, name: "Briançon → Guillestre via Col d'Izoard",
+              distance_km: 50.3, climb_m: 1410,
+              climbs: ["Col d'Izoard"],
+              rwgps: "https://ridewithgps.com/routes/54839145" }
+          - { kind: ride, name: "Guillestre → Barcelonnette via Col de Vars",
+              distance_km: 50.0, climb_m: 1219,
+              climbs: ["Col de Vars"],
+              rwgps: "https://ridewithgps.com/routes/54839150" }
+          - { kind: rest, location: "Barcelonnette" }
+          - { kind: ride, name: "Barcelonnette → Isola via Cayolle + Bayesse dirt + Moultière",
+              distance_km: 70.7, climb_m: 1698,
+              climbs: ["Col de la Cayolle","Bayesse dirt","Col de Moultière"],
+              rwgps: "https://ridewithgps.com/routes/54868388",
+              notes: "Optional Cime de la Bonette loop at top (+15% pavement, scenic). Final connection 2–3% grade." }
+          - { kind: ride, name: "Isola → Vinadio via Col de la Lombarda",
+              distance_km: 78.8, climb_m: 1692,
+              climbs: ["Col de la Lombarda"],
+              rwgps: "https://ridewithgps.com/routes/54865972",
+              notes: "Stiff climb. Dumps you at Larches at Vinadio." }
+          - { kind: ride, name: "Vinadio → Cuneo (descent + valley)",
+              distance_km: 50, climb_m: 200 }
+
+      - id: bonnette-paved
+        label: "Paved: Col de la Bonnette + Lombarda (all paved alternative)"
+        notes: "All paved. Less climbing than Moultière if avoiding Cime loop. Less exotic but quiet, also wind-exposed like Agnel."
+        days:
+          - { kind: ride, name: "Briançon → Guillestre via Col d'Izoard",
+              distance_km: 50.3, climb_m: 1410,
+              climbs: ["Col d'Izoard"],
+              rwgps: "https://ridewithgps.com/routes/54839145" }
+          - { kind: ride, name: "Guillestre → Barcelonnette via Col de Vars",
+              distance_km: 50.0, climb_m: 1219,
+              climbs: ["Col de Vars"],
+              rwgps: "https://ridewithgps.com/routes/54839150" }
+          - { kind: rest, location: "Barcelonnette" }
+          - { kind: ride, name: "Barcelonnette → Isola via Col de la Bonnette",
+              distance_km: 75, climb_m: 1900,
+              climbs: ["Col de la Bonnette"],
+              notes: "All paved. Wind-exposed like Agnel." }
+          - { kind: ride, name: "Isola → Vinadio via Col de la Lombarda",
+              distance_km: 78.8, climb_m: 1692,
+              climbs: ["Col de la Lombarda"],
+              rwgps: "https://ridewithgps.com/routes/54865972" }
+          - { kind: ride, name: "Vinadio → Cuneo (descent + valley)",
+              distance_km: 50, climb_m: 200 }
+
+  # ─────────────────────────────────────────────────────────────────
+  - id: ivrea-aosta-brig
+    label: "Ivrea → Aosta → Brig (Grand St Bernard)"
+    from: "Cuneo/Ivrea"
+    to:   "Brig"
+    default: standard
+    variants:
+      - id: standard
+        label: "Standard: Ivrea → Aosta → Brig"
+        days:
+          - { kind: ride, name: "Ivrea → Aosta (or St Christophe)",
+              distance_km: 73.7, climb_m: 828,
+              rwgps: "https://ridewithgps.com/routes/54839036",
+              notes: "Train was down → must ride." }
+          - { kind: ride, name: "Aosta → Brig via Grand St Bernard, descend Martigny",
+              distance_km: 81.2, climb_m: 2141,
+              climbs: ["Grand St Bernard"],
+              rwgps: "https://ridewithgps.com/routes/54839048",
+              notes: "Take tailwind down lake to Brig. GSB officially opens May 14." }
+      - id: split-martigny
+        label: "Split: Aosta → Martigny → Brig (lower per-day load, +1 day)"
+        days:
+          - { kind: ride, name: "Ivrea → Aosta",
+              distance_km: 72.9, climb_m: 862,
+              rwgps: "https://ridewithgps.com/routes/54839589" }
+          - { kind: ride, name: "Aosta → Martigny via Grand St Bernard",
+              distance_km: 81.2, climb_m: 2141,
+              climbs: ["Grand St Bernard"] }
+          - { kind: ride, name: "Martigny → Brig (flat/tailwind day)",
+              distance_km: 88.0, climb_m: 693,
+              rwgps: "https://ridewithgps.com/routes/54839057" }
+
+  # ─────────────────────────────────────────────────────────────────
+  - id: brig-andermatt
+    label: "Brig → Andermatt (Furka + easy day)"
+    from: "Brig"
+    to:   "Andermatt"
+    default: standard
+    variants:
+      - id: standard
+        label: "Furka → Tiefenbach → easy spin to Andermatt"
+        days:
+          - { kind: ride, name: "Brig → Hotel Tiefenbach (Furka Pass)",
+              distance_km: 77.7, climb_m: 2026,
+              climbs: ["Furka Pass"],
+              rwgps: "https://ridewithgps.com/routes/54839075",
+              notes: "Stop before headwind starts. Furka Base Tunnel as fallback." }
+          - { kind: easy, name: "Tiefenbach → Andermatt",
+              distance_km: 18, climb_m: 100,
+              notes: "Easy day. Arturo leaves to Geneva from Andermatt." }
+
+  # ─────────────────────────────────────────────────────────────────
+  - id: andermatt-rest
+    label: "Andermatt rest day"
+    from: "Andermatt"
+    to:   "Andermatt"
+    default: hike
+    variants:
+      - id: hike
+        label: "Hiking day"
+        days:
+          - { kind: hike, location: "Andermatt", notes: "Hiking around Andermatt" }
+      - id: rest
+        label: "Pure rest"
+        days:
+          - { kind: rest, location: "Andermatt" }
+      - id: skip
+        label: "Skip rest (push through; lose 1 day)"
+        days: []
+
+  # ─────────────────────────────────────────────────────────────────
+  - id: andermatt-meiringen
+    label: "Andermatt → Meiringen (Sustenpass; Grimsel as fallback)"
+    from: "Andermatt"
+    to:   "Meiringen"
+    default: susten
+    variants:
+      - id: susten
+        label: "Sustenpass (preferred)"
+        risk_pct: 20
+        days:
+          - { kind: ride, name: "Andermatt → Meiringen via Sustenpass",
+              distance_km: 55.0, climb_m: 1400,
+              climbs: ["Sustenpass"], snow_risk: 0.20,
+              rwgps: "https://ridewithgps.com/routes/54839087" }
+      - id: grimsel-fallback
+        label: "Grimsel fallback (if Susten still closed)"
+        days:
+          - { kind: ride, name: "Andermatt → Meiringen via Grimsel + Innertkirchen",
+              distance_km: 65, climb_m: 1500,
+              climbs: ["Grimsel Pass"] }
+
+  # ─────────────────────────────────────────────────────────────────
+  - id: weather-spare
+    label: "Weather spare days"
+    from: "Meiringen"
+    to:   "Meiringen"
+    default: two-spare
+    variants:
+      - id: two-spare
+        label: "Two weather spare days"
+        days:
+          - { kind: spare, location: "Meiringen", notes: "Weather spare" }
+          - { kind: spare, location: "Meiringen", notes: "Weather spare" }
+      - id: one-spare
+        label: "One spare day"
+        days:
+          - { kind: spare, location: "Meiringen", notes: "Weather spare" }
+      - id: zero-spare
+        label: "Skip both (compress schedule, lose 2 days)"
+        days: []
+
+  # ─────────────────────────────────────────────────────────────────
+  # 🔒 LOCKED — Rosenlaui (3 nights) + Lauterbrunnen (2 nights) lodging is committed.
+  # Swiss train + bike transport is the documented fallback for any weather/mechanical
+  # issues, so no variant chooser is needed here.
+  - id: meiringen-lauterbrunnen
+    label: "Meiringen → Rosenlaui → Lauterbrunnen (Grosse Scheidegg, with hike days)"
+    from: "Meiringen"
+    to:   "Lauterbrunnen"
+    default: locked-rosenlaui
+    locked: true
+    locked_note: "Rosenlaui (3 nights) + Lauterbrunnen lodging is committed. Swiss train carries bikes if a ride day must be skipped."
+    variants:
+      - id: locked-rosenlaui
+        label: "Committed plan (3 nights Rosenlaui + 2 nights Lauterbrunnen)"
+        days:
+          - { kind: ride, name: "Meiringen → Rosenlaui (partial Grosse Scheidegg)",
+              distance_km: 18, climb_m: 800,
+              climbs: ["Grosse Scheidegg (partial)"],
+              notes: "Arrive Rosenlaui (night 1 of 3). Train+bike fallback if weather." }
+          - { kind: hike, location: "Rosenlaui", notes: "Night 2 of 3 at Rosenlaui" }
+          - { kind: hike, location: "Rosenlaui", notes: "Night 3 of 3 at Rosenlaui" }
+          - { kind: ride, name: "Rosenlaui → Lauterbrunnen (finish Grosse Scheidegg)",
+              distance_km: 35, climb_m: 1100,
+              climbs: ["Grosse Scheidegg"],
+              notes: "Arrive Lauterbrunnen (night 1 of 2). Stay at Gässli 446B, Lauterbrunnen 3822." }
+          - { kind: hike, location: "Lauterbrunnen",
+              notes: "Night 2 of 2 at Lauterbrunnen. Convert to rest day if needed." }
+
+  # ─────────────────────────────────────────────────────────────────
+  # 🔒 LOCKED — return-to-Geneva schedule is committed.
+  - id: lauterbrunnen-geneva
+    label: "Lauterbrunnen → Charmey → Lausanne → Geneva (return + pack)"
+    from: "Lauterbrunnen"
+    to:   "Geneva"
+    default: standard
+    locked: true
+    locked_note: "Return schedule + Mövenpick Geneva is committed. Swiss trains carry bikes if needed."
+    variants:
+      - id: standard
+        label: "Committed: Jaun → Lausanne → Geneva → fly out"
+        days:
+          - { kind: ride, name: "Lauterbrunnen → Charmey via Jaun Pass",
+              distance_km: 75, climb_m: 1400,
+              climbs: ["Jaun Pass"] }
+          - { kind: ride, name: "Charmey → Lausanne (Lake Geneva)",
+              distance_km: 70, climb_m: 600,
+              notes: "Anywhere on Lake Geneva for easy access to Mövenpick." }
+          - { kind: ride, name: "Lausanne → Geneva (pack bikes day)",
+              distance_km: 60, climb_m: 200,
+              notes: "Hotel Mövenpick Geneva." }
+          - { kind: setup, location: "Geneva", notes: "Fly out 7/7" }
