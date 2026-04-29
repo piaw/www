@@ -137,6 +137,25 @@ def main():
     avg_sdnn     = safe_avg(hrv_sdnn_vals)
     avg_sleep_hr = safe_avg(sleep_hr_vals, 0)
     avg_hr       = safe_avg(hr_vals, 0)
+
+    # ── Last night specifically (most recent non-null value) ──
+    def last(vals):
+        return next((v for v in reversed(vals) if v is not None), None)
+
+    last_hrv      = last(hrv_vals)
+    last_sdnn     = last(hrv_sdnn_vals)
+    last_sleep_hr = last(sleep_hr_vals)
+    last_date     = next((dates[i] for i in range(len(hrv_vals)-1, -1, -1) if hrv_vals[i] is not None), "last night")
+
+    # HRV vs 7-day avg delta
+    def delta_str(last_val, avg_val):
+        if last_val is None or avg_val is None:
+            return ""
+        diff = last_val - avg_val
+        pct  = (diff / avg_val) * 100
+        sign = "+" if diff > 0 else ""
+        return f"  ({sign}{pct:.0f}% vs 7d avg)"
+
     avg_sleep  = safe_avg(sleep_hrs)
     avg_score  = safe_avg(sleep_score, 0)
     latest_wt  = next((w for w in reversed(weight_vals) if w), None)
@@ -165,10 +184,13 @@ def main():
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 🫀  RECOVERY & WELLNESS
-   HRV rMSSD (avg):    {fmt(avg_hrv, 'ms')}{trend(hrv_vals)}
-   HRV SDNN (avg):     {fmt(avg_sdnn, 'ms')}{trend(hrv_sdnn_vals)}
-   Avg sleeping HR:    {fmt(avg_sleep_hr, ' bpm')}{trend(sleep_hr_vals)}
-   Resting HR (avg):   {fmt(avg_hr, ' bpm')}{trend(hr_vals)}
+   HRV rMSSD (last night): {fmt(last_hrv, 'ms')}{delta_str(last_hrv, avg_hrv)}
+   HRV SDNN  (last night): {fmt(last_sdnn, 'ms')}{delta_str(last_sdnn, avg_sdnn)}
+   Avg sleeping HR:         {fmt(last_sleep_hr, ' bpm')}
+   ── 7-day averages ──────────────────
+   HRV rMSSD (7d avg):     {fmt(avg_hrv, 'ms')}{trend(hrv_vals)}
+   HRV SDNN  (7d avg):     {fmt(avg_sdnn, 'ms')}{trend(hrv_sdnn_vals)}
+   Resting HR (7d avg):    {fmt(avg_hr, ' bpm')}{trend(hr_vals)}
    Sleep (avg):        {fmt(avg_sleep, ' hrs')}{trend(sleep_hrs)}
    Sleep score (avg):  {fmt(avg_score)}
    Weight (latest):    {wt_str}
