@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>2026 Tour of the Alps — Variant Planner</title>
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #faf8f4;
+    --card: #ffffff;
+    --ink: #1a1a1a;
+    --ink-soft: #555;
+    --ink-fade: #8a8580;
+    --line: #e7e2d6;
+    --line-strong: #cfc8b6;
+    --accent: #b8552c;
+    --accent-soft: #fae6dd;
+    --accent-line: #e8a583;
+    --warn: #b88420;
+    --warn-soft: #fbeec2;
+    --warn-line: #d6b35a;
+    --danger: #c2502c;
+    --danger-soft: #fadad0;
+    --danger-line: #e08769;
+    --ok: #4f7d54;
+    --ok-soft: #e3eee4;
+    --ok-line: #8fb094;
+
+    --ride: #1a1a1a;
+    --ride-soft: #ececea;
+    --easy: #4f7d54;
+    --easy-soft: #e3eee4;
+    --rest: #2f6ba1;
+    --rest-soft: #dbe9f5;
+    --hike: #486e1f;
+    --hike-soft: #e3edd1;
+    --spare: #7a6c4d;
+    --spare-soft: #ede5d0;
+    --setup: #555;
+    --setup-soft: #e2dfd9;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  a { color: var(--accent); }
+
+  .totals {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--card);
+    border-bottom: 1px solid var(--line-strong);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+  }
+  .totals-inner {
+    max-width: 1100px; margin: 0 auto;
+    padding: 14px 20px;
+    display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-end;
+  }
+  .t-title {
+    flex: 1 1 100%;
+    margin: 0 0 4px;
+    font-size: 13px; font-weight: 600; color: var(--ink-soft);
+    letter-spacing: .03em; text-transform: uppercase;
+  }
+  .t-block { min-width: 110px; }
+  .t-label {
+    font-size: 11px; color: var(--ink-fade);
+    text-transform: uppercase; letter-spacing: .05em; margin-bottom: 2px;
+  }
+  .t-value { font-size: 24px; font-weight: 600; line-height: 1.1; }
+  .t-sub { font-size: 11px; color: var(--ink-soft); margin-top: 2px; }
+  .t-mix { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+  .mix-pill {
+    font-size: 11px; padding: 2px 7px; border-radius: 99px;
+    background: var(--ride-soft); color: var(--ride);
+    font-weight: 600; white-space: nowrap;
+  }
+  .mix-pill.ride { background: var(--ride-soft); color: var(--ride); }
+  .mix-pill.easy { background: var(--easy-soft); color: var(--easy); }
+  .mix-pill.rest { background: var(--rest-soft); color: var(--rest); }
+  .mix-pill.hike { background: var(--hike-soft); color: var(--hike); }
+  .mix-pill.spare { background: var(--spare-soft); color: var(--spare); }
+  .mix-pill.setup { background: var(--setup-soft); color: var(--setup); }
+
+  .weather-block {
+    flex: 1 1 280px;
+    border: 1px solid var(--line-strong);
+    border-radius: 6px;
+    padding: 8px 12px;
+    background: #fdfcf6;
+  }
+  .weather-block.ok {
+    border-color: var(--ok-line);
+    background: var(--ok-soft);
+  }
+  .weather-block.warn {
+    border-color: var(--warn-line);
+    background: var(--warn-soft);
+  }
+  .weather-block.bad {
+    border-color: var(--danger-line);
+    background: var(--danger-soft);
+  }
+  .wb-title {
+    font-size: 11px; color: var(--ink-fade);
+    text-transform: uppercase; letter-spacing: .05em;
+    margin-bottom: 4px; display: flex; align-items: center; gap: 6px;
+  }
+  .wb-input {
+    display: flex; align-items: baseline; gap: 6px;
+    font-size: 13px; color: var(--ink-soft);
+  }
+  .wb-input input {
+    width: 48px; font: inherit; font-weight: 600; font-size: 16px;
+    padding: 2px 6px; border: 1px solid var(--line-strong);
+    border-radius: 4px; text-align: center;
+    background: var(--card);
+  }
+  .wb-status {
+    font-weight: 600; font-size: 14px;
+    margin-top: 4px; line-height: 1.3;
+  }
+  .weather-block.ok .wb-status { color: var(--ok); }
+  .weather-block.warn .wb-status { color: var(--warn); }
+  .weather-block.bad .wb-status { color: var(--danger); }
+  .wb-explain {
+    font-size: 11px; color: var(--ink-soft);
+    margin-top: 4px; line-height: 1.4;
+  }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 24px 20px 80px; }
+  .intro {
+    font-size: 13px; color: var(--ink-soft);
+    background: var(--accent-soft); border-left: 3px solid var(--accent);
+    padding: 10px 14px; border-radius: 4px; margin-bottom: 24px;
+  }
+  .intro b { color: var(--ink); }
+  .intro a { font-weight: 500; }
+  .actions { float: right; }
+  .btn {
+    background: var(--card); border: 1px solid var(--line-strong);
+    color: var(--ink-soft); padding: 4px 10px; border-radius: 4px;
+    font-size: 12px; cursor: pointer; font-weight: 500;
+    margin-left: 4px;
+  }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  .segment {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    margin-bottom: 18px;
+    overflow: hidden;
+  }
+  .segment.locked { border-color: var(--line-strong); background: #fdfcf6; }
+  .seg-header {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--line);
+    display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+    background: linear-gradient(180deg, #fdfcf8, #fff);
+  }
+  .segment.locked .seg-header { background: linear-gradient(180deg, #fbf7e8, #fdfcf6); }
+  .seg-title {
+    font-size: 15px; font-weight: 600; color: var(--ink);
+    letter-spacing: -.005em;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .seg-lock {
+    font-size: 11px; padding: 2px 8px; border-radius: 99px;
+    background: var(--warn-soft); color: var(--warn); font-weight: 700;
+    letter-spacing: .04em; text-transform: uppercase;
+    border: 1px solid var(--warn-line);
+  }
+  .seg-route {
+    font-size: 12px; color: var(--ink-fade); font-variant: tabular-nums;
+    white-space: nowrap;
+  }
+  .locked-banner {
+    font-size: 12px; color: var(--warn);
+    padding: 8px 18px; background: var(--warn-soft);
+    border-bottom: 1px solid var(--warn-line);
+    font-style: italic;
+  }
+  .variants {
+    padding: 12px 18px 6px;
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .variants.single-locked .variant-btn {
+    cursor: default; pointer-events: none;
+  }
+  .variant-btn {
+    flex: 1 1 240px; min-width: 0;
+    text-align: left; padding: 10px 12px;
+    background: #fdfdfb; border: 1px solid var(--line);
+    border-radius: 5px; cursor: pointer;
+    transition: border-color .12s, background .12s;
+    font: inherit; color: inherit;
+    position: relative;
+  }
+  .variant-btn:hover:not(.blocked) { border-color: var(--accent-line); }
+  .variant-btn.active {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    box-shadow: inset 0 0 0 1px var(--accent);
+  }
+  .variant-btn.blocked {
+    background: #fdf3ef;
+    border-color: var(--danger-line);
+    opacity: 0.85;
+  }
+  .variant-btn.blocked.active {
+    background: var(--danger-soft);
+    box-shadow: inset 0 0 0 1px var(--danger);
+  }
+  .variant-btn.constraint {
+    background: #fdf6e0;
+    border-color: var(--warn-line);
+  }
+  .variant-btn.constraint.active {
+    background: var(--warn-soft);
+    box-shadow: inset 0 0 0 1px var(--warn);
+  }
+  .variant-flag {
+    display: inline-block;
+    font-size: 9.5px; font-weight: 700;
+    letter-spacing: .06em; text-transform: uppercase;
+    padding: 1px 6px; border-radius: 3px;
+    margin-bottom: 4px;
+  }
+  .variant-flag.blocked { background: var(--danger); color: #fff; }
+  .variant-flag.constraint { background: var(--warn); color: #fff; }
+  .vb-label { font-weight: 600; font-size: 13px; margin-bottom: 4px; line-height: 1.3; }
+  .vb-meta { font-size: 11px; color: var(--ink-soft); display: flex; gap: 10px; flex-wrap: wrap; }
+  .vb-days { font-weight: 600; color: var(--ink); }
+  .variant-btn.active .vb-days { color: var(--accent); }
+  .variant-btn.blocked.active .vb-days { color: var(--danger); }
+  .variant-btn.constraint.active .vb-days { color: var(--warn); }
+  .vb-risk { color: var(--danger); font-weight: 600; }
+  .vb-stats { color: var(--ink-fade); }
+  .vb-weather {
+    font-size: 11px; font-weight: 600;
+    margin-top: 4px;
+  }
+  .vb-weather.ok { color: var(--ok); }
+  .vb-weather.warn { color: var(--warn); }
+  .vb-weather.bad { color: var(--danger); }
+  .variant-flag-note {
+    font-size: 11px; color: var(--ink-soft);
+    margin-top: 6px; line-height: 1.4; font-style: italic;
+  }
+
+  .days {
+    padding: 4px 0 8px;
+  }
+  .day {
+    display: grid;
+    grid-template-columns: 92px 100px 1fr auto;
+    align-items: start;
+    gap: 12px;
+    padding: 10px 18px;
+    border-top: 1px solid var(--line);
+    font-variant-numeric: tabular-nums;
+  }
+  .day:first-child { border-top: none; }
+  .day-date {
+    color: var(--ink-fade);
+    font-size: 12px; padding-top: 4px;
+  }
+  .day-kind select {
+    font: inherit; font-size: 11px; font-weight: 600;
+    padding: 3px 6px; border-radius: 99px;
+    border: 1px solid transparent;
+    width: 100%; cursor: pointer;
+    text-transform: uppercase; letter-spacing: .04em;
+    -webkit-appearance: none; appearance: none;
+    background-position: right 6px center; background-repeat: no-repeat;
+  }
+  .day.kind-ride .day-kind select { background-color: var(--ride-soft); color: var(--ride); }
+  .day.kind-easy .day-kind select { background-color: var(--easy-soft); color: var(--easy); }
+  .day.kind-rest .day-kind select { background-color: var(--rest-soft); color: var(--rest); }
+  .day.kind-hike .day-kind select { background-color: var(--hike-soft); color: var(--hike); }
+  .day.kind-spare .day-kind select { background-color: var(--spare-soft); color: var(--spare); }
+  .day.kind-setup .day-kind select { background-color: var(--setup-soft); color: var(--setup); }
+
+  .day-content { min-width: 0; }
+  .day-name { font-weight: 500; line-height: 1.35; }
+  .day-stats { font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
+  .day-climbs { font-size: 12px; color: var(--accent); margin-top: 2px; font-weight: 500; }
+  .day-notes { font-size: 12px; color: var(--ink-fade); margin-top: 4px; font-style: italic; }
+  .snow-risk { color: var(--danger); font-weight: 600; }
+  .day-link { padding-top: 2px; }
+  .day-link a {
+    font-size: 11px; padding: 3px 7px; border-radius: 4px;
+    background: var(--ride-soft); color: var(--ink-soft);
+    text-decoration: none; font-weight: 600; letter-spacing: .03em;
+    text-transform: uppercase;
+  }
+  .day-link a:hover { background: var(--accent-soft); color: var(--accent); }
+
+  .seg-notes {
+    font-size: 12px; color: var(--ink-soft);
+    padding: 10px 18px; border-top: 1px solid var(--line);
+    background: #fcfaf5; font-style: italic; white-space: pre-wrap;
+  }
+
+  @media (max-width: 720px) {
+    .day { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .day-date, .day-kind { grid-row: 1; }
+    .day-content { grid-column: 1 / -1; }
+    .day-link { grid-column: 1 / -1; }
+  }
+</style>
+</head>
+<body>
+<div class="totals">
+  <div class="totals-inner" id="totals"></div>
+</div>
+<div class="container">
+  <div class="intro">
+    <span class="actions">
+      <button class="btn" id="btn-share">Copy link</button>
+      <button class="btn" id="btn-reset">Reset</button>
+    </span>
+    <b>2026 Tour of the Alps — Variant Planner.</b>
+    Pick a variant per segment to compare day-counts; switch a day's kind to rest/hike with the dropdown.
+    <br><b>Weather scenario</b> in the totals bar: type how many days you expect to lose to weather and watch each variant flag itself <span style="color:var(--ok)">✓ fits</span> or <span style="color:var(--danger)">⚠ short</span>. Buffer = scheduled spare days + leftover calendar slack.
+    <br><span style="color:var(--warn);font-weight:600">🔒 Locked segments</span> have committed lodging (Rosenlaui + Lauterbrunnen) — Swiss trains carry bikes if needed.
+    Source of truth: <code>tour.yaml</code>. State persists in the URL hash.
+  </div>
+  <div id="segments"></div>
+</div>
+
+<script>
+const TOUR = {
+  name: "2026 Tour of the Alps — Geneva Start",
+  start_date: "2026-06-05",
+  end_date: "2026-07-07",
+  segments: [
+    {
+      id: "setup", label: "Geneva — arrival & assembly",
+      from: "Geneva", to: "Geneva", default: "only", locked: true,
+      variants: [
+        { id: "only", label: "Standard arrival",
+          days: [
+            { kind: "setup", location: "Geneva", name: "Arrive Geneva, assemble bikes",
+              notes: "6/6 is Saturday → bike shops may be closed; assemble on 6/5 if possible." }
+          ]
+        }
+      ]
+    },
+    {
+      id: "geneva-bonneville", label: "Geneva → Bonneville (start riding + spare)",
+      from: "Geneva", to: "Bonneville", default: "standard",
+      variants: [
+        { id: "standard", label: "Standard (1 ride day + 1 spare)",
+          days: [
+            { kind: "ride", name: "Geneva → Bonneville", distance_km: 34.9, climb_m: 305,
+              rwgps: "https://ridewithgps.com/routes/54838860" },
+            { kind: "spare", location: "Bonneville",
+              notes: "Spare day for mechanicals, lost bikes, etc." }
+          ]
+        },
+        { id: "skip-spare", label: "Skip spare day (save 1 day)",
+          days: [
+            { kind: "ride", name: "Geneva → Bonneville", distance_km: 34.9, climb_m: 305,
+              rwgps: "https://ridewithgps.com/routes/54838860" }
+          ]
+        }
+      ]
+    },
+    {
+      id: "bonneville-bsm", label: "Bonneville → Flumet → Bourg St Maurice",
+      from: "Bonneville", to: "Bourg St Maurice", default: "standard",
+      variants: [
+        { id: "standard", label: "Standard (Colombière+Aravis, then Saisies+Roselend)",
+          days: [
+            { kind: "ride", name: "Bonneville → Flumet", distance_km: 62.3, climb_m: 1922,
+              climbs: ["Col de la Colombière","Col des Aravis"],
+              rwgps: "https://ridewithgps.com/routes/54839004" },
+            { kind: "ride", name: "Flumet → Bourg St Maurice", distance_km: 70.5, climb_m: 2270,
+              climbs: ["Col des Saisies","Cormet de Roselend"],
+              rwgps: "https://ridewithgps.com/routes/54839009" }
+          ]
+        },
+        { id: "easy-day-2", label: "EASY day 2 (skip Colombière, lighter first ride)",
+          days: [
+            { kind: "ride", name: "EASY Bonneville → Flumet", distance_km: 45.9, climb_m: 1248,
+              rwgps: "https://ridewithgps.com/routes/54839003" },
+            { kind: "ride", name: "Flumet → Bourg St Maurice", distance_km: 70.5, climb_m: 2270,
+              climbs: ["Col des Saisies","Cormet de Roselend"],
+              rwgps: "https://ridewithgps.com/routes/54839009" }
+          ]
+        }
+      ]
+    },
+    {
+      id: "bsm-briancon", label: "Bourg St Maurice → Briançon — THE SNOW-RISK FORK",
+      from: "Bourg St Maurice", to: "Briançon", default: "iseran-original",
+      notes: "Original Iseran route has high snow-closure risk in early June. Madeleine ALT covers the same span in the same number of days, with much lower risk.",
+      variants: [
+        { id: "iseran-original", label: "Original: Iseran → rest → easy → Galibier (HIGH snow risk)", risk_pct: 52,
+          days: [
+            { kind: "ride", name: "Bourg St Maurice → Lanslevillard via Col de l'Iseran",
+              distance_km: 76.3, climb_m: 2267, climbs: ["Col de l'Iseran"], snow_risk: 0.52,
+              rwgps: "https://ridewithgps.com/routes/54839017",
+              notes: "⚠ 52% snow closure risk early June" },
+            { kind: "rest", location: "Lanslevillard",
+              notes: "Hike: alltrails.com/france/savoie/lanslevillard" },
+            { kind: "easy", name: "Lanslevillard → St Michel Maurienne",
+              distance_km: 42, climb_m: 305,
+              notes: "Short 26 mi / 1000 ft. Recover for Galibier tomorrow." },
+            { kind: "ride", name: "St Michel → Briançon via Télégraphe + Galibier + Lautaret",
+              distance_km: 96, climb_m: 2563,
+              climbs: ["Col du Télégraphe","Col du Galibier","Col du Lautaret"], snow_risk: 0.68,
+              notes: "⚠ 68% Galibier closure risk. Hotel des Glaciers at Lautaret if stopping short." }
+          ]
+        },
+        { id: "madeleine-snow-safe", label: "Snow-safe ALT: Madeleine + Croix de Fer + Alpe d'Huez", risk_pct: 18,
+          days: [
+            { kind: "ride", name: "Bourg St Maurice → St Jean de Maurienne via Col de la Madeleine",
+              distance_km: 83.2, climb_m: 1897, climbs: ["Col de la Madeleine"], snow_risk: 0.18,
+              rwgps: "https://ridewithgps.com/routes/54839674",
+              notes: "Madeleine N side 25.9 km @ 6.5%" },
+            { kind: "ride", name: "St Jean de Maurienne → Bourg d'Oisans via Télégraphe + Croix de Fer",
+              distance_km: 85, climb_m: 2400,
+              climbs: ["Col du Télégraphe","Col de la Croix de Fer"],
+              notes: "Croix de Fer 2067 m. Bourg d'Oisans has restaurants & bike shops." },
+            { kind: "rest", location: "Bourg d'Oisans",
+              notes: "Rest at foot of Alpe d'Huez. Recovery walk or short spin." },
+            { kind: "ride", name: "Bourg d'Oisans → Briançon via Alpe d'Huez + Sarenne + Lautaret",
+              distance_km: 125.2, climb_m: 2870,
+              climbs: ["Alpe d'Huez","Col de Sarenne","Col du Lautaret"], snow_risk: 0.10,
+              rwgps: "https://ridewithgps.com/routes/54864315",
+              notes: "Lautaret always open. Caution: loose gravel on Sarenne descent." }
+          ]
+        }
+      ]
+    },
+    {
+      id: "briancon-cuneo", label: "Briançon → Cuneo/Ivrea — exiting France into Italy",
+      from: "Briançon", to: "Cuneo/Ivrea", default: "casterino-reroute",
+      notes: 'From "Notes on Exiting France into Italy 2026" (2026-04-28):\n • Col de Tende: French-side construction → must reroute via Casterino (Rte de Peyrefique).\n • Col de Larche: only feasible Sunday mornings (construction stops, heavy trucks banned both sides).\n • Col Agnel: pretty + remote; high winds afternoon → finish climb by 11am. Stage at Molines-en-Queyras or Saint-Véran (highest village in Europe, "Plus Beaux Villages de France"; +4km / +300m dead-end spur, but amazing food & hiking).\n • Connoisseur\'s route: Cayolle → dirt at Bayesse → Col de Moultière → Isola → Col de la Lombarda → Vinadio. Top of Moultière offers optional Cime de la Bonette loop (highest paved road in Europe) — decision can be made on the day.\n • Paved variant: Col de la Bonnette → Isola → Lombarda. Less climbing if you skip the Cime loop; still wind-exposed like Agnel.',
+      variants: [
+        { id: "tende-original", label: "ORIGINAL: Vars + Cayolle + Turini + Tende",
+          flag: "blocked",
+          flag_note: "French-side construction on Col de Tende — see Casterino reroute",
+          risk_pct: 30,
+          days: [
+            { kind: "ride", name: "Briançon → Guillestre via Col d'Izoard",
+              distance_km: 50.3, climb_m: 1410, climbs: ["Col d'Izoard"], snow_risk: 0.22,
+              rwgps: "https://ridewithgps.com/routes/54839145" },
+            { kind: "ride", name: "Guillestre → Barcelonnette via Col de Vars",
+              distance_km: 50.0, climb_m: 1219, climbs: ["Col de Vars"],
+              rwgps: "https://ridewithgps.com/routes/54839150" },
+            { kind: "rest", location: "Barcelonnette",
+              notes: "Hike: alltrails.com/france/alpes-de-haute-provence/barcelonnette" },
+            { kind: "ride", name: "Barcelonnette → Valberg via Col de la Cayolle",
+              distance_km: 75, climb_m: 2170, climbs: ["Col de la Cayolle"], snow_risk: 0.30 },
+            { kind: "ride", name: "Valberg → Saint Martin-Vésubie via Col de Saint Martin",
+              distance_km: 71.8, climb_m: 2373, climbs: ["Col de Saint Martin"] },
+            { kind: "ride", name: "Saint Martin-Vésubie → Sospel via Col de Turini",
+              distance_km: 91.5, climb_m: 2501, climbs: ["Col de Turini"] },
+            { kind: "ride", name: "Sospel → Cuneo via Col de Tende (then train to Ivrea)",
+              distance_km: 47.6, climb_m: 1235, climbs: ["Col de Tende"],
+              rwgps: "https://ridewithgps.com/routes/54838941",
+              notes: "BLOCKED: French-side construction on Tende in 2026" }
+          ]
+        },
+        { id: "casterino-reroute", label: "Casterino reroute (replaces Tende; preserves Turini & Vésubie)",
+          risk_pct: 30,
+          days: [
+            { kind: "ride", name: "Briançon → Guillestre via Col d'Izoard",
+              distance_km: 50.3, climb_m: 1410, climbs: ["Col d'Izoard"], snow_risk: 0.22,
+              rwgps: "https://ridewithgps.com/routes/54839145" },
+            { kind: "ride", name: "Guillestre → Barcelonnette via Col de Vars",
+              distance_km: 50.0, climb_m: 1219, climbs: ["Col de Vars"],
+              rwgps: "https://ridewithgps.com/routes/54839150" },
+            { kind: "rest", location: "Barcelonnette" },
+            { kind: "ride", name: "Barcelonnette → Valberg via Col de la Cayolle",
+              distance_km: 75, climb_m: 2170, climbs: ["Col de la Cayolle"], snow_risk: 0.30 },
+            { kind: "ride", name: "Valberg → Saint Martin-Vésubie via Col de Saint Martin",
+              distance_km: 71.8, climb_m: 2373, climbs: ["Col de Saint Martin"] },
+            { kind: "ride", name: "Saint Martin-Vésubie → Casterino (Italian side)",
+              distance_km: 99.2, climb_m: 3249, climbs: ["Col de Turini","Casterino approach"],
+              rwgps: "https://ridewithgps.com/routes/54864910",
+              notes: "Big day. Italian side avoids French construction." },
+            { kind: "ride", name: "Casterino → Cuneo (gravel sections)",
+              distance_km: 51.1, climb_m: 629,
+              rwgps: "https://ridewithgps.com/routes/54864934",
+              notes: "Route de Peyrefique. ~23% unpaved." }
+          ]
+        },
+        { id: "larche-sunday", label: "Col de Larche — SUNDAY MORNING ONLY",
+          flag: "constraint",
+          flag_note: "Only feasible Sunday mornings (construction stops, heavy trucks banned). Schedule the Barcelonnette rest so Larche falls on Sunday.",
+          days: [
+            { kind: "ride", name: "Briançon → Guillestre via Col d'Izoard",
+              distance_km: 50.3, climb_m: 1410, climbs: ["Col d'Izoard"],
+              rwgps: "https://ridewithgps.com/routes/54839145" },
+            { kind: "ride", name: "Guillestre → Barcelonnette via Col de Vars",
+              distance_km: 50.0, climb_m: 1219, climbs: ["Col de Vars"],
+              rwgps: "https://ridewithgps.com/routes/54839150" },
+            { kind: "rest", location: "Barcelonnette",
+              notes: "Time the rest so Larche falls on Sunday" },
+            { kind: "ride", name: "Barcelonnette → Vinadio via Col de Larche (SUNDAY)",
+              distance_km: 75, climb_m: 1300, climbs: ["Col de Larche"],
+              rwgps: "https://ridewithgps.com/routes/54839018",
+              notes: "Sunday only — confirm day-of-week before committing." },
+            { kind: "ride", name: "Vinadio → Cuneo (descent)",
+              distance_km: 50, climb_m: 200 }
+          ]
+        },
+        { id: "agnel-saint-veran", label: "Col Agnel via Saint-Véran (highest village + hike day)",
+          notes: "Decision after Izoard descent. Saint-Véran +4 km / +300m dead-end spur, but the village + hiking are exceptional. Hôtel Alta Peyra has heated outdoor pool.",
+          days: [
+            { kind: "ride", name: "Briançon → Saint-Véran (Col d'Izoard, then Molines + spur)",
+              distance_km: 48.5, climb_m: 1951,
+              climbs: ["Col d'Izoard","Saint-Véran spur"],
+              rwgps: "https://ridewithgps.com/routes/54869399",
+              notes: 'Hard day. Saint-Véran 2042 m; "Plus Beaux Villages de France".' },
+            { kind: "hike", location: "Saint-Véran",
+              notes: "Hiking day. Pool at Alta Peyra. Pedestrian trail to Molines (~1 hr) if needed." },
+            { kind: "ride", name: "Saint-Véran → over Col Agnel → Italy (toward Cuneo)",
+              distance_km: 93.2, climb_m: 988, climbs: ["Col Agnel"],
+              rwgps: "https://ridewithgps.com/routes/54870100",
+              notes: "10-min descent to Molines, then 1000 m climb. FINISH BY 11am — high winds afterwards." },
+            { kind: "ride", name: "Continue to Cuneo (descent + valley)",
+              distance_km: 35, climb_m: 200,
+              notes: "If RWGPS route doesn't quite reach Cuneo, finish via valley road." }
+          ]
+        },
+        { id: "agnel-molines", label: "Col Agnel via Molines-en-Queyras (skip Saint-Véran detour)",
+          notes: "Same Agnel pass; no extra spur. Saves the dead-end climb but loses the hiking opportunity.",
+          days: [
+            { kind: "ride", name: "Briançon → Molines-en-Queyras (Izoard + descent + Molines)",
+              distance_km: 45, climb_m: 1500, climbs: ["Col d'Izoard"],
+              notes: "Estimate. Izoard, descend to Guillestre, ride up to Molines (1400 m)." },
+            { kind: "ride", name: "Molines → over Col Agnel → toward Cuneo",
+              distance_km: 90, climb_m: 1300, climbs: ["Col Agnel"],
+              notes: "1000 m climb up Agnel from Molines. FINISH BY 11am to avoid headwinds." },
+            { kind: "ride", name: "Continue to Cuneo",
+              distance_km: 35, climb_m: 200 }
+          ]
+        },
+        { id: "connoisseur-bonette-dirt", label: "Connoisseur's: Cayolle + Bayesse dirt + Moultière + Lombarda",
+          notes: "Best in clear weather. Optional Cime de la Bonette loop at Moultière summit (highest paved road in Europe). Final paved connection 2–3% grade; the Cime loop is 15% on pavement.",
+          days: [
+            { kind: "ride", name: "Briançon → Guillestre via Col d'Izoard",
+              distance_km: 50.3, climb_m: 1410, climbs: ["Col d'Izoard"],
+              rwgps: "https://ridewithgps.com/routes/54839145" },
+            { kind: "ride", name: "Guillestre → Barcelonnette via Col de Vars",
+              distance_km: 50.0, climb_m: 1219, climbs: ["Col de Vars"],
+              rwgps: "https://ridewithgps.com/routes/54839150" },
+            { kind: "rest", location: "Barcelonnette" },
+            { kind: "ride", name: "Barcelonnette → Isola via Cayolle + Bayesse dirt + Moultière",
+              distance_km: 70.7, climb_m: 1698,
+              climbs: ["Col de la Cayolle","Bayesse dirt","Col de Moultière"],
+              rwgps: "https://ridewithgps.com/routes/54868388",
+              notes: "Optional Cime de la Bonette loop at top (+15% pavement, scenic)." },
+            { kind: "ride", name: "Isola → Vinadio via Col de la Lombarda",
+              distance_km: 78.8, climb_m: 1692, climbs: ["Col de la Lombarda"],
+              rwgps: "https://ridewithgps.com/routes/54865972",
+              notes: "Stiff climb. Dumps you at Larches at Vinadio." },
+            { kind: "ride", name: "Vinadio → Cuneo (descent + valley)",
+              distance_km: 50, climb_m: 200 }
+          ]
+        },
+        { id: "bonnette-paved", label: "Paved: Col de la Bonnette + Lombarda (all paved alternative)",
+          notes: "All paved. Less climbing than Moultière if avoiding Cime loop. Less exotic but quiet, also wind-exposed like Agnel.",
+          days: [
+            { kind: "ride", name: "Briançon → Guillestre via Col d'Izoard",
+              distance_km: 50.3, climb_m: 1410, climbs: ["Col d'Izoard"],
+              rwgps: "https://ridewithgps.com/routes/54839145" },
+            { kind: "ride", name: "Guillestre → Barcelonnette via Col de Vars",
+              distance_km: 50.0, climb_m: 1219, climbs: ["Col de Vars"],
+              rwgps: "https://ridewithgps.com/routes/54839150" },
+            { kind: "rest", location: "Barcelonnette" },
+            { kind: "ride", name: "Barcelonnette → Isola via Col de la Bonnette",
+              distance_km: 75, climb_m: 1900, climbs: ["Col de la Bonnette"],
+              notes: "All paved. Wind-exposed like Agnel." },
+            { kind: "ride", name: "Isola → Vinadio via Col de la Lombarda",
+              distance_km: 78.8, climb_m: 1692, climbs: ["Col de la Lombarda"],
+              rwgps: "https://ridewithgps.com/routes/54865972" },
+            { kind: "ride", name: "Vinadio → Cuneo (descent + valley)",
+              distance_km: 50, climb_m: 200 }
+          ]
+        }
+      ]
+    },
+    {
+      id: "ivrea-aosta-brig", label: "Ivrea → Aosta → Brig (Grand St Bernard)",
+      from: "Cuneo/Ivrea", to: "Brig", default: "standard",
+      variants: [
+        { id: "standard", label: "Standard: Ivrea → Aosta → Brig",
+          days: [
+            { kind: "ride", name: "Ivrea → Aosta (or St Christophe)",
+              distance_km: 73.7, climb_m: 828,
+              rwgps: "https://ridewithgps.com/routes/54839036",
+              notes: "Train was down → must ride." },
+            { kind: "ride", name: "Aosta → Brig via Grand St Bernard, descend Martigny",
+              distance_km: 81.2, climb_m: 2141, climbs: ["Grand St Bernard"],
+              rwgps: "https://ridewithgps.com/routes/54839048",
+              notes: "Take tailwind down lake to Brig. GSB officially opens May 14." }
+          ]
+        },
+        { id: "split-martigny", label: "Split: Aosta → Martigny → Brig (+1 day)",
+          days: [
+            { kind: "ride", name: "Ivrea → Aosta", distance_km: 72.9, climb_m: 862,
+              rwgps: "https://ridewithgps.com/routes/54839589" },
+            { kind: "ride", name: "Aosta → Martigny via Grand St Bernard",
+              distance_km: 81.2, climb_m: 2141, climbs: ["Grand St Bernard"] },
+            { kind: "ride", name: "Martigny → Brig (flat/tailwind)",
+              distance_km: 88.0, climb_m: 693,
+              rwgps: "https://ridewithgps.com/routes/54839057" }
+          ]
+        }
+      ]
+    },
+    {
+      id: "brig-andermatt", label: "Brig → Andermatt (Furka + easy day)",
+      from: "Brig", to: "Andermatt", default: "standard",
+      variants: [
+        { id: "standard", label: "Furka → Tiefenbach → easy spin to Andermatt",
+          days: [
+            { kind: "ride", name: "Brig → Hotel Tiefenbach (Furka Pass)",
+              distance_km: 77.7, climb_m: 2026, climbs: ["Furka Pass"],
+              rwgps: "https://ridewithgps.com/routes/54839075",
+              notes: "Stop before headwind starts. Furka Base Tunnel as fallback." },
+            { kind: "easy", name: "Tiefenbach → Andermatt",
+              distance_km: 18, climb_m: 100,
+              notes: "Easy day. Arturo leaves to Geneva from Andermatt." }
+          ]
+        }
+      ]
+    },
+    {
+      id: "andermatt-rest", label: "Andermatt rest day",
+      from: "Andermatt", to: "Andermatt", default: "hike",
+      variants: [
+        { id: "hike", label: "Hiking day",
+          days: [{ kind: "hike", location: "Andermatt", notes: "Hiking around Andermatt" }] },
+        { id: "rest", label: "Pure rest",
+          days: [{ kind: "rest", location: "Andermatt" }] },
+        { id: "skip", label: "Skip rest (push through; lose 1 day)", days: [] }
+      ]
+    },
+    {
+      id: "andermatt-meiringen", label: "Andermatt → Meiringen (Sustenpass; Grimsel as fallback)",
+      from: "Andermatt", to: "Meiringen", default: "susten",
+      variants: [
+        { id: "susten", label: "Sustenpass (preferred)", risk_pct: 20,
+          days: [
+            { kind: "ride", name: "Andermatt → Meiringen via Sustenpass",
+              distance_km: 55.0, climb_m: 1400, climbs: ["Sustenpass"], snow_risk: 0.20,
+              rwgps: "https://ridewithgps.com/routes/54839087" }
+          ]
+        },
+        { id: "grimsel-fallback", label: "Grimsel fallback (if Susten still closed)",
+          days: [
+            { kind: "ride", name: "Andermatt → Meiringen via Grimsel + Innertkirchen",
+              distance_km: 65, climb_m: 1500, climbs: ["Grimsel Pass"] }
+          ]
+        }
+      ]
+    },
+    {
+      id: "weather-spare", label: "Weather spare days",
+      from: "Meiringen", to: "Meiringen", default: "two-spare",
+      variants: [
+        { id: "two-spare", label: "Two weather spare days",
+          days: [
+            { kind: "spare", location: "Meiringen", notes: "Weather spare" },
+            { kind: "spare", location: "Meiringen", notes: "Weather spare" }
+          ]
+        },
+        { id: "one-spare", label: "One spare day",
+          days: [{ kind: "spare", location: "Meiringen", notes: "Weather spare" }]
+        },
+        { id: "zero-spare", label: "Skip both (compress schedule, lose 2 days)", days: [] }
+      ]
+    },
+    {
+      id: "meiringen-lauterbrunnen", label: "Meiringen → Rosenlaui → Lauterbrunnen (with hike days)",
+      from: "Meiringen", to: "Lauterbrunnen", default: "locked-rosenlaui",
+      locked: true,
+      locked_note: "Rosenlaui (3 nights) + Lauterbrunnen (2 nights) lodging is committed. Swiss train + bike transport is the documented fallback for any weather/mechanical issues.",
+      variants: [
+        { id: "locked-rosenlaui", label: "Committed plan (3 nights Rosenlaui + 2 nights Lauterbrunnen)",
+          days: [
+            { kind: "ride", name: "Meiringen → Rosenlaui (partial Grosse Scheidegg)",
+              distance_km: 18, climb_m: 800, climbs: ["Grosse Scheidegg (partial)"],
+              notes: "Arrive Rosenlaui (night 1 of 3). Train+bike fallback if weather." },
+            { kind: "hike", location: "Rosenlaui", notes: "Night 2 of 3 at Rosenlaui" },
+            { kind: "hike", location: "Rosenlaui", notes: "Night 3 of 3 at Rosenlaui" },
+            { kind: "ride", name: "Rosenlaui → Lauterbrunnen (finish Grosse Scheidegg)",
+              distance_km: 35, climb_m: 1100, climbs: ["Grosse Scheidegg"],
+              notes: "Arrive Lauterbrunnen (night 1 of 2). Stay at Gässli 446B, Lauterbrunnen 3822." },
+            { kind: "hike", location: "Lauterbrunnen",
+              notes: "Night 2 of 2 at Lauterbrunnen. Convert to rest day if needed." }
+          ]
+        }
+      ]
+    },
+    {
+      id: "lauterbrunnen-geneva", label: "Lauterbrunnen → Charmey → Lausanne → Geneva (return + pack)",
+      from: "Lauterbrunnen", to: "Geneva", default: "standard",
+      locked: true,
+      locked_note: "Return schedule + Mövenpick Geneva is committed. Swiss trains carry bikes if needed.",
+      variants: [
+        { id: "standard", label: "Committed: Jaun → Lausanne → Geneva → fly out",
+          days: [
+            { kind: "ride", name: "Lauterbrunnen → Charmey via Jaun Pass",
+              distance_km: 75, climb_m: 1400, climbs: ["Jaun Pass"] },
+            { kind: "ride", name: "Charmey → Lausanne (Lake Geneva)",
+              distance_km: 70, climb_m: 600,
+              notes: "Anywhere on Lake Geneva for easy access to Mövenpick." },
+            { kind: "ride", name: "Lausanne → Geneva (pack bikes day)",
+              distance_km: 60, climb_m: 200,
+              notes: "Hotel Mövenpick Geneva." },
+            { kind: "setup", location: "Geneva", notes: "Fly out 7/7" }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+const KIND_OPTIONS = ["ride","easy","rest","hike","spare","setup"];
+const CALENDAR_DAYS = (() => {
+  const a = new Date(TOUR.start_date + "T12:00:00");
+  const b = new Date(TOUR.end_date + "T12:00:00");
+  return Math.round((b - a) / 86400000) + 1;
+})();
+
+const state = { variants: {}, kinds: {}, weatherLost: 4 };
+
+function loadState() {
+  for (const seg of TOUR.segments) state.variants[seg.id] = seg.default;
+  const h = window.location.hash.slice(1);
+  if (!h) return;
+  try {
+    const parsed = JSON.parse(decodeURIComponent(h));
+    if (parsed.v) Object.assign(state.variants, parsed.v);
+    if (parsed.k) state.kinds = parsed.k;
+    if (typeof parsed.w === "number") state.weatherLost = parsed.w;
+  } catch (e) {}
+}
+
+function saveState() {
+  const compact = { v: state.variants };
+  if (Object.keys(state.kinds).length) compact.k = state.kinds;
+  if (state.weatherLost !== 0) compact.w = state.weatherLost;
+  const newHash = encodeURIComponent(JSON.stringify(compact));
+  if (window.location.hash.slice(1) !== newHash) {
+    history.replaceState(null, "", "#" + newHash);
+  }
+}
+
+function getKind(segId, varId, dayIdx, defaultKind) {
+  return state.kinds[`${segId}:${varId}:${dayIdx}`] || defaultKind;
+}
+
+function setKind(segId, varId, dayIdx, kind, defaultKind) {
+  const key = `${segId}:${varId}:${dayIdx}`;
+  if (kind === defaultKind) delete state.kinds[key];
+  else state.kinds[key] = kind;
+  saveState();
+  render();
+}
+
+function fmtDate(d) {
+  return d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
+}
+function fmtDateShort(d) {
+  return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+}
+
+function computeTotals(variantOverride) {
+  const totals = { ride:0, easy:0, rest:0, hike:0, spare:0, setup:0, days:0 };
+  for (const seg of TOUR.segments) {
+    const varId = (variantOverride && variantOverride.segId === seg.id)
+      ? variantOverride.varId
+      : (state.variants[seg.id] || seg.default);
+    const variant = seg.variants.find(v => v.id === varId) || seg.variants[0];
+    for (let i = 0; i < variant.days.length; i++) {
+      const day = variant.days[i];
+      const k = (variantOverride && variantOverride.segId === seg.id && variant.id !== state.variants[seg.id])
+        ? day.kind
+        : getKind(seg.id, variant.id, i, day.kind);
+      totals.days++;
+      totals[k] = (totals[k] || 0) + 1;
+    }
+  }
+  return totals;
+}
+
+function weatherCheck(totals, weatherLost) {
+  const slack = Math.max(0, CALENDAR_DAYS - totals.days);
+  const buffer = slack + (totals.spare || 0);
+  const overrun = weatherLost - buffer;
+  return { slack, buffer, overrun, fits: overrun <= 0 };
+}
+
+function variantStats(v) {
+  let km = 0, climb = 0, rides = 0, big = 0, risky = 0;
+  for (const d of v.days) {
+    if (d.kind === "ride" || d.kind === "easy") {
+      km += d.distance_km || 0;
+      climb += d.climb_m || 0;
+      rides++;
+      if ((d.climb_m || 0) >= 2000) big++;
+      if ((d.snow_risk || 0) >= 0.30) risky++;
+    }
+  }
+  return { km, climb, rides, big, risky };
+}
+
+function escapeHtml(s) {
+  return String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+}
+
+function render() {
+  const totals = { ride:0, easy:0, rest:0, hike:0, spare:0, setup:0,
+                   km:0, climb:0, big:0, risky:0, days:0 };
+  const startDate = new Date(TOUR.start_date + "T12:00:00");
+  let dateOffset = 0;
+  const segHtml = [];
+
+  for (const seg of TOUR.segments) {
+    const varId = state.variants[seg.id] || seg.default;
+    const variant = seg.variants.find(v => v.id === varId) || seg.variants[0];
+
+    const dayLines = variant.days.map((day, i) => {
+      const k = getKind(seg.id, variant.id, i, day.kind);
+      const date = new Date(startDate);
+      date.setDate(date.getDate() + dateOffset + i);
+      totals.days++;
+      totals[k] = (totals[k] || 0) + 1;
+      if (k === "ride" || k === "easy") {
+        totals.km += day.distance_km || 0;
+        totals.climb += day.climb_m || 0;
+        if ((day.climb_m || 0) >= 2000) totals.big++;
+        if ((day.snow_risk || 0) >= 0.30) totals.risky++;
+      }
+      return renderDay(seg, variant, day, i, k, date);
+    }).join("");
+
+    const isLocked = seg.locked === true;
+
+    const variantsBtns = seg.variants.map(v => {
+      const isActive = v.id === variant.id;
+      const s = variantStats(v);
+      const dayCount = v.days.length;
+      const flagClass = v.flag ? ` ${v.flag}` : "";
+      const flagBadge = v.flag === "blocked"
+        ? '<div class="variant-flag blocked">⛔ Blocked in 2026</div>'
+        : v.flag === "constraint"
+          ? '<div class="variant-flag constraint">⚠ Constraint</div>'
+          : "";
+
+      const whatIf = computeTotals({ segId: seg.id, varId: v.id });
+      const wc = weatherCheck(whatIf, state.weatherLost);
+      let weatherTag = "";
+      if (state.weatherLost > 0) {
+        if (wc.fits) {
+          const sp = wc.buffer - state.weatherLost;
+          weatherTag = `<div class="vb-weather ok">✓ Survives ${state.weatherLost} weather day${state.weatherLost===1?"":"s"} (${sp} to spare)</div>`;
+        } else {
+          weatherTag = `<div class="vb-weather bad">⚠ Short by ${wc.overrun} day${wc.overrun===1?"":"s"} for ${state.weatherLost} weather days</div>`;
+        }
+      } else {
+        weatherTag = `<div class="vb-weather">Plan total: ${whatIf.days} day${whatIf.days===1?"":"s"} · buffer ${wc.buffer}</div>`;
+      }
+
+      return `
+        <button class="variant-btn${flagClass} ${isActive ? "active" : ""}"
+                data-seg="${seg.id}" data-variant="${v.id}">
+          ${flagBadge}
+          <div class="vb-label">${escapeHtml(v.label)}</div>
+          <div class="vb-meta">
+            <span class="vb-days">${dayCount} day${dayCount===1?"":"s"}</span>
+            ${v.risk_pct ? `<span class="vb-risk">${v.risk_pct}% risk</span>` : ""}
+            ${s.rides ? `<span class="vb-stats">${Math.round(s.km)} km · +${Math.round(s.climb)} m</span>` : ""}
+          </div>
+          ${weatherTag}
+          ${v.flag_note && isActive ? `<div class="variant-flag-note">${escapeHtml(v.flag_note)}</div>` : ""}
+        </button>`;
+    }).join("");
+
+    const lockedBadge = isLocked ? '<span class="seg-lock">🔒 Locked</span>' : "";
+    const lockedBanner = isLocked && seg.locked_note
+      ? `<div class="locked-banner">🔒 ${escapeHtml(seg.locked_note)}</div>` : "";
+
+    segHtml.push(`
+      <div class="segment${isLocked ? " locked" : ""}">
+        <div class="seg-header">
+          <div class="seg-title">${escapeHtml(seg.label)}${lockedBadge}</div>
+          <div class="seg-route">${escapeHtml(seg.from || "")}${seg.from && seg.to && seg.from !== seg.to ? " → " + escapeHtml(seg.to) : ""}</div>
+        </div>
+        ${lockedBanner}
+        ${seg.variants.length > 1 || !isLocked
+          ? `<div class="variants${isLocked ? " single-locked" : ""}">${variantsBtns}</div>`
+          : ""}
+        <div class="days">${dayLines || `<div class="day kind-spare"><div></div><div></div><div class="day-content"><div class="day-name" style="color:var(--ink-fade);font-style:italic">— skipped —</div></div><div></div></div>`}</div>
+        ${seg.notes ? `<div class="seg-notes">${escapeHtml(seg.notes)}</div>` : ""}
+      </div>`);
+
+    dateOffset += variant.days.length;
+  }
+
+  const endDate = new Date(startDate);
+  endDate.setDate(endDate.getDate() + totals.days - 1);
+
+  const wc = weatherCheck(totals, state.weatherLost);
+  let weatherCls = "ok", weatherStatus = "";
+  if (state.weatherLost === 0) {
+    weatherCls = "";
+    weatherStatus = `Buffer: ${wc.buffer} day${wc.buffer===1?"":"s"} (${totals.spare} spare + ${wc.slack} slack)`;
+  } else if (wc.fits) {
+    const sp = wc.buffer - state.weatherLost;
+    weatherCls = sp >= 2 ? "ok" : (sp >= 1 ? "warn" : "warn");
+    weatherStatus = `✓ Plan survives — ${sp} day${sp===1?"":"s"} to spare`;
+  } else {
+    weatherCls = "bad";
+    weatherStatus = `⚠ Plan short by ${wc.overrun} day${wc.overrun===1?"":"s"}`;
+  }
+
+  document.getElementById("totals").innerHTML = `
+    <div class="t-title">2026 Tour of the Alps — current plan</div>
+    <div class="t-block">
+      <div class="t-label">Total days</div>
+      <div class="t-value">${totals.days}<span style="font-size:14px;color:var(--ink-fade);font-weight:500;"> / ${CALENDAR_DAYS}</span></div>
+      <div class="t-sub">${fmtDateShort(startDate)} → ${fmtDateShort(endDate)}</div>
+    </div>
+    <div class="t-block" style="flex:2 1 280px;">
+      <div class="t-label">Day mix</div>
+      <div class="t-mix">
+        ${["ride","easy","rest","hike","spare","setup"].map(k =>
+          totals[k] ? `<span class="mix-pill ${k}">${totals[k]} ${k}</span>` : "").join("")}
+      </div>
+    </div>
+    <div class="t-block">
+      <div class="t-label">Riding</div>
+      <div class="t-value">${Math.round(totals.km).toLocaleString()}<span style="font-size:14px;color:var(--ink-fade);font-weight:500"> km</span></div>
+      <div class="t-sub">+${Math.round(totals.climb).toLocaleString()} m climbing</div>
+    </div>
+    <div class="t-block">
+      <div class="t-label" title="Riding days with ≥ 2,000 m of ascent">Big climb</div>
+      <div class="t-value">${totals.big}</div>
+      <div class="t-sub" style="color:${totals.risky>0?"var(--danger)":"var(--ink-fade)"}">${totals.risky} risky day${totals.risky===1?"":"s"}</div>
+    </div>
+    <div class="weather-block ${weatherCls}">
+      <div class="wb-title">Weather scenario</div>
+      <div class="wb-input">If we lose
+        <input type="number" id="weather-lost" value="${state.weatherLost}" min="0" max="14">
+        day${state.weatherLost===1?"":"s"} to weather:
+      </div>
+      <div class="wb-status">${weatherStatus}</div>
+      <div class="wb-explain">Buffer = ${totals.spare} spare day${totals.spare===1?"":"s"} + ${wc.slack} calendar slack = ${wc.buffer} day${wc.buffer===1?"":"s"} absorbable</div>
+    </div>
+  `;
+
+  document.getElementById("segments").innerHTML = segHtml.join("");
+
+  document.getElementById("weather-lost").addEventListener("change", e => {
+    const v = parseInt(e.target.value) || 0;
+    state.weatherLost = Math.max(0, Math.min(14, v));
+    saveState();
+    render();
+  });
+
+  document.querySelectorAll(".variant-btn").forEach(el => {
+    el.addEventListener("click", () => {
+      const segId = el.dataset.seg;
+      const seg = TOUR.segments.find(s => s.id === segId);
+      if (seg && seg.locked) return;
+      state.variants[segId] = el.dataset.variant;
+      Object.keys(state.kinds).forEach(k => {
+        if (k.split(":")[0] === segId) delete state.kinds[k];
+      });
+      saveState();
+      render();
+    });
+  });
+
+  document.querySelectorAll("[data-kind-change]").forEach(el => {
+    el.addEventListener("change", e => {
+      const [segId, varId, dayIdx, defKind] = el.dataset.kindChange.split("|");
+      setKind(segId, varId, parseInt(dayIdx), e.target.value, defKind);
+    });
+  });
+}
+
+function renderDay(seg, variant, day, i, currentKind, date) {
+  const dateLabel = fmtDate(date);
+  const opts = KIND_OPTIONS.map(k =>
+    `<option value="${k}" ${k===currentKind?"selected":""}>${k}</option>`).join("");
+  const stats = (currentKind==="ride" || currentKind==="easy") && (day.distance_km || day.climb_m)
+    ? `<div class="day-stats">${day.distance_km||"—"} km · +${day.climb_m||0} m${
+        day.snow_risk ? ` · <span class="snow-risk">⚠ ${Math.round(day.snow_risk*100)}% snow risk</span>` : ""}</div>`
+    : "";
+  const climbs = day.climbs ? `<div class="day-climbs">${day.climbs.map(escapeHtml).join(" · ")}</div>` : "";
+  const notes = day.notes ? `<div class="day-notes">${escapeHtml(day.notes)}</div>` : "";
+  const link = day.rwgps ? `<a href="${escapeHtml(day.rwgps)}" target="_blank" rel="noopener">RWGPS</a>` : "";
+  const name = day.name || day.location || `${currentKind} day`;
+  return `
+    <div class="day kind-${currentKind}">
+      <div class="day-date">${dateLabel}</div>
+      <div class="day-kind">
+        <select data-kind-change="${seg.id}|${variant.id}|${i}|${day.kind}">${opts}</select>
+      </div>
+      <div class="day-content">
+        <div class="day-name">${escapeHtml(name)}</div>
+        ${stats}
+        ${climbs}
+        ${notes}
+      </div>
+      <div class="day-link">${link}</div>
+    </div>`;
+}
+
+document.getElementById("btn-share").addEventListener("click", () => {
+  navigator.clipboard?.writeText(window.location.href);
+  const b = document.getElementById("btn-share");
+  const t = b.textContent; b.textContent = "✓ Copied"; setTimeout(()=>b.textContent=t, 1200);
+});
+document.getElementById("btn-reset").addEventListener("click", () => {
+  state.variants = {}; state.kinds = {}; state.weatherLost = 0;
+  for (const seg of TOUR.segments) state.variants[seg.id] = seg.default;
+  history.replaceState(null, "", window.location.pathname + window.location.search);
+  render();
+});
+
+loadState();
+render();
+</script>
+</body>
+</html>
