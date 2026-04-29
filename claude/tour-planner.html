@@ -633,6 +633,46 @@ const TOUR = {
               distance_km: 18, climb_m: 100,
               notes: "Easy day. Arturo leaves to Geneva from Andermatt." }
           ]
+        },
+        { id: "lakes-airolo-train", label: "Lake Maggiore loop → Bellinzona → Airolo + Gotthard train (+2 days)",
+          flag: "constraint",
+          flag_note: "Replaces Furka with a 4-day Italian-Ticino detour. Needs Agnel/Larche savings. Uses Laveno↔Intra car-ferry to bypass the tunnel-heavy Intra→Cannobio SS34.",
+          days: [
+            { kind: "ride", name: "Brig → Simplon Pass → Domodossola",
+              distance_km: 80, climb_m: 1330, climbs: ["Simplon Pass"],
+              notes: "Climb to 2,005 m, long descent into Italy. Hotels in Domodossola." },
+            { kind: "ride", name: "Domodossola → Intra → ferry to Laveno → Luino → Locarno",
+              distance_km: 50, climb_m: 400,
+              notes: "Down Val d'Ossola to Verbania (Intra). Intra↔Laveno car-ferry every 20 min, accepts tandems. East-shore SS629 to Luino → border at Maccagno → Magadino plain → Locarno. Skips the tunnel-heavy Intra→Cannobio stretch." },
+            { kind: "ride", name: "Locarno → Bellinzona → Biasca → Airolo (Leventina valley)",
+              distance_km: 80, climb_m: 900,
+              notes: "Flat through Magadino + Bellinzona, then gentle long climb up Leventina." },
+            { kind: "easy", name: "Airolo → train through Gotthard tunnel → Andermatt",
+              distance_km: 5, climb_m: 50,
+              notes: "SBB R/RE Airolo→Göschenen (tandem OK on R/RE), change to MGB Göschenen→Andermatt." }
+          ]
+        },
+        { id: "lakes-lukmanier", label: "Lake Maggiore + Lukmanier → Disentis → MGB (+3 days)",
+          flag: "constraint",
+          flag_note: "Replaces Furka with a 5-day grand-tour detour. Needs Agnel-Molines savings. Lukmanier is paved, ~5% average — much gentler than Furka.",
+          days: [
+            { kind: "ride", name: "Brig → Simplon Pass → Domodossola",
+              distance_km: 80, climb_m: 1330, climbs: ["Simplon Pass"],
+              notes: "Climb 2,005 m, long descent into Italy." },
+            { kind: "ride", name: "Domodossola → Intra → ferry to Laveno → Luino → Locarno",
+              distance_km: 50, climb_m: 400,
+              notes: "Intra↔Laveno ferry bypasses the Cannobio tunnels." },
+            { kind: "ride", name: "Locarno → Bellinzona → Biasca → Olivone (Val Blenio)",
+              distance_km: 75, climb_m: 600,
+              notes: "Flat to Biasca, then gentle climb up Val Blenio. Overnight Olivone." },
+            { kind: "ride", name: "Olivone → Passo del Lucomagno → Disentis",
+              distance_km: 40, climb_m: 1100,
+              climbs: ["Passo del Lucomagno (Lukmanier) 1,916 m"],
+              notes: "Lukmanier paved, quiet, ~5% avg. Descent to Vorderrhein at Disentis." },
+            { kind: "easy", name: "Disentis → MGB to Andermatt (over Oberalp by train)",
+              distance_km: 5, climb_m: 50,
+              notes: "MGB carries tandems. Scenic narrow-gauge over Oberalp Pass — one of the Glacier Express stretches." }
+          ]
         }
       ]
     },
