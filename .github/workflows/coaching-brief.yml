@@ -39,12 +39,6 @@ jobs:
         run: |
           git config user.name "Coaching Brief Bot"
           git config user.email "actions@users.noreply.github.com"
-          
-          # Only commit if the brief actually changed
-          if git diff --quiet coaching_brief.txt; then
-            echo "No changes to coaching_brief.txt — skipping commit"
-          else
-            git add coaching_brief.txt
-            git commit -m "Daily brief: $(date -u +%Y-%m-%d)"
-            git push
-          finame: Daily Coaching Brief
+          git add claude/coaching_brief.txt
+          git diff --staged --quiet || git commit -m "Daily brief: $(date -u +%Y-%m-%d)"
+          git push
