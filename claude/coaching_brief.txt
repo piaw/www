@@ -1,0 +1,32 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 Weekly Training Check-in — April 30, 2026
+   Sport: Cycling | Goal: Base Fitness
+   Period: 2026-04-23 → 2026-04-30
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🫀  RECOVERY & WELLNESS
+   HRV rMSSD (last night): 35.0ms  (-3% vs 7d avg)
+   HRV SDNN  (last night): –
+   Avg sleeping HR:         –
+   ── 7-day averages ──────────────────
+   HRV rMSSD (7d avg):     35.9ms ↑19%
+   HRV SDNN  (7d avg):     –
+   Resting HR (7d avg):    51 bpm →
+   Sleep (avg):        6.9 hrs →
+   Sleep score (avg):  76.0
+   Weight (latest):    63.15kg  (-1.3kg this week)
+
+⚡  TRAINING LOAD
+   Activities:         12 (8x Ride, 2x MountainBikeRide, 1x WeightTraining, 1x Hike)
+   Total time:         12.6 hrs
+   ATL (fatigue):      71
+   CTL (fitness):      18
+   Form (TSB):         53  ✅ Fresh / race-ready
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Based on the above, please:
+1. Assess my recovery and readiness for the coming week.
+2. Flag any trends I should be aware of (HRV, sleep, weight).
+3. Recommend how to structure my training this week (intensity,
+   volume, rest) given my goal of base fitness.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
