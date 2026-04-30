@@ -24,8 +24,11 @@ from statistics import mean
 # ─────────────────────────────────────────────
 # CONFIG — fill these in or set as env vars
 # ─────────────────────────────────────────────
-ATHLETE_ID = '5019'
-API_KEY    = '6es9m7qbyr07ptqcc35yjf9xz'
+ATHLETE_ID = os.environ.get('INTERVALS_ATHLETE_ID', '')
+API_KEY    = os.environ.get('INTERVALS_API_KEY', '')
+
+if not ATHLETE_ID or not API_KEY:
+    sys.exit("❌ Set INTERVALS_ATHLETE_ID and INTERVALS_API_KEY environment variables")
 DAYS_BACK  = 7   # how many days to look back
 
 # Optional: set to your sport + goal so the brief is pre-contextualised
