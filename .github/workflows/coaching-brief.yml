@@ -1,0 +1,51 @@
+name: Daily Coaching Brief
+
+on:
+  schedule:
+    # Runs daily at 02:00 UTC (7pm PT / 4am CEST)
+    # During the Alps tour: this is 4am local — gives you the brief 
+    # ready to read at breakfast based on previous day's ride
+    - cron: '0 2 * * *'
+  
+  # Allows manual triggering from the Actions tab
+  workflow_dispatch:
+
+# Required so the workflow can commit results back to the repo
+permissions:
+  contents: write
+
+jobs:
+  generate-brief:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+      
+      - name: Generate coaching brief
+        run: python claude/garmin_coaching.py
+      
+      - name: Commit and push if brief changed
+        run: |
+          git config user.name "Coaching Brief Bot"
+          git config user.email "actions@users.noreply.github.com"
+          
+          # Only commit if the brief actually changed
+          if git diff --quiet coaching_brief.txt; then
+            echo "No changes to coaching_brief.txt — skipping commit"
+          else
+            git add coaching_brief.txt
+            git commit -m "Daily brief: $(date -u +%Y-%m-%d)"
+            git push
+          fi
