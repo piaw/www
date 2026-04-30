@@ -33,6 +33,9 @@ jobs:
           pip install requests
       
       - name: Generate coaching brief
+        env:
+          INTERVALS_ATHLETE_ID: ${{ secrets.INTERVALS_ATHLETE_ID }}
+          INTERVALS_API_KEY: ${{ secrets.INTERVALS_API_KEY }}
         run: python claude/garmin_coaching.py
       
       - name: Commit and push if brief changed
