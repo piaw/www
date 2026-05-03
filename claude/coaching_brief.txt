@@ -5,14 +5,14 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 🫀  RECOVERY & WELLNESS
-   HRV rMSSD (last night): 32.0ms  (-13% vs 7d avg)
+   HRV rMSSD (last night): 38.0ms  (+3% vs 7d avg)
    HRV SDNN  (last night): –
    Avg sleeping HR:         –
    ── 7-day averages ──────────────────
-   HRV rMSSD (7d avg):     36.6ms ↓7%
+   HRV rMSSD (7d avg):     36.8ms ↓8%
    HRV SDNN  (7d avg):     –
    Resting HR (7d avg):    51.0 bpm →
-   Sleep (avg):        7.1 hrs ↓7%
+   Sleep (avg):        7.2 hrs ↑4%
    Sleep score (avg):  78.0
    Weight (latest):    58.31kg  (-6.6kg this week)
 
