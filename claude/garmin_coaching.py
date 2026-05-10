@@ -115,7 +115,7 @@ def main():
         if w.get("ctl") is not None:
             ctl  = round(w["ctl"])
             atl  = round(w["atl"]) if w.get("atl") is not None else None
-            form = round(w["atl"] - w["ctl"]) if (w.get("atl") is not None and w.get("ctl") is not None) else None
+            form = round(w["ctl"] - w["atl"]) if (w.get("atl") is not None and w.get("ctl") is not None) else None
             break
 
     # ── Activity summary ──
