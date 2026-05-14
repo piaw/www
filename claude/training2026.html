@@ -257,7 +257,7 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-size:34px;font-w
     <button class="tab-btn" onclick="showTab('phase3')"><span class="phase-dot" style="background:#ea580c"></span>Peak</button>
     <button class="tab-btn" onclick="showTab('phase4')"><span class="phase-dot" style="background:#7c3aed"></span>Taper</button>
     <button class="tab-btn" onclick="showTab('tour')">Tour Guide</button>
-    <button class="tab-btn" onclick="showTab('toursnow')" style="color:#60a5fa">❄ Snow Contingency</button>
+    <button class="tab-btn" onclick="showTab('toursnow')" style="color:var(--accent2)">☀ Iseran (if open)</button>
     <button class="tab-btn" onclick="showTab('tandem')" style="color:var(--strt)">Tandem Tips</button>
     <button class="tab-btn" onclick="showTab('strength')">Strength</button>
   </div>
@@ -1074,7 +1074,7 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-size:34px;font-w
 <!-- ════ TOUR GUIDE ════ -->
 <div id="tour" class="section">
   <h2 class="section-title">Tour Riding Guide</h2>
-  <div class="section-desc">How to execute the Alps stages. Power targets, fueling, pacing strategy.</div>
+  <div class="section-desc">How to execute the Alps stages. Power targets, fueling, pacing strategy. <strong style="color:var(--text)">Madeleine is the planned route through Jun 10–13</strong> — historical opening dates put Iseran right at the edge of viability for the Jun 10 ride (Jun 12 predicted for 2026). The Iseran/Galibier sequence remains available as an upgrade if savoie-route.fr confirms opening by Jun 9 morning — see the <strong style="color:var(--accent2)">☀ Iseran (if open)</strong> tab.</div>
 
   <div class="info-card" style="margin-bottom:24px">
     <h4>Alpine Pacing Rule #1: Start Slower Than You Think</h4>
@@ -1083,6 +1083,16 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-size:34px;font-w
       <li><span></span><span class="val-col">On a 30-day tour, the enemy is cumulative fatigue. A rider who paces at 65% FTP every day beats the rider who goes hard on Day 2 and suffers for the next two weeks.</span></li>
       <li><span></span><span class="val-col">Your HR will drift upward naturally as a climb progresses — this is expected (cardiac drift). Trust your power number, not the HR on climb 3 of the day.</span></li>
       <li><span></span><span class="val-col"><strong style="color:var(--strt)">🚲 Tandem captain targets with active Boen:</strong> 126–149W on long climbs. With Boen contributing 40–60W, your combined system output (165–210W) is enough to climb steadily. Don't compare your speed to solo riders — the loaded tandem will always be slower on steep grades, but faster on flats and descents.</span></li>
+    </ul>
+  </div>
+
+  <div class="info-card" style="margin-bottom:24px;border:1px solid rgba(240,192,96,.3);background:rgba(240,192,96,.05)">
+    <h4 style="color:var(--accent2)">Galibier Block: Jun 11–13 — Two Configurations</h4>
+    <ul>
+      <li><span></span><span class="val-col">With Galibier likely open by Jun 11 (Galibier Challenge cyclosportive Jun 6–7 confirms summer opening), the Madeleine route now goes via Télégraphe + Galibier on the way to Briançon. <strong>The remaining question is when to take the rest day.</strong></span></li>
+      <li><span></span><span class="val-col"><strong style="color:var(--accent2)">Config A — Rest then climb (default):</strong> Jun 11 = Télégraphe only → Valloire (~36km, 1 col). Jun 12 = rest at Valloire. Jun 13 = Galibier → Lautaret → Briançon (~50km, 1 big climb). Recommended in stable weather — fresh legs for Galibier on Jun 13.</span></li>
+      <li><span></span><span class="val-col"><strong style="color:var(--accent2)">Config B — Climb then rest:</strong> Jun 11 = Télégraphe + Galibier → La Grave (~75km, 2 cols, 2,400m gain). Jun 12 = rest at La Grave under the Meije glacier. Jun 13 = easy ride La Grave → Lautaret → Briançon (~38km, half day).</span></li>
+      <li><span></span><span class="val-col"><strong style="color:var(--accent2)">Decision point:</strong> Morning of Jun 11 at St Jean — check the Jun 13 weather forecast for Galibier. If Jun 13 looks unsettled, take Config B and climb while weather is good. If stable, Config A is the cleaner plan with fresh legs on the big day. Galibier status: inforoute.hautes-alpes.fr.</span></li>
     </ul>
   </div>
 
@@ -1104,10 +1114,10 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-size:34px;font-w
       <tr><td>Jun 7</td><td>Spare Day</td><td>Cluses</td><td class="day-type-rest">Rest/Mech</td><td>—</td><td>Mechanicals buffer. Stay off the bike.</td></tr>
       <tr><td>Jun 8</td><td>Col de la Colombière + Col des Aravis</td><td>Flumet</td><td class="day-type-big">Big Climb</td><td>138–158W climbs</td><td>Two cols. Pacing critical from the start.</td></tr>
       <tr><td>Jun 9</td><td>Col des Saisies + Cormet de Roselend</td><td>Bourg St Maurice</td><td class="day-type-big">Big Climb</td><td>112–131W climbs</td><td>Tired legs. Z2 discipline essential.</td></tr>
-      <tr><td>Jun 10</td><td>Col de l'Iseran</td><td>Bonneval-sur-Arc</td><td class="day-type-epic">Epic <span class="risk-badge risk-high">✅ ~20% risk (forecast: likely open Jun 10)</span></td><td>119–143W</td><td>Current forecast: Iseran likely open by Jun 10. Still check savoie-route.fr nightly from Jun 1. Descend to <strong>Bonneval-sur-Arc</strong> — classified one of the "Plus Beaux Villages de France." Stone-and-slate architecture, dramatic upper Arc valley setting. Memorable overnight, far better than Lanslevillard.</td></tr>
-      <tr><td>Jun 11</td><td>Rest Day</td><td>Bonneval-sur-Arc</td><td class="day-type-rest">Rest/Hike</td><td>—</td><td>Best hiking: <strong>Cirque des Évettes</strong> — glacial cirque with Grand Méan lake at 2,876m, accessed directly from Bonneval (harder option). <strong>Refuge du Carro</strong> — high alpine refuge with glacier views (moderate). <strong>Pointe d'Andagne</strong> — harder summit option. Walk the village at sunset — stone houses, narrow lanes, no resort sprawl. Book accommodation ahead — village is small (pop. 250).</td></tr>
-      <tr><td>Jun 12</td><td>Easy Day (26mi/1000ft)</td><td>St Michel Maurienne</td><td class="day-type-easy">Easy</td><td>&lt;145W</td><td>Deliberate recovery before the monster.</td></tr>
-      <tr><td>Jun 13</td><td>Col du Télégraphe + Col du Galibier + Col du Lautaret</td><td>Briançon</td><td class="day-type-epic">EPIC <span class="risk-badge risk-high">✓ Likely open Jun 13 (revised) — Galibier Challenge event Jun 6-7 confirms summer opening</span></td><td>120–140W</td><td>Hardest day of tour. Three major cols. If Galibier is closed, Hotel des Glaciers at Lautaret. Start slow!</td></tr>
+      <tr><td>Jun 10</td><td>Col de la Madeleine</td><td>St Jean de Maurienne</td><td class="day-type-big">Big Climb</td><td>112–131W climbs</td><td>Bourg St Maurice → Moûtiers → <strong>Madeleine (1993m)</strong>, N side 25.9km avg 6.5% → La Chambre → <strong>Saint-Jean-de-Maurienne</strong>. <strong>Option:</strong> roll down from BSM the afternoon of Jun 9 to La Léchère (Hotel Radiana, thermal spa at the foot of the climb) to shorten the morning traverse. Saint-Jean is the practical Maurienne base: year-round working town, full services, train connections.</td></tr>
+      <tr><td>Jun 11</td><td>Col du Télégraphe (+ Col du Galibier in Config B)</td><td>Valloire (A) or La Grave (B)</td><td class="day-type-big">Climb</td><td>120–140W climbs</td><td><strong>Config A:</strong> St Jean → Télégraphe → Valloire (~36km / 1,200m). One col, short day, sleep at the foot of Galibier. <strong>Config B:</strong> St Jean → Télégraphe → Valloire → Galibier (2,642m) → Lautaret → La Grave (~75km / 2,400m). Three-segment epic, then rest tomorrow under the Meije. See the Galibier Block card above for which to choose.</td></tr>
+      <tr><td>Jun 12</td><td>Rest Day</td><td>Valloire (A) or La Grave (B)</td><td class="day-type-rest">Rest/Hike</td><td>—</td><td><strong>Valloire (Config A):</strong> small alpine village at the foot of Galibier, off-season quiet before high summer, hiking trails up toward the col, panoramic Galibier viewpoints. <strong>La Grave (Config B):</strong> dramatic Meije setting, <strong>Téléphérique des Glaciers de la Meije</strong> up to ~3,200m (one of Europe's most spectacular non-skier cable cars) — world-class views with zero pedaling. Glacier walks, mountaineering atmosphere.</td></tr>
+      <tr><td>Jun 13</td><td>To Briançon (route depends on Config)</td><td>Briançon</td><td class="day-type-big">Climb (A) / Easy (B)</td><td>120–140W (A) / &lt;130W (B)</td><td><strong>Config A:</strong> Valloire → <strong>Galibier (2,642m)</strong> → Lautaret → Briançon (~50km / 1,200m). Big climb day on fresh legs — the iconic Galibier ride. <strong>Config B:</strong> La Grave → Lautaret (~11km gradual climb) → Briançon (~27km descent). Half-day, ~38km total. Either way, arrive Briançon with time to spare.</td></tr>
       <tr><td>Jun 14</td><td>Col d'Izoard</td><td>Guillestre</td><td class="day-type-big">Big Climb</td><td>112–131W</td><td>22% snow risk. Check inforoute.hautes-alpes.fr day before.</td></tr>
       <tr><td>Jun 15</td><td>Col de Vars</td><td>Barcelonnette</td><td class="day-type-big">Big Climb</td><td>138–158W</td><td>Lovely pass. Good road.</td></tr>
       <tr><td>Jun 16</td><td>Rest Day</td><td>Barcelonnette</td><td class="day-type-rest">Rest/Hike</td><td>—</td><td>Best hiking: <strong>Chapeau de Gendarme</strong> from Super-Sauze — panoramic views over Ubaye + Bachelard valleys, chamois likely. <strong>Tête de Louis XVI</strong> from Méolans — forest walk with Serre-Ponçon lake views. <strong>Fort Tournoux</strong> above La Condamine — military fortress nicknamed "military Versailles", dramatic cliff setting, shorter walk. One of the sunniest spots in France — enjoy it.</td></tr>
@@ -1143,7 +1153,7 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-size:34px;font-w
     <div class="info-card">
       <h4>Equipment Checklist</h4>
       <ul>
-        <li><span></span><span class="val-col">34T inner chainring minimum. Consider 32T cassette for Iseran (2,764m).</span></li>
+        <li><span></span><span class="val-col">34T inner chainring + 32T cassette minimum. The Madeleine N side (25.9km avg 6.5%) and Galibier south descent are both tandem-heavy.</span></li>
         <li><span></span><span class="val-col">Disc or rim brakes: descents from 2,700m+ are long. Check brake pads before.</span></li>
         <li><span></span><span class="val-col">Arm/leg warmers for every day — alpine mornings are cold even in June.</span></li>
         <li><span></span><span class="val-col">Rain jacket always in back pocket (June in Alps = unpredictable weather).</span></li>
@@ -1270,10 +1280,10 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-size:34px;font-w
   </div>
 </div>
 
-<!-- ════ SNOW CONTINGENCY ════ -->
+<!-- ════ ISERAN OPTION (if open) ════ -->
 <div id="toursnow" class="section">
-  <h2 class="section-title" style="color:#60a5fa">❄ Tour Guide — Snow Contingency</h2>
-  <div class="section-desc">Alt Routes — Both Iseran and Galibier now forecast OPEN ✅. Heat wave + Galibier Challenge cyclosportive Jun 6-7 (which requires road opening) = strong signal Galibier opens by Jun 7. Your Jun 13 ride has 6 days buffer. Contingency routes documented here as backup only. If a Madeleine alternative is needed, <strong>Valloire</strong> is the recommended rest day base — at the foot of Télégraphe and Galibier with direct hiking trailheads and optional partial-Galibier rides. ★ Blue rows = changed days.</div>
+  <h2 class="section-title" style="color:var(--accent2)">☀ Iseran Option (if open)</h2>
+  <div class="section-desc">Aspirational route via <strong>Col de l'Iseran</strong> (2,764m, highest paved road in Europe) and <strong>Col du Galibier</strong> (2,642m). Only viable if savoie-route.fr confirms Iseran is open by Jun 9 morning. Recent opening dates: Jun 6 (2025), Jun 9 (2023), Jun 16 (2024); 2026 prediction Jun 12. If conditions align, substitute these Days for the Madeleine routing in the Tour Guide. From Jun 14 onward both routes are identical. ★ Gold rows = the substituted days.</div>
 
   <div class="notice" style="border-color:rgba(96,165,250,.3);background:rgba(96,165,250,.06)">
     <strong>🌐 Live pass status links:</strong> &nbsp;
@@ -1293,12 +1303,13 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-size:34px;font-w
     </ul>
   </div>
 
-  <div class="info-card" style="margin-bottom:24px;border:1px solid rgba(96,165,250,.25);background:rgba(96,165,250,.05)">
-    <h4 style="color:#60a5fa">The Core Swap: Jun 10–13</h4>
+  <div class="info-card" style="margin-bottom:24px;border:1px solid rgba(240,192,96,.3);background:rgba(240,192,96,.06)">
+    <h4 style="color:var(--accent2)">The Iseran Swap: Jun 10–13</h4>
     <ul>
-      <li><span></span><span class="val-col">The Iseran and Galibier closures force a 4-day re-route. The alt plan trades two famous high passes for Col de la Madeleine + Alpe d'Huez + Col de Sarenne — equally beautiful, lower risk, and slightly easier on the legs. You still pass through Briançon on schedule.</span></li>
-      <li><span></span><span class="val-col">From Jun 14 onward everything is <strong>identical</strong> to the original plan. Hotel bookings from Guillestre onwards are unaffected.</span></li>
-      <li><span></span><span class="val-col"><strong style="color:#60a5fa">Decision point:</strong> Morning of Jun 9 from Flumet (or evening at Bourg St Maurice if Iseran status still unclear) — check savoie-route.fr and decide by 7am Jun 10 whether to take the Iseran or the Madeleine.</span></li>
+      <li><span></span><span class="val-col">Both routes climb <strong>Télégraphe + Galibier</strong> and end at Briançon on Jun 13. The actual difference is just the Jun 10 col (Iseran vs Madeleine) and the Jun 11 rest base (Bonneval-sur-Arc vs Valloire/La Grave). Galibier itself is in both plans.</span></li>
+      <li><span></span><span class="val-col">If Iseran is confirmed open, this route substitutes the highest paved road in Europe (Iseran 2,764m) for the Madeleine (1,993m), with the rest day in Bonneval-sur-Arc instead of Valloire/La Grave. Jun 12 becomes a connector day to St Michel rather than a rest day.</span></li>
+      <li><span></span><span class="val-col"><strong style="color:var(--accent2)">Decision point:</strong> Morning of Jun 9 from Flumet — check savoie-route.fr. If Iseran shows open or has a confirmed Jun 10 opening, swap to this route. Otherwise the Madeleine plan in the Tour Guide is the default.</span></li>
+      <li><span></span><span class="val-col"><strong style="color:var(--accent2)">Weather caveat:</strong> Even if Iseran is open, check the Jun 10 weather forecast for the upper Arc valley. A 2,764m col in cold rain or low cloud with a tandem and Boen is a different problem than a closed col — and the Madeleine remains the safer call.</span></li>
     </ul>
   </div>
 
@@ -1321,37 +1332,37 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-size:34px;font-w
       <tr><td>Jun 8</td><td>Col de la Colombière + Col des Aravis</td><td>Flumet</td><td class="day-type-big">Big Climb</td><td>138–158W climbs</td><td>Two cols. Pacing critical from the start.</td></tr>
       <tr><td>Jun 9</td><td>Col des Saisies + Cormet de Roselend</td><td>Bourg St Maurice</td><td class="day-type-big">Big Climb</td><td>112–131W climbs</td><td><strong>⚠ Check savoie-route.fr morning of Jun 9 from Flumet.</strong> Phone Radiana to book if Madeleine plan. Decide Iseran vs Madeleine by 7am Jun 10.</td></tr>
 
-      <tr style="background:rgba(96,165,250,.07)">
-        <td><strong>Jun 10 ❄</strong></td>
-        <td><strong>Col de la Madeleine</strong><br><small style="color:var(--muted)">was: Col de l'Iseran</small></td>
-        <td><strong>St Jean de Maurienne</strong></td>
-        <td class="day-type-big">Big Climb</td>
-        <td style="color:#60a5fa">112–131W climbs</td>
-        <td>Bourg St Maurice → Moûtiers → <strong>Madeleine (1993m)</strong>, N side 25.9km avg 6.5% → La Chambre → <strong>Saint-Jean-de-Maurienne</strong>. <strong>Rest day option:</strong> Saint-Jean is the practical choice — year-round working town with full services in all seasons. Saint-François-Longchamp (the Madeleine equivalent of Valloire) is mostly CLOSED mid-June (summer season starts July 4), so it's not viable. From Saint-Jean: Vanoise NP access, Merlet Lakes hike (family-friendly), or harder routes up to 2,600m via Hermillon. Real services, real restaurants, train connections.</td>
-      </tr>
-      <tr style="background:rgba(96,165,250,.07)">
-        <td><strong>Jun 11 ❄</strong></td>
-        <td><strong>Col du Télégraphe + Col de la Croix de Fer</strong><br><small style="color:var(--muted)">was: Rest Day</small></td>
-        <td><strong>Bourg d'Oisans</strong></td>
+      <tr style="background:rgba(240,192,96,.08)">
+        <td><strong>Jun 10 ☀</strong></td>
+        <td><strong>Col de l'Iseran</strong><br><small style="color:var(--muted)">replaces: Col de la Madeleine</small></td>
+        <td><strong>Bonneval-sur-Arc</strong></td>
         <td class="day-type-epic">Epic</td>
-        <td style="color:#60a5fa">120–140W climbs</td>
-        <td>~85km / ~2,400m. St Jean → Télégraphe → Valloire → <strong>Croix de Fer (2067m)</strong> → Bourg d'Oisans. Good town with restaurants and bike shops. Start conservatively — this was supposed to be a rest day.</td>
+        <td style="color:var(--accent2)">119–143W</td>
+        <td>Bourg St Maurice → Val d'Isère → <strong>Col de l'Iseran (2,764m)</strong> → descend to <strong>Bonneval-sur-Arc</strong> — classified one of the "Plus Beaux Villages de France." Stone-and-slate architecture, dramatic upper Arc valley setting, no resort sprawl. Village is small (pop. 250) — book accommodation ahead once Iseran is confirmed open. Memorable overnight, far better than Lanslevillard.</td>
       </tr>
-      <tr style="background:rgba(96,165,250,.07)">
-        <td><strong>Jun 12 ❄</strong></td>
-        <td><strong>Rest Day</strong><br><small style="color:var(--muted)">was: Easy Day → St Michel</small></td>
-        <td><strong>Allemond</strong></td>
+      <tr style="background:rgba(240,192,96,.08)">
+        <td><strong>Jun 11 ☀</strong></td>
+        <td><strong>Rest Day</strong><br><small style="color:var(--muted)">replaces: Télégraphe (+ Galibier in Config B)</small></td>
+        <td><strong>Bonneval-sur-Arc</strong></td>
         <td class="day-type-rest">Rest/Hike</td>
-        <td style="color:#60a5fa">—</td>
-        <td>Stay in Allemond (Eau d'Olle valley) — far better hiking base than Bourg d'Oisans. <strong>Lac de Belledonne</strong> (4hrs, 916m↑, wild alpine lake at 2,163m — the standout hike). <strong>Lac du Verney loop</strong> (1hr, flat — easy recovery option). Riders who want to pedal: <strong>Balcony route from Allemond</strong> — avoids Alpe d'Huez crowds, quieter and equally scenic.</td>
+        <td style="color:var(--accent2)">—</td>
+        <td>Best hiking: <strong>Cirque des Évettes</strong> — glacial cirque with Grand Méan lake at 2,876m, accessed directly from Bonneval (harder option). <strong>Refuge du Carro</strong> — high alpine refuge with glacier views (moderate). <strong>Pointe d'Andagne</strong> — harder summit option. Walk the village at sunset — stone houses, narrow lanes.</td>
       </tr>
-      <tr style="background:rgba(96,165,250,.07)">
-        <td><strong>Jun 13 ❄</strong></td>
-        <td><strong>Alpe d'Huez + Col de Sarenne + Col du Lautaret</strong><br><small style="color:var(--muted)">was: Télégraphe + Galibier + Lautaret</small></td>
+      <tr style="background:rgba(240,192,96,.08)">
+        <td><strong>Jun 12 ☀</strong></td>
+        <td><strong>Easy Day (26mi/1000ft)</strong><br><small style="color:var(--muted)">replaces: Rest at Valloire/La Grave</small></td>
+        <td><strong>St Michel Maurienne</strong></td>
+        <td class="day-type-easy">Easy</td>
+        <td style="color:var(--accent2)">&lt;145W</td>
+        <td>Bonneval-sur-Arc → Lanslebourg → St Michel de Maurienne. Deliberate recovery before the monster — Galibier the next day.</td>
+      </tr>
+      <tr style="background:rgba(240,192,96,.08)">
+        <td><strong>Jun 13 ☀</strong></td>
+        <td><strong>Col du Télégraphe + Col du Galibier + Col du Lautaret</strong><br><small style="color:var(--muted)">replaces: Galibier→Briançon (A) / La Grave→Briançon (B)</small></td>
         <td><strong>Briançon</strong></td>
-        <td class="day-type-epic">Epic</td>
-        <td style="color:#60a5fa">122–142W climbs</td>
-        <td>Allemond → <strong>Alpe d'Huez (21 hairpins)</strong> → Sarenne (1999m) → Lac Chambon → Lautaret (always open) → Briançon. ~75km / ~1,600m. Alternative: <strong>Balcony route from Allemond</strong> → Lautaret → Briançon if Alpe d'Huez feels too crowded or riders want a quieter day. ⚠ Loose gravel on Sarenne descent — brake early. Hotel des Glaciers at Lautaret if stopping short.</td>
+        <td class="day-type-epic">EPIC</td>
+        <td style="color:var(--accent2)">120–140W climbs</td>
+        <td>Hardest day of the tour. St Michel → <strong>Télégraphe</strong> → Valloire → <strong>Galibier (2,642m)</strong> → Lautaret → Briançon. Three major cols, start slow! If Galibier is closed but the rest is open, Hotel des Glaciers at Lautaret. Galibier needs its own check on inforoute.hautes-alpes.fr the evening before.</td>
       </tr>
 
       <tr><td>Jun 14</td><td>Col d'Izoard</td><td>Guillestre</td><td class="day-type-big">Big Climb</td><td>112–131W</td><td>~22% risk — check inforoute.hautes-alpes.fr evening of Jun 13. Fallback: descend Briançon → Guillestre via D902 valley road.</td></tr>
@@ -1389,26 +1400,27 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-size:34px;font-w
     <div class="info-card">
       <h4>Equipment Checklist</h4>
       <ul>
-        <li><span></span><span class="val-col">34T inner chainring + 32T cassette minimum. The Madeleine N side (25.9km avg 6.5%) and Sarenne are both tandem-heavy climbs.</span></li>
-        <li><span></span><span class="val-col">Disc brakes: check pads before the trip. Sarenne descent has loose gravel — brake early and often.</span></li>
+        <li><span></span><span class="val-col">34T inner chainring + 32T cassette minimum. Iseran south side and Galibier are both tandem-heavy descents.</span></li>
+        <li><span></span><span class="val-col">Disc brakes: check pads before the trip. Iseran south descent to Bonneval is long and exposed — sustained braking.</span></li>
         <li><span></span><span class="val-col">Arm/leg warmers every day — alpine mornings are cold even in June.</span></li>
-        <li><span></span><span class="val-col">Rain jacket always in back pocket.</span></li>
-        <li><span></span><span class="val-col">CO₂ cartridges and spare tubes — Sarenne in particular has rough road surface.</span></li>
+        <li><span></span><span class="val-col">Rain jacket always in back pocket. Iseran at 2,764m can drop 15°C from valley temps in minutes.</span></li>
+        <li><span></span><span class="val-col">CO₂ cartridges and spare tubes.</span></li>
       </ul>
     </div>
-    <div class="info-card" style="border-color:rgba(96,165,250,.25)">
-      <h4 style="color:#60a5fa">What You Trade Away</h4>
+    <div class="info-card" style="border-color:rgba(240,192,96,.3)">
+      <h4 style="color:var(--accent2)">What You Give Up</h4>
       <ul>
-        <li><span></span><span class="val-col"><strong>Col de l'Iseran (2,764m)</strong> — current forecast: likely open Jun 10. ✅ Check savoie-route.fr from Jun 1 to confirm. The Madeleine contingency remains available if conditions change.</span></li>
-        <li><span></span><span class="val-col"><strong>Col du Galibier (2,642m)</strong> — current forecast: likely open by Jun 13. Galibier Challenge cyclosportive scheduled Jun 6-7 (the first high-mountain cyclosportive of the year, by definition after road opening) — strong signal road will be open well before your Jun 13 date. Tunnel typically opens late May, summit 1-2 weeks later. Heat wave has accelerated melt. Allemond contingency route remains as backup if conditions change. Check inforoute.hautes-alpes.fr nightly from Jun 1.</span></li>
+        <li><span></span><span class="val-col"><strong>Col de la Madeleine (1,993m)</strong> — 25.9km classic Tour de France climb on the north side from La Léchère.</span></li>
+        <li><span></span><span class="val-col"><strong>Valloire / La Grave rest options</strong> — alpine village vs Meije glacier views; the flexible Jun 11–13 configuration choice.</span></li>
+        <li><span></span><span class="val-col"><strong>Lower-altitude routing</strong> — Iseran tops out 770m higher than Madeleine, more exposure to weather and altitude on Jun 10.</span></li>
       </ul>
     </div>
-    <div class="info-card" style="border-color:rgba(96,165,250,.25)">
-      <h4 style="color:#60a5fa">What You Gain</h4>
+    <div class="info-card" style="border-color:rgba(240,192,96,.3)">
+      <h4 style="color:var(--accent2)">What You Gain</h4>
       <ul>
-        <li><span></span><span class="val-col"><strong>Alpe d'Huez</strong> — 21 switchbacks, 1,130m climbing, every hairpin named after a Tour de France winner. As historic as Galibier and actually rideable in early June.</span></li>
-        <li><span></span><span class="val-col"><strong>Col de la Croix de Fer (2,067m)</strong> — beautiful, quiet pass through the Belledonne range. Excellent road, dramatic scenery, far less trafficked than Galibier.</span></li>
-        <li><span></span><span class="val-col"><strong>Peace of mind.</strong> No day stranded at a closed summit with a loaded tandem and an 11-year-old stoker.</span></li>
+        <li><span></span><span class="val-col"><strong>Col de l'Iseran (2,764m)</strong> — highest paved road in the Alps. Bucket-list pass on the Route des Grandes Alpes.</span></li>
+        <li><span></span><span class="val-col"><strong>Bonneval-sur-Arc</strong> — Plus Beaux Villages de France, stone-and-slate architecture, Cirque des Évettes glacial cirque for the rest-day hike.</span></li>
+        <li><span></span><span class="val-col"><strong>The original aspirational route</strong> — what you came to ride. Note: Galibier is in both plans, so it's no longer a differentiator.</span></li>
       </ul>
     </div>
   </div>
