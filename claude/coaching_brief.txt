@@ -5,23 +5,23 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 🫀  RECOVERY & WELLNESS
-   HRV rMSSD (last night): 40.0ms  (+11% vs 7d avg)
+   HRV rMSSD (last night): 41.0ms  (+12% vs 7d avg)
    HRV SDNN  (last night): –
    Avg sleeping HR:         –
    ── 7-day averages ──────────────────
-   HRV rMSSD (7d avg):     36.0ms ↑10%
+   HRV rMSSD (7d avg):     36.6ms ↑11%
    HRV SDNN  (7d avg):     –
    Resting HR (7d avg):    52.0 bpm →
-   Sleep (avg):        7.5 hrs ↓9%
-   Sleep score (avg):  82.0
+   Sleep (avg):        7.4 hrs ↓12%
+   Sleep score (avg):  83.0
    Weight (latest):    63.97kg  (+0.2kg this week)
 
 ⚡  TRAINING LOAD
-   Activities:         10 (2x Walk, 8x Ride)
-   Total time:         11.9 hrs
-   ATL (fatigue):      84
-   CTL (fitness):      56
-   Form (TSB):         -28  Training block
+   Activities:         11 (9x Ride, 2x Walk)
+   Total time:         12.3 hrs
+   ATL (fatigue):      88
+   CTL (fitness):      57
+   Form (TSB):         -31  ⚠️  High fatigue
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Based on the above, please:
