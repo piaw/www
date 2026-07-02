@@ -1,27 +1,27 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📊 Weekly Training Check-in — July 1, 2026
+📊 Weekly Training Check-in — July 2, 2026
    Sport: Cycling | Goal: Base Fitness
-   Period: 2026-06-24 → 2026-07-01
+   Period: 2026-06-25 → 2026-07-02
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 🫀  RECOVERY & WELLNESS
-   HRV rMSSD (last night): 36.0ms  (+8% vs 7d avg)
+   HRV rMSSD (last night): 34.0ms  (-0% vs 7d avg)
    HRV SDNN  (last night): –
    Avg sleeping HR:         –
    ── 7-day averages ──────────────────
-   HRV rMSSD (7d avg):     33.4ms ↑26%
+   HRV rMSSD (7d avg):     34.1ms ↑20%
    HRV SDNN  (7d avg):     –
-   Resting HR (7d avg):    52 bpm ↓7%
-   Sleep (avg):        7.1 hrs →
+   Resting HR (7d avg):    52.0 bpm ↓7%
+   Sleep (avg):        7.0 hrs →
    Sleep score (avg):  81.0
-   Weight (latest):    58.52kg
+   Weight (latest):    60.13kg  (+1.6kg this week)
 
 ⚡  TRAINING LOAD
-   Activities:         17 (8x Hike, 7x Ride, 2x Walk)
-   Total time:         25.5 hrs
-   ATL (fatigue):      131
-   CTL (fitness):      104
-   Form (TSB):         -27  Training block
+   Activities:         16 (3x Walk, 6x Hike, 7x Ride)
+   Total time:         24.3 hrs
+   ATL (fatigue):      116
+   CTL (fitness):      102
+   Form (TSB):         -14  Training block
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Based on the above, please:
