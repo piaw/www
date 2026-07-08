@@ -256,8 +256,7 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-size:34px;font-w
     <button class="tab-btn" onclick="showTab('phase2')"><span class="phase-dot" style="background:#059669"></span>Build</button>
     <button class="tab-btn" onclick="showTab('phase3')"><span class="phase-dot" style="background:#ea580c"></span>Peak</button>
     <button class="tab-btn" onclick="showTab('phase4')"><span class="phase-dot" style="background:#7c3aed"></span>Taper</button>
-    <button class="tab-btn" onclick="showTab('tour')">Tour Guide</button>
-    <button class="tab-btn" onclick="showTab('toursnow')" style="color:#60a5fa">❄ Snow Contingency</button>
+    <button class="tab-btn" onclick="showTab('tour')">Tour As Ridden</button>
     <button class="tab-btn" onclick="showTab('tandem')" style="color:var(--strt)">Tandem Tips</button>
     <button class="tab-btn" onclick="showTab('strength')">Strength</button>
     <button class="tab-btn" onclick="showTab('posttour')" style="color:var(--z3t)"><span class="phase-dot" style="background:var(--z3)"></span>Post-Tour</button>
@@ -1072,18 +1071,22 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-size:34px;font-w
   </div>
 </div>
 
-<!-- ════ TOUR GUIDE ════ -->
+<!-- ════ TOUR AS RIDDEN ════ -->
 <div id="tour" class="section">
-  <h2 class="section-title">Tour Riding Guide</h2>
-  <div class="section-desc">How to execute the Alps stages. Power targets, fueling, pacing strategy.</div>
+  <h2 class="section-title">Tour As Ridden — Execution Log</h2>
+  <div class="section-desc">The route actually executed, Jun 4 – Jul 7. Key adaptations from plan: Madeleine ridden instead of Iseran (Bonneval opening prediction Jun 12 made the Jun 10 attempt premature), Bonette substituted for Cayolle and Lombarde for Tende during the heat wave, Andermatt base became a 5-night Hospental AirBnB, and the finish went out via Col des Mosses + Col de la Croix to the Lake Geneva south shore instead of Jaun–Charmey–Lausanne. Dates marked ~ are reconstructed; metrics shown only where confirmed from ride files.</div>
 
   <div class="info-card" style="margin-bottom:24px">
-    <h4>Alpine Pacing Rule #1: Start Slower Than You Think</h4>
+    <h4 style="color:var(--accent2)">Tour Execution Insights</h4>
     <ul>
-      <li><span></span><span class="val-col">Every major col is 45–120 minutes of climbing. Start at Zone 2 (119–149W solo / 115–135W tandem captain). It should feel embarrassingly easy for the first 10 minutes.</span></li>
-      <li><span></span><span class="val-col">On a 30-day tour, the enemy is cumulative fatigue. A rider who paces at 65% FTP every day beats the rider who goes hard on Day 2 and suffers for the next two weeks.</span></li>
-      <li><span></span><span class="val-col">Your HR will drift upward naturally as a climb progresses — this is expected (cardiac drift). Trust your power number, not the HR on climb 3 of the day.</span></li>
-      <li><span></span><span class="val-col"><strong style="color:var(--strt)">🚲 Tandem captain targets with active Boen:</strong> 126–149W on long climbs. With Boen contributing 40–60W, your combined system output (165–210W) is enough to climb steadily. Don't compare your speed to solo riders — the loaded tandem will always be slower on steep grades, but faster on flats and descents.</span></li>
+      <li><span></span><span class="val-col"><strong style="color:var(--accent2)">23 ride days, zero sustained events at or above HR 150.</strong> Per-ride max HR tightened progressively, floor 143 (Gotthard). Two apparent exceptions reviewed and excluded: Grosse Scheidegg 162 was pushing the loaded tandem after a flat 1km from the summit (mechanical, not riding), and Col des Mosses ~3 min above 150 came on a 195 TSS gravel day at 38°C sensor temps.</span></li>
+      <li><span></span><span class="val-col"><strong style="color:var(--accent2)">Multi-signal recovery framework beat any single Garmin label.</strong> HRV + CPAP myAir + subjective + sleep + RHR. Rode HRV 27–32 mornings successfully when other signals were green. CPAP score 90→100 led HRV recovery by 24–48 hours.</span></li>
+      <li><span></span><span class="val-col"><strong style="color:var(--accent2)">CTL ~70 → 111 peak.</strong> A full training block's worth of fitness gained during a 30-day tour — the opposite of the typical depletion outcome. HRV 7d avg and RHR closed at pre-tour baseline.</span></li>
+      <li><span></span><span class="val-col"><strong style="color:var(--accent2)">Captain power range that worked: NP 100–125W on all big-col climbs.</strong> Lower than projected, proven consistent across Madeleine, Galibier, Bonette, Vars, Izoard, Lombarde, Furka, Gotthard, Sustens.</span></li>
+      <li><span></span><span class="val-col"><strong style="color:var(--accent2)">Heat wave drove the mid-tour route adaptations:</strong> Cayolle dropped (too remote, too hot), Lombarde substituted as the Italy exit, sleep choices prioritized altitude, and Boen's altitude-day strategy (Gelmersee, Versam, Gotthard, Engstlenalp) ended the heat-stress signals after Jun 24.</span></li>
+      <li><span></span><span class="val-col"><strong style="color:var(--accent2)">Rim brakes flawless</strong> through ~15,000m+ cumulative descent — no fade, minimal pad wear.</span></li>
+      <li><span></span><span class="val-col"><strong style="color:var(--accent2)">Phone-and-judgment booking validated.</strong> Mid-afternoon calls from the road, 1–2 nights ahead maximum, consistently beat pre-booking.</span></li>
+      <li><span></span><span class="val-col"><strong style="color:var(--accent2)">Tandem crossed 19,000 lifetime miles</strong> on the Lombarde descent, Jun 19.</span></li>
     </ul>
   </div>
 
@@ -1091,67 +1094,50 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-size:34px;font-w
     <thead>
       <tr>
         <th>Date</th>
-        <th>Stage</th>
-        <th>Destination</th>
-        <th>Type</th>
-        <th>Power Target</th>
+        <th>Stage (as ridden)</th>
+        <th>Sleep</th>
+        <th>Metrics</th>
         <th>Notes</th>
       </tr>
     </thead>
     <tbody>
-      <tr><td>Jun 4</td><td>✈ Fly out</td><td>—</td><td class="day-type-rest">Travel</td><td>—</td><td>Fly Thursday night. Arrive Geneva Friday.</td></tr>
-      <tr><td>Jun 5</td><td>Arrive Geneva</td><td>Geneva</td><td class="day-type-rest">Arrive</td><td>—</td><td>Rest, hydrate. Assemble bikes Jun 5 or 6.</td></tr>
-      <tr><td>Jun 6</td><td>Start riding</td><td>Cluses</td><td class="day-type-easy">Easy</td><td>Z2 (119–149W)</td><td>Shakeout day. Don't go hard.</td></tr>
-      <tr><td>Jun 7</td><td>Spare Day</td><td>Cluses</td><td class="day-type-rest">Rest/Mech</td><td>—</td><td>Mechanicals buffer. Stay off the bike.</td></tr>
-      <tr><td>Jun 8</td><td>Col de la Colombière + Col des Aravis</td><td>Flumet</td><td class="day-type-big">Big Climb</td><td>138–158W climbs</td><td>Two cols. Pacing critical from the start.</td></tr>
-      <tr><td>Jun 9</td><td>Col des Saisies + Cormet de Roselend</td><td>Bourg St Maurice</td><td class="day-type-big">Big Climb</td><td>112–131W climbs</td><td>Tired legs. Z2 discipline essential.</td></tr>
-      <tr><td>Jun 10</td><td>Col de l'Iseran</td><td>Bonneval-sur-Arc</td><td class="day-type-epic">Epic <span class="risk-badge risk-high">✅ ~20% risk (forecast: likely open Jun 10)</span></td><td>119–143W</td><td>Current forecast: Iseran likely open by Jun 10. Still check inforoute73.fr nightly from Jun 1. Descend to <strong>Bonneval-sur-Arc</strong> — classified one of the "Plus Beaux Villages de France." Stone-and-slate architecture, dramatic upper Arc valley setting. Memorable overnight, far better than Lanslevillard.</td></tr>
-      <tr><td>Jun 11</td><td>Rest Day</td><td>Bonneval-sur-Arc</td><td class="day-type-rest">Rest/Hike</td><td>—</td><td>Best hiking: <strong>Cirque des Évettes</strong> — glacial cirque with Grand Méan lake at 2,876m, accessed directly from Bonneval (harder option). <strong>Refuge du Carro</strong> — high alpine refuge with glacier views (moderate). <strong>Pointe d'Andagne</strong> — harder summit option. Walk the village at sunset — stone houses, narrow lanes, no resort sprawl. Book accommodation ahead — village is small (pop. 250).</td></tr>
-      <tr><td>Jun 12</td><td>Easy Day (26mi/1000ft)</td><td>St Michel Maurienne</td><td class="day-type-easy">Easy</td><td>&lt;145W</td><td>Deliberate recovery before the monster.</td></tr>
-      <tr><td>Jun 13</td><td>Col du Télégraphe + Col du Galibier + Col du Lautaret</td><td>Briançon</td><td class="day-type-epic">EPIC <span class="risk-badge risk-high">✓ Likely open Jun 13 (revised) — Galibier Challenge event Jun 6-7 confirms summer opening</span></td><td>120–140W</td><td>Hardest day of tour. Three major cols. If Galibier is closed, Hotel des Glaciers at Lautaret. Start slow!</td></tr>
-      <tr><td>Jun 14</td><td>Col d'Izoard</td><td>Guillestre</td><td class="day-type-big">Big Climb</td><td>112–131W</td><td>22% snow risk. Check inforoute05 day before.</td></tr>
-      <tr><td>Jun 15</td><td>Col de Vars</td><td>Barcelonnette</td><td class="day-type-big">Big Climb</td><td>138–158W</td><td>Lovely pass. Good road.</td></tr>
-      <tr><td>Jun 16</td><td>Rest Day</td><td>Barcelonnette</td><td class="day-type-rest">Rest/Hike</td><td>—</td><td>Best hiking: <strong>Chapeau de Gendarme</strong> from Super-Sauze — panoramic views over Ubaye + Bachelard valleys, chamois likely. <strong>Tête de Louis XVI</strong> from Méolans — forest walk with Serre-Ponçon lake views. <strong>Fort Tournoux</strong> above La Condamine — military fortress nicknamed "military Versailles", dramatic cliff setting, shorter walk. One of the sunniest spots in France — enjoy it.</td></tr>
-      <tr><td>Jun 17</td><td>Col de la Cayolle (46mi/7125ft)</td><td>Valberg</td><td class="day-type-epic">Epic <span class="risk-badge risk-mod">⚠ 30% risk</span></td><td>112–131W</td><td>Long and remote. Fuel heavily. No services on col.</td></tr>
-      <tr><td>Jun 18</td><td>Col de Saint-Martin</td><td>St Martin-Vésubie</td><td class="day-type-big">Climb</td><td>138–158W</td><td>Into the Maritime Alps. Warmer climate.</td></tr>
-      <tr><td>Jun 19</td><td>Col de Turini</td><td>Sospel</td><td class="day-type-big">Climb</td><td>130–150W</td><td>Legendary Monte Carlo Rally climb.</td></tr>
-      <tr><td>Jun 20</td><td>Col de Tende → Train</td><td>Cuneo/Ivrea</td><td class="day-type-big">Climb+Train</td><td>130–150W</td><td>Into Italy. Train to Ivrea.</td></tr>
-      <tr><td>Jun 21</td><td>Climb to Aosta</td><td>Aosta</td><td class="day-type-big">Climb</td><td>112–131W</td><td>Train line down. Ride instead.</td></tr>
-      <tr><td>Jun 22</td><td>Grand St Bernard Pass</td><td>Brig</td><td class="day-type-epic">Epic</td><td>121–144W</td><td>Into Switzerland! Descend to Martigny. Tailwind to Brig.</td></tr>
-      <tr><td>Jun 23</td><td>Furka Pass</td><td>Hotel Tiefenbach</td><td class="day-type-epic">Epic</td><td>112–133W</td><td>Stop before headwind. 2,429m summit.</td></tr>
-      <tr><td>Jun 24</td><td>Easy Day</td><td>Andermatt</td><td class="day-type-easy">Easy</td><td>&lt;140W</td><td>Short descent day. Recover.</td></tr>
-      <tr><td>Jun 25</td><td>Rest Day</td><td>Andermatt</td><td class="day-type-rest">Rest/Hike</td><td>—</td><td>William Tell country. Recharge.</td></tr>
-      <tr><td>Jun 26</td><td>Sustenpass</td><td>Meiringen</td><td class="day-type-big">Climb</td><td>128–150W</td><td>One of Switzerland's finest passes.</td></tr>
-      <tr><td>Jun 27–28</td><td>Weather Spare Days</td><td>—</td><td class="day-type-rest">Buffer</td><td>—</td><td>Rest or easy riding as conditions allow.</td></tr>
-      <tr><td>Jun 29 + Jul 2</td><td>Grosse Scheidegg (split)</td><td>Rosenlaui → Lauterbrunnen</td><td class="day-type-big">Climb</td><td>138–158W</td><td>Split over two days. Rosenlaui is stunning.</td></tr>
-      <tr><td>Jul 4</td><td>Jaun Pass</td><td>Charmey</td><td class="day-type-big">Climb</td><td>130–150W</td><td>Final major pass. Enjoy every pedal stroke.</td></tr>
-      <tr><td>Jul 5–6</td><td>Lake Geneva → Geneva</td><td>Lausanne → Geneva</td><td class="day-type-easy">Easy</td><td>—</td><td>Celebratory riding. Pack bikes. Hotel Mövenpick.</td></tr>
-      <tr><td>Jul 7</td><td>Fly Home</td><td>—</td><td class="day-type-rest">Done!</td><td>—</td><td>You did it. 🏔🥂</td></tr>
+      <tr><td>Jun 4 ✓</td><td>✈ Fly out</td><td>Air</td><td>—</td><td>SFO 5:35 PM. Heathrow rerouting, 6-hour delay.</td></tr>
+      <tr><td>Jun 5 ✓</td><td>Arrive Geneva (late)</td><td>Geneva</td><td>—</td><td>Late arrival via Heathrow. Rest, hydrate, assemble.</td></tr>
+      <tr><td>Jun 6 ✓</td><td>Geneva → Bonneville <small style="color:var(--muted)">(was: Cluses)</small></td><td>Bonneville</td><td>~35 km · NP 108W · TSS ~71</td><td>Travel-delay compressed start. Bike shop fix (derailleur clamp bolt), 34°C valley heat.</td></tr>
+      <tr style="background:rgba(232,163,32,.06)"><td>Jun 7 ✓</td><td class="day-type-big">Col de la Colombière + Col des Aravis</td><td>Flumet</td><td>TSS ~170 · NP 131W on Colombière</td><td>Hot day. Zero HR events — pacing discipline set the tour's template from col #1.</td></tr>
+      <tr style="background:rgba(232,163,32,.06)"><td>Jun 8 ✓</td><td class="day-type-big">Col des Saisies + Cormet de Roselend</td><td>Bourg St Maurice</td><td>—</td><td>Ridden in the last clear weather window before the rain block.</td></tr>
+      <tr><td>~Jun 9 ✓</td><td class="day-type-rest">Rest — Bourg St Maurice (rain)</td><td>Bourg St Maurice</td><td>—</td><td>Banked rest while the front passed.</td></tr>
+      <tr style="background:rgba(232,163,32,.06)"><td>~Jun 10 ✓</td><td class="day-type-big">Col de la Madeleine (1,993m) <small style="color:var(--muted)">(was: Iseran)</small></td><td>Maurienne valley</td><td>—</td><td>The pre-tour reroute executed as planned: Iseran's predicted opening (Jun 12) postdated the slot. N side 25.9km @ 6.5% on the loaded tandem.</td></tr>
+      <tr><td>~Jun 11 ✓</td><td class="day-type-easy">Col du Télégraphe → Valloire</td><td>Valloire</td><td>—</td><td>Positioning day for Galibier.</td></tr>
+      <tr><td>~Jun 12 ✓</td><td class="day-type-rest">Rest — Valloire</td><td>Valloire</td><td>—</td><td>Config A of the two-configuration Galibier plan.</td></tr>
+      <tr style="background:rgba(232,163,32,.06)"><td>Jun 13 ✓</td><td class="day-type-epic">Col du Galibier (2,642m) + Lautaret → Briançon</td><td>Briançon</td><td>—</td><td><strong>Stephan exited at the Galibier summit.</strong> Hardest planned day of the tour, executed.</td></tr>
+      <tr><td>~Jun 14 ✓</td><td class="day-type-rest">Rest — Briançon</td><td>Briançon</td><td>—</td><td>Post-Briançon schedule shifted +1 day from original plan.</td></tr>
+      <tr><td>Jun 15 ✓</td><td class="day-type-big">Col d'Izoard (2,360m)</td><td>Guillestre</td><td>—</td><td>Casse Déserte on a loaded tandem.</td></tr>
+      <tr><td>~Jun 16 ✓</td><td class="day-type-big">Col de Vars (2,109m)</td><td>Barcelonnette</td><td>—</td><td>Rode on a "felt better despite HRV 27" morning — framework validated.</td></tr>
+      <tr><td>~Jun 17 ✓</td><td class="day-type-rest">Rest — Barcelonnette</td><td>Barcelonnette</td><td>—</td><td>Ubaye valley hiking.</td></tr>
+      <tr style="background:rgba(232,163,32,.06)"><td>~Jun 18 ✓</td><td class="day-type-epic">Cime de la Bonette (2,802m) <small style="color:var(--muted)">(was: Cayolle)</small></td><td>Jausiers side</td><td>—</td><td><strong>Highest paved road in Europe.</strong> Cayolle dropped in the heat wave; Bonette substituted. Peak altitude ridden of the tour.</td></tr>
+      <tr><td>Jun 19 ✓</td><td class="day-type-big">Col de la Lombarde (2,350m) → Italy <small style="color:var(--muted)">(was: Tende)</small></td><td>Italy (Cuneo side)</td><td>—</td><td><strong>Tandem crossed 19,000 lifetime miles on the descent.</strong> Elegant heat-wave Italy exit.</td></tr>
+      <tr><td>Jun 20 ✓</td><td class="day-type-easy">Cuneo → train → Ivrea → Aosta</td><td>Aosta</td><td>—</td><td>Train + ride into the Aosta valley.</td></tr>
+      <tr style="background:rgba(232,163,32,.06)"><td>Jun 21 ✓</td><td class="day-type-epic">Aosta → Grand St Bernard (2,469m)</td><td><strong>Hospice, 2,469m</strong></td><td>—</td><td>Climbed on the car-free closed road. <strong>Slept at the Hospice — highest sleep of the tour.</strong> CPAP 100 at altitude.</td></tr>
+      <tr><td>Jun 22 ✓</td><td class="day-type-easy">Hospice → Martigny → Sion → train Brig</td><td>Brig</td><td>—</td><td>49°C heat day. 7 AM descent, long Sion lunch, Rhone tailwind, train finish.</td></tr>
+      <tr style="background:rgba(232,163,32,.06)"><td>Jun 23 ✓</td><td class="day-type-epic">Furka Pass (2,429m) → Hospental</td><td>Hospental (5 nights)</td><td>77 km · 1,952m · NP 110W · max 149 · TSS 174.1</td><td>HRV 27 morning, rode anyway — correct call. 41°C bike sensor. Hotel Tiefenbach abandoned for the Hospental AirBnB base.</td></tr>
+      <tr><td>Jun 24 ✓</td><td class="day-type-rest">Rest — Schöllenen Gorge + Nätschen hikes</td><td>Hospental</td><td>—</td><td><strong>Arturo's exit day.</strong> Boen heat-stress signal → altitude-day strategy adopted.</td></tr>
+      <tr><td>Jun 25 ✓</td><td class="day-type-rest">Gelmersee — funicular up, hike down</td><td>Hospental</td><td>—</td><td>Reservation inversion solved sold-out descents. Gelmerbahn 106% gradient.</td></tr>
+      <tr><td>Jun 26 ✓</td><td class="day-type-big">Oberalp + Versam canyon → Domat-Ems → train</td><td>Hospental</td><td>87.4 km · 980m · NP 114W · max 145 · TSS 137.5</td><td>Boen chose Versam at the Disentis decision point. <strong>Got off the MGB at Oberalppass and beat the train down to Hospental</strong> (13.5km/600m, max 133).</td></tr>
+      <tr><td>Jun 27 ✓</td><td class="day-type-easy">Gotthard half-day</td><td>Hospental</td><td>25.6 km · 641m · NP 121W · <strong>max 143 — tightest of tour</strong> · TSS 57.3</td><td>1-hour museum stop. Xiaoqin rode partial Sustens solo same day.</td></tr>
+      <tr style="background:rgba(232,163,32,.06)"><td>Jun 28 ✓</td><td class="day-type-big">Sustenpass (2,224m) → Nessental</td><td>Nessental</td><td>—</td><td><strong>Boen's capstone climb.</strong> 6 AM storm-window start. Engstlenalp lift-assisted family hike absorbed into the same afternoon.</td></tr>
+      <tr><td>Jun 29 ✓</td><td class="day-type-easy">Nessental → Kirchet → Rosenlaui (GS 1st half)</td><td>Rosenlaui (3 nights)</td><td>TSS 78 · max 148</td><td>Mark rode the Jobst high-adventure route (Sarnen→Melchsee-Frutt→Tannalp→Engstlenalp→Gental) the same day.</td></tr>
+      <tr><td>Jun 30 ✓</td><td class="day-type-rest">Rosenlaui — hiking / loop day</td><td>Rosenlaui</td><td>—</td><td>Hornseeli-area hiking; classic Rosenlaui loop (~1,800m) available for Mark + Xiaoqin.</td></tr>
+      <tr><td>Jul 1 ✓</td><td class="day-type-rest">RAIN DAY — EX30 excursions</td><td>Rosenlaui</td><td>—</td><td>Car-excursion day per plan (Trümmelbach / Reichenbach-tier options).</td></tr>
+      <tr style="background:rgba(232,163,32,.06)"><td>Jul 2 ✓</td><td class="day-type-big">Grosse Scheidegg (1,962m) → Lauterbrunnen</td><td>Lauterbrunnen (Gässli 446B)</td><td>max 162*</td><td>*Flat tire 1km from the summit — pushed the loaded tandem up the steep grade. Mechanical event, excluded from the HR streak. Jobst's 2005 Saturday-lodging advice honored via the Rosenlaui/Lauterbrunnen booking split.</td></tr>
+      <tr><td>Jul 3–4 ✓</td><td class="day-type-rest">Lauterbrunnen rest/hike days</td><td>Lauterbrunnen</td><td>—</td><td>Valley of 72 waterfalls.</td></tr>
+      <tr style="background:rgba(232,163,32,.06)"><td>Jul 5 ✓</td><td class="day-type-big">Lauterbrunnen → Col des Mosses <small style="color:var(--muted)">(was: Jaun → Charmey)</small></td><td>Col des Mosses (Relais Alpin)</td><td>106 km · 5,971 ft · TSS 195</td><td>Gravel-heavy: RWGPS/Veloland snapped to unpaved connectors despite the La Lécherette via-point fix — more gravel than the rest of the tour combined. 6.5 hrs moving, 38°C sensor. ~3 min above HR 150 excluded (context).</td></tr>
+      <tr><td>Jul 6 ✓</td><td class="day-type-easy">Col de la Croix → Aigle → lakeside → Thonon-les-Bains</td><td>Thonon</td><td>91 km · TSS 119</td><td>3,511 ft descent to Lake Geneva, then the flat lakeside road through Évian (no TT climb).</td></tr>
+      <tr><td>Jul 7 ✓</td><td class="day-type-easy">Thonon → Geneva → ✈ Fly home</td><td>Home</td><td>29 mi · TSS 61 · max 144</td><td>Final lakeside glide. Pack bikes. Done. 🏔🥂</td></tr>
     </tbody>
   </table>
 
-  <hr class="divider">
-  <div class="overview-grid">
-    <div class="info-card">
-      <h4>Fueling on the Alps</h4>
-      <ul>
-        <li><span></span><span class="val-col"><strong style="color:var(--accent2)">Carbs:</strong> 60–80g/hr on any ride over 90 min. Mix of gels, bars, and real food (pain au chocolat at cafés!)</span></li>
-        <li><span></span><span class="val-col"><strong style="color:var(--accent2)">Hydration:</strong> 500–750ml/hr depending on heat. Add electrolytes on long cols.</span></li>
-        <li><span></span><span class="val-col"><strong style="color:var(--accent2)">Breakfast:</strong> Big carb-heavy breakfast 2–3 hours before riding. This is non-negotiable in Europe.</span></li>
-        <li><span></span><span class="val-col"><strong style="color:var(--accent2)">Dinner:</strong> Carb-heavy evening meal. Pasta, risotto, bread. Replenish glycogen each night.</span></li>
-      </ul>
-    </div>
-    <div class="info-card">
-      <h4>Equipment Checklist</h4>
-      <ul>
-        <li><span></span><span class="val-col">34T inner chainring minimum. Consider 32T cassette for Iseran (2,764m).</span></li>
-        <li><span></span><span class="val-col">Disc or rim brakes: descents from 2,700m+ are long. Check brake pads before.</span></li>
-        <li><span></span><span class="val-col">Arm/leg warmers for every day — alpine mornings are cold even in June.</span></li>
-        <li><span></span><span class="val-col">Rain jacket always in back pocket (June in Alps = unpredictable weather).</span></li>
-        <li><span></span><span class="val-col">CO₂ cartridges and spare tubes — road surfaces vary widely.</span></li>
-      </ul>
-    </div>
-  </div>
+  <div class="notice" style="margin-top:20px"><strong>Data gaps:</strong> per-day NP/HR/TSS for Jun 7–22 lived in the mid-tour version of this document (updated through Jun 27) that didn't survive the chat transition. If that copy still exists, upload it and the missing metrics can be merged into this table.</div>
 </div>
 
 <!-- ════ MALLORCA CAMP ════ -->
@@ -1267,150 +1253,6 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-size:34px;font-w
           </ul>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-
-<!-- ════ SNOW CONTINGENCY ════ -->
-<div id="toursnow" class="section">
-  <h2 class="section-title" style="color:#60a5fa">❄ Tour Guide — Snow Contingency</h2>
-  <div class="section-desc">Alt Routes — Both Iseran and Galibier now forecast OPEN ✅. Heat wave + Galibier Challenge cyclosportive Jun 6-7 (which requires road opening) = strong signal Galibier opens by Jun 7. Your Jun 13 ride has 6 days buffer. Contingency routes documented here as backup only. If a Madeleine alternative is needed, <strong>Valloire</strong> is the recommended rest day base — at the foot of Télégraphe and Galibier with direct hiking trailheads and optional partial-Galibier rides. ★ Blue rows = changed days.</div>
-
-  <div class="notice" style="border-color:rgba(96,165,250,.3);background:rgba(96,165,250,.06)">
-    <strong>🌐 Live pass status links:</strong> &nbsp;
-    <a href="https://www.inforoute73.fr" target="_blank" style="color:#60a5fa">inforoute73.fr</a> (Savoie — Iseran, Madeleine) &nbsp;·&nbsp;
-    <a href="https://www.inforoute05.fr" target="_blank" style="color:#60a5fa">inforoute05.fr</a> (Hautes-Alpes — Galibier, Izoard, Lautaret) &nbsp;·&nbsp;
-    <a href="https://www.inforoute04.fr" target="_blank" style="color:#60a5fa">inforoute04.fr</a> (Alpes-de-Haute-Provence — Cayolle, Allos)
-    <br>Check these the evening before any high-risk day. Decision by 7am at the latest.
-  </div>
-
-  <div class="info-card" style="margin-bottom:24px">
-    <h4>Alpine Pacing Rule #1: Start Slower Than You Think</h4>
-    <ul>
-      <li><span></span><span class="val-col">Every major col is 45–120 minutes of climbing. Start at Zone 2 (119–149W solo / 115–135W tandem captain). It should feel embarrassingly easy for the first 10 minutes.</span></li>
-      <li><span></span><span class="val-col">On a 30-day tour, the enemy is cumulative fatigue. A rider who paces at 65% FTP every day beats the rider who goes hard on Day 2 and suffers for the next two weeks.</span></li>
-      <li><span></span><span class="val-col">Your HR will drift upward naturally as a climb progresses — this is expected (cardiac drift). Trust your power number, not the HR on climb 3 of the day.</span></li>
-      <li><span></span><span class="val-col"><strong style="color:var(--strt)">🚲 Tandem captain targets with active Boen:</strong> 126–149W on long climbs. With Boen contributing 40–60W, your combined system output (165–210W) is enough to climb steadily. Don't compare your speed to solo riders.</span></li>
-    </ul>
-  </div>
-
-  <div class="info-card" style="margin-bottom:24px;border:1px solid rgba(96,165,250,.25);background:rgba(96,165,250,.05)">
-    <h4 style="color:#60a5fa">The Core Swap: Jun 10–13</h4>
-    <ul>
-      <li><span></span><span class="val-col">The Iseran and Galibier closures force a 4-day re-route. The alt plan trades two famous high passes for Col de la Madeleine + Alpe d'Huez + Col de Sarenne — equally beautiful, lower risk, and slightly easier on the legs. You still pass through Briançon on schedule.</span></li>
-      <li><span></span><span class="val-col">From Jun 14 onward everything is <strong>identical</strong> to the original plan. Hotel bookings from Guillestre onwards are unaffected.</span></li>
-      <li><span></span><span class="val-col"><strong style="color:#60a5fa">Decision point:</strong> Evening of Jun 9 at Bourg St Maurice — check inforoute73.fr and decide by 7am Jun 10 whether to take the Iseran or the Madeleine.</span></li>
-    </ul>
-  </div>
-
-  <table class="tour-table">
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Stage</th>
-        <th>Destination</th>
-        <th>Type</th>
-        <th>Power Target</th>
-        <th>Notes</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>Jun 4</td><td>✈ Fly out</td><td>—</td><td class="day-type-rest">Travel</td><td>—</td><td>Fly Thursday night. Arrive Geneva Friday.</td></tr>
-      <tr><td>Jun 5</td><td>Arrive Geneva</td><td>Geneva</td><td class="day-type-rest">Arrive</td><td>—</td><td>Rest, hydrate. Assemble bikes Jun 5 or 6.</td></tr>
-      <tr><td>Jun 6</td><td>Start riding</td><td>Cluses</td><td class="day-type-easy">Easy</td><td>Z2 (119–149W)</td><td>Shakeout day. Don't go hard.</td></tr>
-      <tr><td>Jun 7</td><td>Spare Day</td><td>Cluses</td><td class="day-type-rest">Rest/Mech</td><td>—</td><td>Mechanicals buffer. Stay off the bike.</td></tr>
-      <tr><td>Jun 8</td><td>Col de la Colombière + Col des Aravis</td><td>Flumet</td><td class="day-type-big">Big Climb</td><td>138–158W climbs</td><td>Two cols. Pacing critical from the start.</td></tr>
-      <tr><td>Jun 9</td><td>Col des Saisies + Cormet de Roselend</td><td>Bourg St Maurice</td><td class="day-type-big">Big Climb</td><td>112–131W climbs</td><td><strong>⚠ Check inforoute73 tonight.</strong> Decide Iseran vs Madeleine by 7am tomorrow.</td></tr>
-
-      <tr style="background:rgba(96,165,250,.07)">
-        <td><strong>Jun 10 ❄</strong></td>
-        <td><strong>Col de la Madeleine</strong><br><small style="color:var(--muted)">was: Col de l'Iseran</small></td>
-        <td><strong>St Jean de Maurienne</strong></td>
-        <td class="day-type-big">Big Climb</td>
-        <td style="color:#60a5fa">112–131W climbs</td>
-        <td>Bourg St Maurice → Moûtiers → <strong>Madeleine (1993m)</strong>, N side 25.9km avg 6.5% → La Chambre → <strong>Saint-Jean-de-Maurienne</strong>. <strong>Rest day option:</strong> Saint-Jean is the practical choice — year-round working town with full services in all seasons. Saint-François-Longchamp (the Madeleine equivalent of Valloire) is mostly CLOSED mid-June (summer season starts July 4), so it's not viable. From Saint-Jean: Vanoise NP access, Merlet Lakes hike (family-friendly), or harder routes up to 2,600m via Hermillon. Real services, real restaurants, train connections.</td>
-      </tr>
-      <tr style="background:rgba(96,165,250,.07)">
-        <td><strong>Jun 11 ❄</strong></td>
-        <td><strong>Col du Télégraphe + Col de la Croix de Fer</strong><br><small style="color:var(--muted)">was: Rest Day</small></td>
-        <td><strong>Bourg d'Oisans</strong></td>
-        <td class="day-type-epic">Epic</td>
-        <td style="color:#60a5fa">120–140W climbs</td>
-        <td>~85km / ~2,400m. St Jean → Télégraphe → Valloire → <strong>Croix de Fer (2067m)</strong> → Bourg d'Oisans. Good town with restaurants and bike shops. Start conservatively — this was supposed to be a rest day.</td>
-      </tr>
-      <tr style="background:rgba(96,165,250,.07)">
-        <td><strong>Jun 12 ❄</strong></td>
-        <td><strong>Rest Day</strong><br><small style="color:var(--muted)">was: Easy Day → St Michel</small></td>
-        <td><strong>Allemond</strong></td>
-        <td class="day-type-rest">Rest/Hike</td>
-        <td style="color:#60a5fa">—</td>
-        <td>Stay in Allemond (Eau d'Olle valley) — far better hiking base than Bourg d'Oisans. <strong>Lac de Belledonne</strong> (4hrs, 916m↑, wild alpine lake at 2,163m — the standout hike). <strong>Lac du Verney loop</strong> (1hr, flat — easy recovery option). Riders who want to pedal: <strong>Balcony route from Allemond</strong> — avoids Alpe d'Huez crowds, quieter and equally scenic.</td>
-      </tr>
-      <tr style="background:rgba(96,165,250,.07)">
-        <td><strong>Jun 13 ❄</strong></td>
-        <td><strong>Alpe d'Huez + Col de Sarenne + Col du Lautaret</strong><br><small style="color:var(--muted)">was: Télégraphe + Galibier + Lautaret</small></td>
-        <td><strong>Briançon</strong></td>
-        <td class="day-type-epic">Epic</td>
-        <td style="color:#60a5fa">122–142W climbs</td>
-        <td>Allemond → <strong>Alpe d'Huez (21 hairpins)</strong> → Sarenne (1999m) → Lac Chambon → Lautaret (always open) → Briançon. ~75km / ~1,600m. Alternative: <strong>Balcony route from Allemond</strong> → Lautaret → Briançon if Alpe d'Huez feels too crowded or riders want a quieter day. ⚠ Loose gravel on Sarenne descent — brake early. Hotel des Glaciers at Lautaret if stopping short.</td>
-      </tr>
-
-      <tr><td>Jun 14</td><td>Col d'Izoard</td><td>Guillestre</td><td class="day-type-big">Big Climb</td><td>112–131W</td><td>~22% risk — check inforoute05 evening of Jun 13. Fallback: descend Briançon → Guillestre via D902 valley road.</td></tr>
-      <tr><td>Jun 15</td><td>Col de Vars</td><td>Barcelonnette</td><td class="day-type-big">Big Climb</td><td>138–158W</td><td>No significant snow risk at this altitude.</td></tr>
-      <tr><td>Jun 16</td><td>Rest Day</td><td>Barcelonnette</td><td class="day-type-rest">Rest/Hike</td><td>—</td><td>Best hiking: <strong>Chapeau de Gendarme</strong> from Super-Sauze — panoramic Ubaye/Bachelard views, chamois likely. <strong>Tête de Louis XVI</strong> from Méolans — forest walk, Serre-Ponçon views. <strong>Fort Tournoux</strong> — dramatic cliff fortress, shorter option. Sunniest valley in France.</td></tr>
-      <tr><td>Jun 17</td><td>Col de la Cayolle (46mi/7125ft)</td><td>Valberg</td><td class="day-type-epic">Epic <span class="risk-badge risk-mod">⚠ 30% risk</span></td><td>112–131W</td><td>Long and remote. Fuel heavily. No services on col. <strong>Fallback:</strong> Col d'Allos (2250m) → Guillaumes → Valberg. Check inforoute04 morning of Jun 16.</td></tr>
-      <tr><td>Jun 18</td><td>Col de Saint-Martin</td><td>St Martin-Vésubie</td><td class="day-type-big">Climb</td><td>138–158W</td><td>Into the Maritime Alps. Warmer climate.</td></tr>
-      <tr><td>Jun 19</td><td>Col de Turini</td><td>Sospel</td><td class="day-type-big">Climb</td><td>130–150W</td><td>Legendary Monte Carlo Rally climb. Hotel Le Terminus on Tende highway.</td></tr>
-      <tr><td>Jun 20</td><td>Col de Tende → Train</td><td>Cuneo/Ivrea</td><td class="day-type-big">Climb+Train</td><td>130–150W</td><td>Into Italy. Train to Ivrea.</td></tr>
-      <tr><td>Jun 21</td><td>Climb to Aosta</td><td>Aosta</td><td class="day-type-big">Climb</td><td>112–131W</td><td>Train line down. Ride instead.</td></tr>
-      <tr><td>Jun 22</td><td>Grand St Bernard Pass</td><td>Brig</td><td class="day-type-epic">Epic</td><td>121–144W</td><td>Opens May 14 — very safe by Jun 22. Descend to Martigny. Tailwind to Brig.</td></tr>
-      <tr><td>Jun 23</td><td>Furka Pass</td><td>Hotel Tiefenbach</td><td class="day-type-epic">Epic <span class="risk-badge risk-mod">⚠ 22% risk</span></td><td>112–133W</td><td>Stop before headwind. 2,429m summit. <strong>Fallback:</strong> Furka Base Tunnel (car train) open year-round.</td></tr>
-      <tr><td>Jun 24</td><td>Easy Day</td><td>Andermatt</td><td class="day-type-easy">Easy</td><td>&lt;140W</td><td>Short descent day. Recover.</td></tr>
-      <tr><td>Jun 25</td><td>Rest Day</td><td>Andermatt</td><td class="day-type-rest">Rest/Hike</td><td>—</td><td>Hiking. Recharge.</td></tr>
-      <tr><td>Jun 26</td><td>Sustenpass</td><td>Meiringen</td><td class="day-type-big">Climb <span class="risk-badge risk-mod">⚠ 20% risk</span></td><td>128–150W</td><td><strong>Fallback:</strong> Grimsel Pass if Susten still closed.</td></tr>
-      <tr><td>Jun 27–28</td><td>Weather Spare Days</td><td>—</td><td class="day-type-rest">Buffer</td><td>—</td><td>Rest or easy riding as conditions allow.</td></tr>
-      <tr><td>Jun 29 + Jul 2</td><td>Grosse Scheidegg (split)</td><td>Rosenlaui → Lauterbrunnen</td><td class="day-type-big">Climb</td><td>138–158W</td><td>Split over two days. Rosenlaui is stunning. Gässli 446B, Lauterbrunnen.</td></tr>
-      <tr><td>Jul 4</td><td>Jaun Pass</td><td>Charmey</td><td class="day-type-big">Climb</td><td>130–150W</td><td>Final major pass. Enjoy every pedal stroke.</td></tr>
-      <tr><td>Jul 5–6</td><td>Lake Geneva → Geneva</td><td>Lausanne → Geneva</td><td class="day-type-easy">Easy</td><td>—</td><td>Celebratory riding. Pack bikes. Hotel Mövenpick.</td></tr>
-      <tr><td>Jul 7</td><td>Fly Home</td><td>—</td><td class="day-type-rest">Done!</td><td>—</td><td>You did it. 🏔🥂</td></tr>
-    </tbody>
-  </table>
-
-  <hr class="divider">
-  <div class="overview-grid">
-    <div class="info-card">
-      <h4>Fueling on the Alps</h4>
-      <ul>
-        <li><span></span><span class="val-col"><strong style="color:var(--accent2)">Carbs:</strong> 60–80g/hr on any ride over 90 min. Mix of gels, bars, and real food (pain au chocolat at cafés!)</span></li>
-        <li><span></span><span class="val-col"><strong style="color:var(--accent2)">Hydration:</strong> 500–750ml/hr depending on heat. Add electrolytes on long cols.</span></li>
-        <li><span></span><span class="val-col"><strong style="color:var(--accent2)">Breakfast:</strong> Big carb-heavy breakfast 2–3 hours before riding. Non-negotiable in Europe.</span></li>
-        <li><span></span><span class="val-col"><strong style="color:var(--accent2)">Dinner:</strong> Carb-heavy evening meal. Pasta, risotto, bread. Replenish glycogen each night.</span></li>
-      </ul>
-    </div>
-    <div class="info-card">
-      <h4>Equipment Checklist</h4>
-      <ul>
-        <li><span></span><span class="val-col">34T inner chainring + 32T cassette minimum. The Madeleine N side (25.9km avg 6.5%) and Sarenne are both tandem-heavy climbs.</span></li>
-        <li><span></span><span class="val-col">Disc brakes: check pads before the trip. Sarenne descent has loose gravel — brake early and often.</span></li>
-        <li><span></span><span class="val-col">Arm/leg warmers every day — alpine mornings are cold even in June.</span></li>
-        <li><span></span><span class="val-col">Rain jacket always in back pocket.</span></li>
-        <li><span></span><span class="val-col">CO₂ cartridges and spare tubes — Sarenne in particular has rough road surface.</span></li>
-      </ul>
-    </div>
-    <div class="info-card" style="border-color:rgba(96,165,250,.25)">
-      <h4 style="color:#60a5fa">What You Trade Away</h4>
-      <ul>
-        <li><span></span><span class="val-col"><strong>Col de l'Iseran (2,764m)</strong> — current forecast: likely open Jun 10. ✅ Check inforoute73.fr from Jun 1 to confirm. The Madeleine contingency remains available if conditions change.</span></li>
-        <li><span></span><span class="val-col"><strong>Col du Galibier (2,642m)</strong> — current forecast: likely open by Jun 13. Galibier Challenge cyclosportive scheduled Jun 6-7 (the first high-mountain cyclosportive of the year, by definition after road opening) — strong signal road will be open well before your Jun 13 date. Tunnel typically opens late May, summit 1-2 weeks later. Heat wave has accelerated melt. Allemond contingency route remains as backup if conditions change. Check inforoute05.fr nightly from Jun 1.</span></li>
-      </ul>
-    </div>
-    <div class="info-card" style="border-color:rgba(96,165,250,.25)">
-      <h4 style="color:#60a5fa">What You Gain</h4>
-      <ul>
-        <li><span></span><span class="val-col"><strong>Alpe d'Huez</strong> — 21 switchbacks, 1,130m climbing, every hairpin named after a Tour de France winner. As historic as Galibier and actually rideable in early June.</span></li>
-        <li><span></span><span class="val-col"><strong>Col de la Croix de Fer (2,067m)</strong> — beautiful, quiet pass through the Belledonne range. Excellent road, dramatic scenery, far less trafficked than Galibier.</span></li>
-        <li><span></span><span class="val-col"><strong>Peace of mind.</strong> No day stranded at a closed summit with a loaded tandem and an 11-year-old stoker.</span></li>
-      </ul>
     </div>
   </div>
 </div>
