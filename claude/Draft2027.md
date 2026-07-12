@@ -97,8 +97,8 @@ Status: first draft, June 2027 (dates TBD). Tandem with Boen (12) as stoker. **N
 | 25 | La Punt → Zernez → **Scuol** | Gentle Inn descent. Spa town — optional rest day here |
 | 26 | Scuol → Martina → Pfunds → **Landeck** | Downhill valley |
 | 27 | Landeck → St. Anton → **ARLBERG PASS (1,793m)** → **Flexenpass (1,773m)** → **Lech / Warth** | ⚠ **Silvretta is closed until 2030 — see below.** Arlberg is the fallback. Not much fun (trunk road, dull grind from Landeck), but through traffic uses the tunnel. Flexenpass is good as a descent. Lech 1,450m / Warth 1,500m — high nights |
-| 28 | Warth → **HOCHTANNBERGPASS (1,676m)** → Schröcken → **Bregenzerwald** (Au / Bezau) | Drops into the Bregenzerwald from above — still avoids the industrial Rheintal |
-| 29 | Bregenzerwald → Bregenz → **Lindau** | |
+| 28 | Warth → **HOCHTANNBERGPASS (1,676m)** → Schröcken → Au → **BEZAU** | Drops into the Bregenzerwald from above. Bezau is the valley hub (Wälderbahn terminus, lodging). Au and Egg are alternatives |
+| 29 | Bezau → Egg → Dornbirn → **LINDAU** | The Rheintal descent is the dull stretch of the tour, but it's one afternoon and it buys a clean train home |
 | 30 | **Lindau → train → Munich** | ~2.5 hrs. **No reservations needed** — Bayern-Ticket + per-bike day tickets bought at Lindau, as done in 2025. Take the first train of the morning: bike space on the RE is first-come and later trains fill |
 
 **30 days total.** Three days of recoverable slack (see bases section) if the tour runs behind.
@@ -153,18 +153,32 @@ Landeck is the fork. All three work; pick based on how the legs and the weather 
 | Day | Stage |
 |---|---|
 | 27 | Landeck → St. Anton → **Arlberg (1,793m)** → **Flexenpass (1,773m)** → Lech / Warth |
-| 28 | Warth → **Hochtannbergpass (1,676m)** → Schröcken → Bregenzerwald |
-| 29 | Bregenzerwald → Bregenz → **Lindau** |
+| 28 | Warth → **Hochtannbergpass (1,676m)** → Schröcken → Au → **Bezau** |
+| 29 | Bezau → Egg → Dornbirn → **Lindau** |
 | 30 | Lindau → train → Munich |
 
-**For:** three more passes, high nights at Lech/Warth (1,450–1,500m), drops into the Bregenzerwald from above, avoids the industrial Rheintal.
-**Against:** **Arlberg is not much fun** — trunk road, dull grind from Landeck. Already ridden.
+**For:** three more passes, high nights at Lech/Warth (1,450–1,500m), drops into the Bregenzerwald from above.
+**Against:** **Arlberg is not much fun** — trunk road, dull grind from Landeck. Already ridden. Ends with the Rheintal descent.
+
+*(Bregenzerwald is a region, not a town. The towns are Schröcken, Au, Bezau, Egg, Alberschwende. Bezau is the hub.)*
 
 ### B. Zeinisjoch → Montafon → Bregenzerwald → Lindau *(if it goes)*
 
-Preserves the Paznaun, keeps **Galtür** as a high stop, reaches the Vorarlberg side without the closed Silvretta road, and puts **Bielerhöhe back in reach** as an out-and-back from Galtür. The Arlberg Giro is expected to reroute this way.
+| Day | Stage |
+|---|---|
+| 27 | Landeck → Paznaun → **Galtür (1,584m)** |
+| 28 | *(optional: **Bielerhöhe** out-and-back from Galtür, ~450m)* → **Zeinisjoch (1,842m)** → Kops → Partenen → **Bludenz** |
+| 29 | Bludenz → **Faschinajoch (1,486m)** or **Furkajoch (1,761m)** → Damüls → Au → Bezau → Dornbirn → **Lindau** |
+| 30 | Lindau → train → Munich |
 
-**⚠ ACTION: ask Mark.** He rode Zeinisjoch in 2025 — need surface, gradient, and whether the Kops/Partenen connection goes on a loaded tandem. If it goes, this replaces A and Arlberg is dropped.
+B isn't really a different finish — it rejoins A's line in the Bregenzerwald. It's a different way over the same barrier: **swaps Arlberg's trunk-road grind for Zeinisjoch's dirt question**, and restores Galtür and Bielerhöhe, which is the real prize. Cost: Bludenz (588m) comes back into the itinerary, so it's a lower line than A.
+
+**⚠ ACTION: ask Mark.** He rode Zeinisjoch in 2025. Three things needed:
+1. **Where** is the unpaved section, and **how steep** is it there?
+2. Does the **Kops → Partenen descent** connect on a public paved road? — *this is the piece that could kill option B entirely; Zeinisjoch reaching Kops does not automatically get you down to Partenen.*
+3. Would it go on a loaded tandem?
+
+A "90–95% asphalt" figure is circulating (via Gemini) — **treat as an unsourced hypothesis, not verification.** On a ~10km pass that leaves 500m–1km unpaved, and *where* it sits is everything. Reference class: Val Alpisella cost 45 min of walking; Col des Mosses 2026 produced more gravel than the rest of the tour combined despite looking fine on paper.
 
 ### C. Inn valley → Mittenwald → ride home to Munich
 
@@ -181,6 +195,10 @@ Preserves the Paznaun, keeps **Galtür** as a high stop, reaches the Vorarlberg 
 - **Silvretta** — closed until summer 2030 (above).
 - **Hahntennjoch** — 18% out of Imst. Disqualifying loaded.
 - **Fernpass** — tunnelled trunk road, worse.
+- **Allgäu exit (Oberstdorf / Immenstadt / Kempten)** — investigated and rejected. The idea was to skip the Rheintal descent by riding out the top of the Bregenzerwald. But **no direct Oberstdorf–Munich train** (all change at Memmingen), and Immenstadt is mid-route boarding on the Lindau line. **Lindau's advantage is that it's an origin station** — the bike spaces start empty on the first train of the morning. A change with a loaded tandem, or boarding a train whose racks are already full, cancels that.
+- **Bregenz** — no direct train to Munich either.
+
+**→ Lindau it is.** Bayern-Ticket + per-bike day tickets, no reservations, first train of the morning. Proven in 2025.
 
 ---
 
