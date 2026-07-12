@@ -1,6 +1,6 @@
 # Alps 2027 — Draft Tour Plan
 
-**Munich → Dolomites → Stelvio → Bernina → Graubünden → Silvretta → Bodensee → Munich**
+**Munich → Dolomites → Stelvio → Bernina → Graubünden → Arlberg/Bregenzerwald → Bodensee → Munich**
 
 Status: first draft, June 2027 (dates TBD). Tandem with Boen (12) as stoker. **No support vehicle** — everything carried on the bikes, and all transfers by train. Bowen likely not on this trip (high school).
 
@@ -36,7 +36,7 @@ Status: first draft, June 2027 (dates TBD). Tandem with Boen (12) as stoker. **N
 2. **Val Gardena 3 nights → 2.** Seceda was done in 2025, so it's the droppable one; Alpe di Siusi / Sassolungo carry the stop.
 3. **Bormio 3 nights → 2.** Drops the rest day or the Mortirolo day. Cheap to trim, painful to lose.
 
-**Three days of recoverable slack.** The Galtür split is *not* slack — Landeck → Bludenz in one day is long, and every tandem tour has broken it at Galtür. It stays.
+**Three days of recoverable slack.**
 
 ---
 
@@ -90,15 +90,15 @@ Status: first draft, June 2027 (dates TBD). Tandem with Boen (12) as stoker. **N
 | 23 | **BERGÜN — railway adventure hike** | The 2025 highlight. Albula line spirals, viaducts, tunnels |
 | 24 | Bergün → **ALBULA (2,312m)** → La Punt | ~1,100m on fresh legs. Climb from the Bergün side (railway spirals), descend into the Engadine — which points straight down the Inn |
 
-### Inn valley → Silvretta → home
+### Inn valley → Arlberg → Bregenzerwald → home
 
 | Day | Stage | Notes |
 |---|---|---|
 | 25 | La Punt → Zernez → **Scuol** | Gentle Inn descent. Spa town — optional rest day here |
 | 26 | Scuol → Martina → Pfunds → **Landeck** | Downhill valley |
-| 27 | Landeck → Paznaun → **GALTÜR (1,584m)** | Short day. Splits the long Silvretta stage, puts Bielerhöhe on fresh legs, keeps a high night |
-| 28 | Galtür → **BIELERHÖHE / Silvretta (2,032m)** → Partenen → Bludenz | Hairpins on fresh legs instead of after a 60km valley grind |
-| 29 | Bludenz → **Faschinajoch (1,486m)** or **Furkajoch (1,761m)** → Bregenzerwald → Bregenz/Lindau | Skips the industrial Rheintal, which is the dullest riding on the route and a weak note to end on |
+| 27 | Landeck → St. Anton → **ARLBERG PASS (1,793m)** → **Flexenpass (1,773m)** → **Lech / Warth** | ⚠ **Silvretta is closed until 2030 — see below.** Arlberg is the fallback. Not much fun (trunk road, dull grind from Landeck), but through traffic uses the tunnel. Flexenpass is good as a descent. Lech 1,450m / Warth 1,500m — high nights |
+| 28 | Warth → **HOCHTANNBERGPASS (1,676m)** → Schröcken → **Bregenzerwald** (Au / Bezau) | Drops into the Bregenzerwald from above — still avoids the industrial Rheintal |
+| 29 | Bregenzerwald → Bregenz → **Lindau** | |
 | 30 | **Lindau → train → Munich** | ~2.5 hrs. **No reservations needed** — Bayern-Ticket + per-bike day tickets bought at Lindau, as done in 2025. Take the first train of the morning: bike space on the RE is first-come and later trains fill |
 
 **30 days total.** Three days of recoverable slack (see bases section) if the tour runs behind.
@@ -123,7 +123,7 @@ Highest sleep on this route is ~1,816m (Livigno), well inside proven territory �
 | 22–23 | **Bergün** | 1,367m | Two nights — railway hike day. **No Thusis night** (720m, thin lodging) |
 | 24 | La Punt | 1,687m | |
 | 25 | Scuol | 1,250m | Marginal |
-| 27 | **Galtür** | 1,584m | Splits the Silvretta stage |
+| 27 | **Lech / Warth** | 1,450–1,500m | Arlberg/Flexen day |
 
 ### One structural low sag
 
@@ -131,8 +131,18 @@ Highest sleep on this route is ~1,816m (Livigno), well inside proven territory �
 
 **Merano (~325m, night 10)** is also low, but it's a single night and the Trafoi stop the following evening restores altitude before Stelvio. Merano is the better town regardless — this is a lodging-quality call, not an altitude one.
 
-### Silvretta split at Galtür — standard, not optional
-Landeck → Bielerhöhe → Bludenz in one go is ~90km and finishes at **588m**. **Every tandem tour has split this at Galtür (1,584m)** — short day in, Bielerhöhe on fresh legs the next morning, high night preserved, and Galtür itself is a very nice break. This is the way it's done, not a luxury. Do not treat it as slack.
+### ⚠ Silvretta Hochalpenstraße — CLOSED UNTIL 2030
+Rockfalls and mudslides in summer 2024 closed the road; a further incident in July 2025 killed that season, and geological modelling ruled out 2026. Road realignments and protective dams run across **three construction seasons 2027–2029**, reopening targeted for **summer 2030**.
+
+- **Vorarlberg side (Partenen → Bielerhöhe): CLOSED.** The classic 34-hairpin climb is out.
+- **Tyrolean side (Galtür → Vermuntsee): open, toll-free.**
+- **Net effect: Bielerhöhe is a dead end.** You can ride up from Galtür but cannot descend to Partenen and Bludenz. The old Days 26–29 are dead.
+
+**Current plan: Arlberg + Flexen + Hochtannberg** (three passes instead of one, drops into the Bregenzerwald from above). Honest assessment: **Arlberg is not much fun** — trunk road, dull grind from Landeck — but through traffic uses the tunnel and Flexenpass is good as a descent.
+
+**Alternative worth investigating: ZEINISJOCH.** The Arlberg Giro is expected to reroute over it. It would preserve the Paznaun, keep Galtür as a high stop, reach the Vorarlberg side without the closed Silvretta road, and put Bielerhöhe back in reach as an out-and-back from Galtür. **Mark rode it in 2025 — ask him about surface, gradient, and whether the Kops/Partenen connection goes on a loaded tandem.** If it goes, the finish reverts to roughly its original shape and Arlberg is dropped.
+
+**Note the geography is binary:** between the Inn valley and Vorarlberg there is Silvretta (closed), Zeinisjoch, or Arlberg. There is no third way.
 
 ---
 
@@ -179,7 +189,8 @@ The tour must fit between them. **June, and the dates have less slack than they 
 - **Lindau → Munich is solved:** Bayern-Ticket + per-bike day tickets, no reservations, first train of the morning. Done successfully in 2025.
 
 ### Route branches closed
-- ~~Hahntennjoch ride-home to Munich~~ — 18% out of Imst, disqualifying for a loaded tandem. Fernpass is a tunnelled trunk road and worse. **Silvretta → Bodensee → train is the finish.**
+- ~~Hahntennjoch ride-home to Munich~~ — 18% out of Imst, disqualifying for a loaded tandem. Fernpass is a tunnelled trunk road and worse.
+- ~~Silvretta Hochalpenstraße~~ — **closed until summer 2030.** Was the planned finish; now dead. Replaced by Arlberg (or Zeinisjoch if it goes).
 - ~~Bellinzona / Milan exit~~ — valley heat. San Bernardino is ridden as an up-and-back from Splügen, never descended.
 
 ---
