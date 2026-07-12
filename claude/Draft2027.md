@@ -142,7 +142,45 @@ Rockfalls and mudslides in summer 2024 closed the road; a further incident in Ju
 
 **Alternative worth investigating: ZEINISJOCH.** The Arlberg Giro is expected to reroute over it. It would preserve the Paznaun, keep Galtür as a high stop, reach the Vorarlberg side without the closed Silvretta road, and put Bielerhöhe back in reach as an out-and-back from Galtür. **Mark rode it in 2025 — ask him about surface, gradient, and whether the Kops/Partenen connection goes on a loaded tandem.** If it goes, the finish reverts to roughly its original shape and Arlberg is dropped.
 
-**Note the geography is binary:** between the Inn valley and Vorarlberg there is Silvretta (closed), Zeinisjoch, or Arlberg. There is no third way.
+---
+
+## The endgame — three finishes, decided on the ground
+
+Landeck is the fork. All three work; pick based on how the legs and the weather feel after 26 days. **Same day count (~30) in every case.**
+
+### A. Arlberg → Bregenzerwald → Lindau *(current default)*
+
+| Day | Stage |
+|---|---|
+| 27 | Landeck → St. Anton → **Arlberg (1,793m)** → **Flexenpass (1,773m)** → Lech / Warth |
+| 28 | Warth → **Hochtannbergpass (1,676m)** → Schröcken → Bregenzerwald |
+| 29 | Bregenzerwald → Bregenz → **Lindau** |
+| 30 | Lindau → train → Munich |
+
+**For:** three more passes, high nights at Lech/Warth (1,450–1,500m), drops into the Bregenzerwald from above, avoids the industrial Rheintal.
+**Against:** **Arlberg is not much fun** — trunk road, dull grind from Landeck. Already ridden.
+
+### B. Zeinisjoch → Montafon → Bregenzerwald → Lindau *(if it goes)*
+
+Preserves the Paznaun, keeps **Galtür** as a high stop, reaches the Vorarlberg side without the closed Silvretta road, and puts **Bielerhöhe back in reach** as an out-and-back from Galtür. The Arlberg Giro is expected to reroute this way.
+
+**⚠ ACTION: ask Mark.** He rode Zeinisjoch in 2025 — need surface, gradient, and whether the Kops/Partenen connection goes on a loaded tandem. If it goes, this replaces A and Arlberg is dropped.
+
+### C. Inn valley → Mittenwald → ride home to Munich
+
+| Day | Stage |
+|---|---|
+| 27 | Landeck → Innradweg → **Innsbruck** (~75km, gentle valley path) |
+| 28 | **Train Innsbruck → Scharnitz/Mittenwald** (skips the Zirler Berg — 16% on a trunk road, no cycling value), ride on from Mittenwald |
+| 29 | Mittenwald → Garmisch/Murnau/Starnberger See or the Isar corridor → **Munich** |
+
+**For:** **closes the loop by bike — finishes at the front door**, no Lindau train, no Arlberg. Scharnitz → Mittenwald under the Karwendel is genuinely lovely riding.
+**Against:** the Inn valley run is a bike-path day, not an alpine one. **No more passes after Albula** — either a graceful wind-down or an anticlimax after 26 days. Taste, not routing.
+
+### What's ruled out
+- **Silvretta** — closed until summer 2030 (above).
+- **Hahntennjoch** — 18% out of Imst. Disqualifying loaded.
+- **Fernpass** — tunnelled trunk road, worse.
 
 ---
 
