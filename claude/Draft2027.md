@@ -2,7 +2,7 @@
 
 **Munich → Dolomites → Stelvio → Bernina → Graubünden → Silvretta → Bodensee → Munich**
 
-Status: first draft, June 2027 (dates TBD). Tandem with Boen (12) as stoker; Xiaoqin + Bowen in support vehicle with hiking as their primary activity.
+Status: first draft, June 2027 (dates TBD). Tandem with Boen (12) as stoker. **No support vehicle** — everything carried on the bikes, and all transfers by train. Bowen likely not on this trip (high school).
 
 ---
 
@@ -11,7 +11,8 @@ Status: first draft, June 2027 (dates TBD). Tandem with Boen (12) as stoker; Xia
 1. **Fixed bases, optional rides.** The 2026 Hospental model: lock lodging for multiple nights, let weather decide which rides happen. Oberalp and Gotthard were bonuses, not schedule. No floating "weather spare days" — resilience lives in the structure.
 2. **Train the segments with no cycling value.** Ride what's worth riding.
 3. **Paved corridors for the loaded tandem.** Cross-check Google Maps paved routing against RWGPS/Komoot, which snap to Veloland/unpaved connectors (see 2026 Col des Mosses).
-4. **Captain power 100–125W NP on big cols.** Proven range across the entire 2026 tour.
+4. **No support vehicle.** Self-supported on the bikes; all transfers by train. The multi-night bases mean luggage sits still on rest days and bonus rides.
+5. **Captain power 100–125W NP on big cols.** Proven range across the entire 2026 tour.
 
 ---
 
@@ -49,14 +50,14 @@ Status: first draft, June 2027 (dates TBD). Tandem with Boen (12) as stoker; Xia
 | 2 | Achenpass → Jenbach → Inn valley → **Innsbruck** | |
 | 3 | **Train Innsbruck → Brenner summit** (or Sterzing), ride Eisacktal → Bruneck | Brenner is a motorway corridor with no cycling value. Free descent if you start from the summit |
 | 4 | **Train Bruneck → Toblach**, ride Toblach → Landro → **MISURINA** | Skips the dull Pustertal uphill drag. ~700m of real climbing, arrive fresh. Natural weather-absorption day if the front end runs late |
-| 5 | **MISURINA — Tre Cime hike** | Xiaoqin/Bowen's headline hike |
+| 5 | **MISURINA — Tre Cime hike** | The headline hike of the Dolomites block |
 
 ### Dolomites
 
 | Day | Stage | Notes |
 |---|---|---|
 | 6 | Misurina → Cortina → **Falzarego (2,105m)** + **Valparola (2,192m)** → Corvara | |
-| 7 | **Sella Ronda**: Campolongo → Pordoi (2,239m) → Sella (2,244m) → Plan de Gralba → Selva | **3 passes, ~1,700m.** ⚠ Passo Gardena (2,121m) is *not* on the line to Selva — the road forks at Plan de Gralba and Gardena leads back east to Corvara. Getting it means a ~320m out-and-back spur from Plan de Gralba (~40 min), which pushes the day to ~2,000m. **Realistically nobody opts for this on a loaded tandem at the end of a three-pass day — 3 of 4 is fine.** (If luggage is in the support car, as in 2026, the spur becomes plausible.) Alternative: sleep in Corvara, ride the closed loop properly, transfer to Selva next morning — but that costs a Val Gardena night |
+| 7 | **Sella Ronda**: Campolongo → Pordoi (2,239m) → Sella (2,244m) → Plan de Gralba → Selva | **3 passes, ~1,700m.** ⚠ Passo Gardena (2,121m) is *not* on the line to Selva — the road forks at Plan de Gralba and Gardena leads back east to Corvara. Getting it means a ~320m out-and-back spur from Plan de Gralba (~40 min), which pushes the day to ~2,000m. **Realistically nobody opts for this on a loaded tandem at the end of a three-pass day — 3 of 4 is fine.** Alternative: sleep in Corvara, ride the closed loop properly, transfer to Selva next morning — but that costs a Val Gardena night |
 | 8–9 | **VAL GARDENA* — 3 nights, hiking** | Alpe di Siusi, Sassolungo, Seceda. ***Cuttable to 2 nights if behind** — Seceda was done in 2025, so it's the one to drop. Book **Selva/Wolkenstein (1,563m)**, not Ortisei (1,236m) |
 
 ### To Stelvio
