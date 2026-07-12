@@ -147,6 +147,26 @@ Val Alpisella (the Cancano→Livigno link) was ridden in 2024 with Boen on a loa
 
 **Torri di Fraele → Lago Cancano is paved and is an out-and-back from Bormio** (~700–800m), so Cancano is available as a Bormio rider's-choice-day bonus without touching Alpisella at all.
 
+### ⚠ Train line closures — check winter 2026/27
+
+**Three of the four Italian/Austrian train segments run on lines under active multi-year construction.** The 2025 Bolzano–Merano surprise (which forced an unplanned century) is the failure mode to avoid; the 2026 Ivrea–Aosta closure went fine *because it was known early*.
+
+**The universal gotcha: bikes are not allowed on rail replacement buses.** Every South Tyrol closure notice says so. When a line goes down, the bus won't take you — you ride.
+
+| Segment | Line status | If it's down |
+|---|---|---|
+| **Pustertal** (Bruneck→Toblach) | ⚠ **Works continue until mid-2027**, incl. the new Riggertal link. Currently full service. ETCS closures already happened spring 2026 | **Costs a full day** — ~30km uphill false-flat on a loaded tandem is its own day, not an add-on. **Check this one first** |
+| **Brenner** (Innsbruck→summit) | ÖBB has shut Innsbruck–Bolzano **18 Jul–1 Aug in both 2025 and 2026**. Replacement buses explicitly carry no bikes | **Costs a full day** — Innsbruck (574m) → Brenner (1,370m) is ~800m of climbing, and the Eisacktal descent to Bruneck still has to happen after it. **A June tour clears the window** |
+| **Vinschgau** (Merano→Spondinig/Prad) | Fully closed Oct 2025–Mar 2026 for electrification; resumed 29 Mar 2026, initially reduced. Spondinig is on the weaker western half | Costs a **hard day, not a day**: Merano→Trafoi under own power ≈ 65km / 1,200m. Also check whether the **BikeLiner bike shuttle** (Merano→Mals, ran 18 Apr–4 Oct 2026) still operates — it exists precisely because the buses won't carry bikes |
+| **Holzkirchen** (Munich S-Bahn) | No known works | Costs dullness + the flat-inducing Isar path |
+
+### The calendar squeeze
+**Stelvio pushes the tour later; the Brenner summer closure pushes it earlier.** Stelvio (2,758m) is the sole snow constraint setting the earliest start. ÖBB has now closed the Brenner line 18 Jul–1 Aug two years running — if that becomes an annual pattern, it sets a practical *latest* finish. The tour has to live in the window between them. **June is the answer, and there is less slack in the dates than there looks.**
+
+**Where to check:** suedtirolmobil.info and oebb.at. South Tyrol publishes closures several months ahead; ÖBB announces summer works from late summer of the prior year. **Verification window: winter 2026/27.**
+
+**Recovery:** any day lost to a closure comes out of the slack ladder — San Bernardino first, then Gardena, then Bormio. The slack is fungible; it doesn't matter where in the tour the day is lost.
+
 ### Train / tandem logistics
 - **Tandems count differently by operator** (one bike in Germany, two in Switzerland — 2025 Dolomites experience). Verify for: ÖBB Brenner regional, Bruneck–Toblach regional, and the RhB (Schinstrasse section).
 - **Lindau → Munich is solved:** Bayern-Ticket + per-bike day tickets, no reservations, first train of the morning. Done successfully in 2025.
