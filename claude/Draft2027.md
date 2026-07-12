@@ -130,7 +130,7 @@ Day 26 (Landeck → Bielerhöhe → Bludenz, ~90km) is the longest of the back h
 
 ### Snow / opening dates
 - **Stelvio (2,758m)** — **the sole binding constraint.** Sets the earliest start date. Everything else on the route is 2,000–2,330m and low-risk by mid-June.
-- **Forcola di Livigno (2,315m)** — opens later than Stelvio-adjacent passes, but **not a constraint**: the Munt la Schera tunnel runs a cheap bike shuttle to Zernez. Worth knowing the opening date, but it doesn't drive the calendar.
+- **Forcola di Livigno (2,315m)** — opens later than Stelvio-adjacent passes, but **not a constraint**. Full fallback if closed or weathered out: **Munt la Schera tunnel bike shuttle (cheap) → Ova Spin → RhB train Zernez → Pontresina.** Easy, just expensive in Swiss francs. Note this route skips Bernina's south side, which is the good part of Day 17 — a real loss, not a free swap. But it means Forcola is never a stranding risk.
 
 ### Cancano / Val Alpisella
 Val Alpisella (the Cancano→Livigno link) was ridden in 2024 with Boen on a loaded tandem, 32mm tires: **45 minutes of walking.** Beautiful, no traffic. With 38mm tires it may go — but it is not a routing commitment. Foscagno/Eira is the paved default into Livigno.
