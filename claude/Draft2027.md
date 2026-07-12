@@ -68,7 +68,7 @@ Weather resilience lives in the bases: if a bonus ride is rained out, nothing mo
 | 13 | **BORMIO — true rest day** | Thermal baths. Recovery placed the day after Stelvio, where it does the most good. Luggage sits still |
 | 14 | **BORMIO — Mortirolo day** (rider's choice) | The 2024 pattern. Alternatives if legs disagree: **Gavia** out-and-back (~1,400m), or **Torri di Fraele → Lago Cancano** paved out-and-back (~700–800m, the easy option) |
 | 15 | Bormio → **Livigno** — **exit choice, see below** | **(a) Foscagno (2,291m) + Eira (2,208m)** — paved default. **(b) Torri di Fraele → Lago Cancano → Val Alpisella** — the 2024 exit: beautiful, no traffic, and ~45 min of hike-a-bike on 32mm tires. On 38s, off a 3-night base with fresh legs, this is a live choice |
-| 16 | Livigno → **Forcola di Livigno (2,315m)** → Poschiavo | **Livigno = 1 night.** ⚠ **Track Forcola's opening date.** Munt la Schera tunnel is NOT a bike fallback (bikes prohibited, shuttle only). A closed Forcola means a bus or a re-route |
+| 16 | Livigno → **Forcola di Livigno (2,315m)** → Poschiavo | **Livigno = 1 night.** Forcola opens later than people expect — but the **Munt la Schera tunnel bike shuttle is a cheap, easy fallback** to Zernez. Not a single point of failure |
 | 17 | Poschiavo → **BERNINA (2,328m)** full south side → Pontresina | Brusio spiral viaduct en route |
 | 18 | **PONTRESINA — rest day (2 nights total)** | Best hiking on the route: Val Roseg, Morteratsch glacier + Boval hut, **Diavolezza** cable car (2,973m, Piz Palü/Bernina glacier panorama), **Muottas Muragl** funicular + Alp Languard panorama trail. Glaciers and 4,000m peaks with lift-assisted options. **Sporthotel does laundry** — lands near the tour midpoint, which is exactly where you want it |
 
@@ -129,8 +129,8 @@ Day 26 (Landeck → Bielerhöhe → Bludenz, ~90km) is the longest of the back h
 ## Open items to resolve
 
 ### Snow / opening dates
-- **Stelvio (2,758m)** — the binding constraint. Sets the earliest start date. Everything else on the route is 2,000–2,330m and low-risk by mid-June.
-- **Forcola di Livigno (2,315m)** — opens later than people expect, and has **no bike-legal workaround**. Verify typical opening date before fixing the itinerary.
+- **Stelvio (2,758m)** — **the sole binding constraint.** Sets the earliest start date. Everything else on the route is 2,000–2,330m and low-risk by mid-June.
+- **Forcola di Livigno (2,315m)** — opens later than Stelvio-adjacent passes, but **not a constraint**: the Munt la Schera tunnel runs a cheap bike shuttle to Zernez. Worth knowing the opening date, but it doesn't drive the calendar.
 
 ### Cancano / Val Alpisella
 Val Alpisella (the Cancano→Livigno link) was ridden in 2024 with Boen on a loaded tandem, 32mm tires: **45 minutes of walking.** Beautiful, no traffic. With 38mm tires it may go — but it is not a routing commitment. Foscagno/Eira is the paved default into Livigno.
