@@ -155,7 +155,7 @@ Val Alpisella (the Cancano→Livigno link) was ridden in 2024 with Boen on a loa
 
 | Segment | Line status | If it's down |
 |---|---|---|
-| **Pustertal** (Bruneck→Toblach) | ⚠ **Works continue until mid-2027**, incl. the new Riggertal link. Currently full service. ETCS closures already happened spring 2026 | **Costs a full day** — ~30km uphill false-flat on a loaded tandem is its own day, not an add-on. **Check this one first** |
+| **Pustertal** (Bruneck→Toblach) | Closed **30 Mar – 28 Apr 2026** for **ETCS signalling upgrade** + maintenance on the Bruneck–Innichen section. Routine rollout, not civil engineering, and deliberately placed in the spring shoulder window | **Costs a full day** — ~30km uphill false-flat on a loaded tandem is its own day, not an add-on. **Check this one first.** ⚠ *Not* a Riggertal issue: Riggertal is at the western end (Brixen/Vahrn/Natz-Schabs), doesn't touch Bruneck→Toblach, and was Olympic infrastructure due to open before Feb 2026 — it should already be finished |
 | **Brenner** (Innsbruck→summit) | ÖBB has shut Innsbruck–Bolzano **18 Jul–1 Aug in both 2025 and 2026**. Replacement buses explicitly carry no bikes | **Costs a full day** — Innsbruck (574m) → Brenner (1,370m) is ~800m of climbing, and the Eisacktal descent to Bruneck still has to happen after it. **A June tour clears the window** |
 | **Vinschgau** (Merano→Spondinig/Prad) | Fully closed Oct 2025–Mar 2026 for electrification; resumed 29 Mar 2026, initially reduced. Spondinig is on the weaker western half | Costs a **hard day, not a day**: Merano→Trafoi under own power ≈ 65km / 1,200m. Also check whether the **BikeLiner bike shuttle** (Merano→Mals, ran 18 Apr–4 Oct 2026) still operates — it exists precisely because the buses won't carry bikes |
 | **Holzkirchen** (Munich S-Bahn) | No known works | Costs dullness + the flat-inducing Isar path |
@@ -163,7 +163,9 @@ Val Alpisella (the Cancano→Livigno link) was ridden in 2024 with Boen on a loa
 ### The calendar squeeze
 **Stelvio pushes the tour later; the Brenner summer closure pushes it earlier.** Stelvio (2,758m) is the sole snow constraint setting the earliest start. ÖBB has now closed the Brenner line 18 Jul–1 Aug two years running — if that becomes an annual pattern, it sets a practical *latest* finish. The tour has to live in the window between them. **June is the answer, and there is less slack in the dates than there looks.**
 
-**Where to check:** suedtirolmobil.info and oebb.at. South Tyrol publishes closures several months ahead; ÖBB announces summer works from late summer of the prior year. **Verification window: winter 2026/27.**
+**The one question to ask, winter 2026/27:** *is there an ETCS or maintenance closure planned on Bruneck–Innichen for 2027, and is it in the spring shoulder window or the summer?* Both the 2026 Pustertal ETCS closure (Mar–Apr) and the Vinschgau electrification closure (Oct–Mar) were placed outside the tourist season. If that pattern holds, a June tour is clear.
+
+**Where to check:** suedtirolmobil.info and oebb.at. South Tyrol publishes closures several months ahead; ÖBB announces summer works from late summer of the prior year.
 
 **Recovery:** any day lost to a closure comes out of the slack ladder — San Bernardino first, then Gardena, then Bormio. The slack is fungible; it doesn't matter where in the tour the day is lost.
 
