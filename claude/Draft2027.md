@@ -15,21 +15,27 @@ Status: first draft, June 2027 (dates TBD). Tandem with Boen (12) as stoker; Xia
 
 ---
 
-## The five bases
+## The six bases
 
 | Base | Nights | Anchor | Bonus ride (weather-optional) |
 |---|---|---|---|
 | **Misurina** | 2 | Tre Cime di Lavaredo | Cadini di Misurina |
-| **Val Gardena** | 3 | Seceda, Alpe di Siusi, Sassolungo | Second Dolomite loop / Sella from another side |
-| **Bormio** | **3** | Rest day + Mortirolo day (the 2024 pattern) | **Rider's choice:** Mortirolo · Gavia out-and-back · Torri di Fraele/Cancano |
+| **Val Gardena*** | 3 | Alpe di Siusi, Sassolungo, Seceda | Second Dolomite loop / Sella from another side |
+| **Bormio*** | **3** | Rest day + Mortirolo day (the 2024 pattern) | **Rider's choice:** Mortirolo · Gavia out-and-back · Torri di Fraele/Cancano |
 | **Pontresina** | 2 | Val Roseg, Morteratsch, Diavolezza, Muottas Muragl | — (laundry stop; tour midpoint) |
-| **Splügen** | 2 | Rheinwald | **San Bernardino** (~600m, half day) |
+| **Splügen** | 2 | Rheinwald | **San Bernardino*** (~600m, half day) |
+| **Bergün** | 2 | **Albula railway adventure hike** (done 2025 — "awesome") | Partial Albula spin |
 
 **Livigno is a single mandatory overnight, not a base** — the traverse in and out is too much for one day.
 
-**One unassigned spare day remains** — natural home is the Galtür split of the Silvretta day (see below).
+**All spare days assigned.** Weather resilience lives in the bases: if a bonus ride is rained out, nothing moves.
 
-Weather resilience lives in the bases: if a bonus ride is rained out, nothing moves.
+### * Slack — what gets cut if running behind, in order
+1. **San Bernardino (Day 21).** Drops a full day. First to go — a bonus out-and-back, not a link in the route.
+2. **Val Gardena 3 nights → 2.** Seceda was done in 2025, so it's the droppable one; Alpe di Siusi / Sassolungo carry the stop.
+3. **Bormio 3 nights → 2.** Drops the rest day or the Mortirolo day. Cheap to trim, painful to lose.
+
+**Three days of recoverable slack.** The Galtür split is *not* slack — Landeck → Bludenz in one day is long, and every tandem tour has broken it at Galtür. It stays.
 
 ---
 
@@ -51,7 +57,7 @@ Weather resilience lives in the bases: if a bonus ride is rained out, nothing mo
 |---|---|---|
 | 6 | Misurina → Cortina → **Falzarego (2,105m)** + **Valparola (2,192m)** → Corvara | |
 | 7 | **Sella Ronda**: Campolongo → Pordoi (2,239m) → Sella (2,244m) → Plan de Gralba → Selva | **3 passes, ~1,700m.** ⚠ Passo Gardena (2,121m) is *not* on the line to Selva — the road forks at Plan de Gralba and Gardena leads back east to Corvara. Getting it means a ~320m out-and-back spur from Plan de Gralba (~40 min), which pushes the day to ~2,000m. **Realistically nobody opts for this on a loaded tandem at the end of a three-pass day — 3 of 4 is fine.** (If luggage is in the support car, as in 2026, the spur becomes plausible.) Alternative: sleep in Corvara, ride the closed loop properly, transfer to Selva next morning — but that costs a Val Gardena night |
-| 8–9 | **VAL GARDENA — 3 nights, hiking** | Seceda, Alpe di Siusi, Sassolungo. Spare capacity built in |
+| 8–9 | **VAL GARDENA* — 3 nights, hiking** | Alpe di Siusi, Sassolungo, Seceda. ***Cuttable to 2 nights if behind** — Seceda was done in 2025, so it's the one to drop. Book **Selva/Wolkenstein (1,563m)**, not Ortisei (1,236m) |
 
 ### To Stelvio
 
@@ -78,21 +84,23 @@ Weather resilience lives in the bases: if a bonus ride is rained out, nothing mo
 |---|---|---|
 | 19 | Pontresina → Silvaplana → **Maloja** → Bregaglia → Chiavenna | Mostly descent, down to 333m |
 | 20 | Chiavenna → **SPLÜGEN PASS (2,115m)** → Splügen village | **~1,780m — ties Stelvio as the biggest climb of the tour.** The low summit altitude is misleading |
-| 21 | **SAN BERNARDINO (2,065m)** — up and back down the north side | Only ~600m from Splügen. Half day. **Never descend into Mesolcina** — Bellinzona valley heat. Old road is nearly empty since traffic uses the tunnel |
-| 22 | Splügen → Sufers → Roffla → Andeer → Zillis → Viamala → **Thusis** | National Veloroute 6 on the cantonal road (not the A13). ~1,000m of descent |
-| 23 | Thusis → Tiefencastel → Bergün → **ALBULA (2,312m)** → La Punt | ~1,500m. **Thusis–Tiefencastel Schinstrasse is busy and winding — take the RhB for that section.** Climb Albula from the Bergün side (railway spirals) and descend into the Engadine, which points straight down the Inn |
+| 21 | **SAN BERNARDINO (2,065m)*** — up and back down the north side | ***First thing to cut if running behind.** Only ~600m from Splügen. Half day. **Never descend into Mesolcina** — Bellinzona valley heat. Old road is nearly empty since traffic uses the tunnel |
+| 22 | Splügen → Andeer → Viamala → Thusis → Tiefencastel → **BERGÜN** | **~70km, ~800m — moderate.** Near-flat net (1,457m → 1,367m): the descent to Thusis gives back most of what you climb after. Veloroute 6 on the cantonal road (not the A13). **No Thusis night** — thin on lodging, and Bergün is the better village anyway. Train the Schinstrasse (Thusis–Tiefencastel) if traffic is bad on the day |
+| 23 | **BERGÜN — railway adventure hike** | The 2025 highlight. Albula line spirals, viaducts, tunnels |
+| 24 | Bergün → **ALBULA (2,312m)** → La Punt | ~1,100m on fresh legs. Climb from the Bergün side (railway spirals), descend into the Engadine — which points straight down the Inn |
 
 ### Inn valley → Silvretta → home
 
 | Day | Stage | Notes |
 |---|---|---|
-| 24 | La Punt → Zernez → **Scuol** | Gentle Inn descent. Spa town — optional rest day here |
-| 25 | Scuol → Martina → Pfunds → **Landeck** | Downhill valley |
-| 26 | Landeck → Paznaun (Ischgl, Galtür) → **BIELERHÖHE / Silvretta (2,032m)** → Partenen → Bludenz | ~90km. Long valley grind, then hairpins |
-| 27 | Bludenz → **Faschinajoch (1,486m)** or **Furkajoch (1,761m)** → Bregenzerwald → Bregenz/Lindau | Skips the industrial Rheintal, which is the dullest riding on the route and a weak note to end on |
-| 28 | **Lindau → train → Munich** | ~2.5 hrs. **No reservations needed** — Bayern-Ticket + per-bike day tickets bought at Lindau, as done in 2025. Take the first train of the morning: bike space on the RE is first-come and later trains fill |
+| 25 | La Punt → Zernez → **Scuol** | Gentle Inn descent. Spa town — optional rest day here |
+| 26 | Scuol → Martina → Pfunds → **Landeck** | Downhill valley |
+| 27 | Landeck → Paznaun → **GALTÜR (1,584m)** | Short day. Splits the long Silvretta stage, puts Bielerhöhe on fresh legs, keeps a high night |
+| 28 | Galtür → **BIELERHÖHE / Silvretta (2,032m)** → Partenen → Bludenz | Hairpins on fresh legs instead of after a 60km valley grind |
+| 29 | Bludenz → **Faschinajoch (1,486m)** or **Furkajoch (1,761m)** → Bregenzerwald → Bregenz/Lindau | Skips the industrial Rheintal, which is the dullest riding on the route and a weak note to end on |
+| 30 | **Lindau → train → Munich** | ~2.5 hrs. **No reservations needed** — Bayern-Ticket + per-bike day tickets bought at Lindau, as done in 2025. Take the first train of the morning: bike space on the RE is first-come and later trains fill |
 
-**~28 days + 1 unassigned spare ≈ 29–30.**
+**30 days total.** Three days of recoverable slack (see bases section) if the tour runs behind.
 
 ---
 
@@ -111,9 +119,10 @@ Highest sleep on this route is ~1,816m (Livigno), well inside proven territory �
 | 16 | Poschiavo | 1,014m | Below threshold — single night |
 | 17–18 | **Pontresina** | 1,805m | Two nights |
 | 20–21 | **Splügen** | 1,457m | Two nights |
-| 23 | La Punt | 1,687m | |
-| 24 | Scuol | 1,250m | Marginal |
-| 26 | **Galtür** (alt. to Bludenz) | 1,584m | See below |
+| 22–23 | **Bergün** | 1,367m | Two nights — railway hike day. **No Thusis night** (720m, thin lodging) |
+| 24 | La Punt | 1,687m | |
+| 25 | Scuol | 1,250m | Marginal |
+| 27 | **Galtür** | 1,584m | Splits the Silvretta stage |
 
 ### One structural low sag
 
@@ -121,8 +130,8 @@ Highest sleep on this route is ~1,816m (Livigno), well inside proven territory �
 
 **Merano (~325m, night 10)** is also low, but it's a single night and the Trafoi stop the following evening restores altitude before Stelvio. Merano is the better town regardless — this is a lodging-quality call, not an altitude one.
 
-### Optional: split the Silvretta day
-Day 26 (Landeck → Bielerhöhe → Bludenz, ~90km) is the longest of the back half and finishes at **588m**. Stopping at **Galtür (1,584m)** instead splits it into two easy days, puts the Bielerhöhe climb on fresh legs, and keeps a high night. Costs one day — a good use of the unassigned spare.
+### Silvretta split at Galtür — standard, not optional
+Landeck → Bielerhöhe → Bludenz in one go is ~90km and finishes at **588m**. **Every tandem tour has split this at Galtür (1,584m)** — short day in, Bielerhöhe on fresh legs the next morning, high night preserved, and Galtür itself is a very nice break. This is the way it's done, not a luxury. Do not treat it as slack.
 
 ---
 
