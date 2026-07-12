@@ -200,15 +200,14 @@ A "90–95% asphalt" figure is circulating (via Gemini) — **treat as an unsour
 
 **→ Lindau it is.** Bayern-Ticket + per-bike day tickets, no reservations, first train of the morning. Proven in 2025.
 
-### Lodging on the last night (2025 experience)
-- **Lustenau is the last cheap stop before the lake.** After Lustenau, prices jump and you may as well go to Lindau.
-- **Bregenz is more expensive than Lindau** — counterintuitive, but that's what 2025 showed.
-- **Lustenau → Lindau: 16.45 mi, 1h30m** (2025 actual, loaded tandem). Flat.
-- **First direct RE Lindau → Munich departs 07:45.** Working backwards: **roll out of Lustenau 05:45–06:00** to allow for loading the tandem and buying bike tickets.
+### Last night: STAY IN LINDAU — settled
 
-**The tradeoff to decide:**
-- **Lustenau (cheap):** a 5:45am start on the final morning of a 30-day tour, with no margin for a mechanical or a wrong turn. Miss the 07:45 and you lose the empty bike racks.
-- **Lindau (pricier):** wake up at the station, walk on, racks to yourself, no dawn ride. **Probably worth the money on the last morning** — but Lustenau is the fallback if Lindau is booked out.
+**This is what has always been done and it stays.** Sleep at Lindau, walk to the station, take the first direct RE at **07:45**. Origin station, empty bike racks, no dawn ride on the final morning of a 30-day tour. Next direct is 09:45 — a two-hour penalty for missing it, which is exactly why you don't put a 16-mile ride in front of it.
+
+**Reference points (2025 experience):**
+- **Lustenau is the last cheap stop before the lake** — after it, prices jump. Useful as a fallback if Lindau is booked out, but it means a 05:45–06:00 rollout to make the 07:45.
+- **Lustenau → Lindau: 16.45 mi, 1h30m**, flat (2025 actual, loaded tandem).
+- **Bregenz is more expensive than Lindau** — counterintuitive, but that's what 2025 showed. Not a candidate.
 
 ---
 
