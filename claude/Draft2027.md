@@ -180,16 +180,27 @@ B isn't really a different finish — it rejoins A's line in the Bregenzerwald. 
 
 A "90–95% asphalt" figure is circulating (via Gemini) — **treat as an unsourced hypothesis, not verification.** On a ~10km pass that leaves 500m–1km unpaved, and *where* it sits is everything. Reference class: Val Alpisella cost 45 min of walking; Col des Mosses 2026 produced more gravel than the rest of the tour combined despite looking fine on paper.
 
-### C. Inn valley → Mittenwald → ride home to Munich
+### C. Inn valley → Mittenwald → Garmisch → Munich *(no open dependencies)*
 
 | Day | Stage |
 |---|---|
 | 27 | Landeck → Innradweg → **Innsbruck** (~75km, gentle valley path) |
-| 28 | **Train Innsbruck → Scharnitz/Mittenwald** (skips the Zirler Berg — 16% on a trunk road, no cycling value), ride on from Mittenwald |
-| 29 | Mittenwald → Garmisch/Murnau/Starnberger See or the Isar corridor → **Munich** |
+| 28 | **Train Innsbruck → Scharnitz/Mittenwald** (skips the Zirler Berg — 16% on a trunk road, no cycling value), ride Mittenwald → **GARMISCH** (~20km, short day) |
+| 29 | **GARMISCH — base day.** Partnachklamm, Höllentalklamm, Eibsee, Zugspitze |
+| 30 | Garmisch → **train → Munich** (direct, ~1h20). Or ride the Isar/Starnberger See corridor if legs want it |
 
-**For:** **closes the loop by bike — finishes at the front door**, no Lindau train, no Arlberg. Scharnitz → Mittenwald under the Karwendel is genuinely lovely riding.
-**Against:** the Inn valley run is a bike-path day, not an alpine one. **No more passes after Albula** — either a graceful wind-down or an anticlimax after 26 days. Taste, not routing.
+**C's route is a day shorter than A — that recovered day becomes a 7th base at Garmisch.** Still 30 days.
+
+**For:**
+- **No open dependencies.** A requires accepting Arlberg; B is blocked on Mark and could collapse entirely if Kops→Partenen doesn't go. **C just works.**
+- **Garmisch is an origin station** — direct hourly trains to Munich, bike racks start empty. Same property that makes Lindau work, so nothing is lost by abandoning Lindau.
+- Garmisch is a genuinely good hiking base, not filler. Scharnitz → Mittenwald under the Karwendel is lovely riding.
+- Ends near home ground rather than across the country.
+
+**Against:**
+- **No passes after Albula.** Landeck→Innsbruck is a valley bike path; the Zirler Berg gets trained. A wind-down, not a crescendo. Taste, not routing.
+
+**⚠ Verify:** bike capacity on the Mittenwaldbahn (Innsbruck→Scharnitz, mid-route regional) and on the Garmisch–Munich line (popular with hikers — though origin-station status helps).
 
 ### What's ruled out
 - **Silvretta** — closed until summer 2030 (above).
