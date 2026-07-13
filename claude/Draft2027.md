@@ -200,7 +200,12 @@ A "90–95% asphalt" figure is circulating (via Gemini) — **treat as an unsour
 **Against:**
 - **No passes after Albula.** Landeck→Innsbruck is a valley bike path; the Zirler Berg gets trained. A wind-down, not a crescendo. Taste, not routing.
 
-**⚠ Verify:** bike capacity on the Mittenwaldbahn (Innsbruck→Scharnitz, mid-route regional) and on the Garmisch–Munich line (popular with hikers — though origin-station status helps).
+**Both train legs are easy, and the second has a rideable fallback:**
+- Innsbruck→Scharnitz is an **S-Bahn** — frequent, short-haul, bike carriage routine.
+- Garmisch→Munich is direct from an **origin station**, so racks start empty.
+- **If the Garmisch–Munich train fails for any reason: ride Garmisch → Tutzing and pick up the S-Bahn there.** Done before, with Bowen at age 5 on the back — trivial for Boen at 12. Failing that, the Isar corridor rides all the way in.
+
+**Nothing in option C can strand you.**
 
 ### What's ruled out
 - **Silvretta** — closed until summer 2030 (above).
