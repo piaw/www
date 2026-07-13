@@ -100,7 +100,7 @@ Everything through Day 20 is common. At Splügen you choose which way San Bernar
 | **Misurina** | 2 | Tre Cime di Lavaredo | Cadini di Misurina |
 | **Val Gardena*** | 3 | Alpe di Siusi, Sassolungo, Seceda | Second Dolomite loop |
 | **Bormio*** | 3 | Rest day + Mortirolo day (the 2024 pattern) | Mortirolo · Gavia · Torri di Fraele/Cancano |
-| **Pontresina** | 2 | Val Roseg, Morteratsch, Diavolezza, Muottas Muragl | — (laundry stop; tour midpoint) |
+| **Pontresina** | 2 | Val Roseg, Morteratsch, Diavolezza, Muottas Muragl | — (tour midpoint) |
 
 **Branch-specific:**
 
@@ -159,8 +159,8 @@ Everything through Day 20 is common. At Splügen you choose which way San Bernar
 | 15 | Bormio → **Livigno** — exit choice | **(a) Foscagno (2,291m) + Eira (2,208m)** — paved default, both new for Boen. **(b) Torri di Fraele → Cancano → Val Alpisella** — the 2024 exit: beautiful, no traffic, ~45 min hike-a-bike on 32mm. On 38s, off a 3-night base, a live choice |
 | 16 | Livigno → **Forcola di Livigno (2,315m)** → Poschiavo | **Livigno = 1 night.** If Forcola is shut: **Munt la Schera tunnel bike shuttle → Ova Spin → RhB Zernez → Pontresina.** Cheap fallback, but it skips Bernina's south side — a real loss, not a free swap |
 | 17 | Poschiavo → **BERNINA (2,328m)** full south side → Pontresina | Brusio spiral viaduct en route |
-| 18 | **PONTRESINA — rest day** (2 nights) | Val Roseg, Morteratsch + Boval hut, **Diavolezza** cable car (2,973m), **Muottas Muragl** funicular. **Sporthotel does laundry** — lands at the tour midpoint |
-| 19 | Pontresina → Silvaplana → **Maloja** → Bregaglia → Chiavenna → **CAMPODOLCINO (1,071m)** | **Don't sleep at Chiavenna (333m).** Campodolcino is ~740m up the Splügen road — a working village on the pass road, not a resort, so most likely open in shoulder season. ⚠ *We were there Jul 10 in 2016; Jun 23 is 18 days earlier in the season — confirm.* Alternatives: **Madesimo (1,550m)** — bigger, but a ski resort off a side spur and may be shut in June; **Montespluga (1,908m)** — tiny hamlet at the reservoir, just below the summit |
+| 18 | **PONTRESINA — rest day** (2 nights) | Val Roseg, Morteratsch + Boval hut, **Diavolezza** cable car (2,973m), **Muottas Muragl** funicular. Tour midpoint.<br><br>⚠ **Day 19 needs a 6am departure (see below) — so on arrival, ask the hotel to pack a breakfast for the morning of Day 19.** Most Engadine hotels will; if not, eat on the road. Don't let a 7am breakfast sitting dictate the day.<br><br>**Laundry is opportunistic, not a plan.** Take it if the hotel offers it and the timing suits; hand-wash and dry overnight otherwise (2 nights = plenty of time). It should not drive the choice of hotel — and nothing is booked ahead anyway |
+| 19 | Pontresina → Silvaplana → **Maloja** → Bregaglia → Chiavenna → **CAMPODOLCINO (1,071m)** | ~80km, **~800m up / ~1,500m down** — an easy day by the numbers, but **back-loaded**: the only real climb comes after a 1,500m descent, out of Chiavenna (333m), the low point and hottest place on the tour. ⚠ **EARLY DEPARTURE FROM PONTRESINA.** Roll out ~6am: flat 20km to Maloja in cold air, descend before traffic builds, Chiavenna mid-morning, and **up to Campodolcino before the valley heats.** Long lunch at 1,071m, not 333m. *(Valley heat peaks ~3–5pm — waiting it out does not work. Same lesson as the 2026 Sustens 6am and GSB 7am starts.)*<br><br>**Don't sleep at Chiavenna.** Campodolcino is a working village on the pass road, not a resort, so most likely open in shoulder season. ⚠ *We were there Jul 10 in 2016; Jun 23 is 18 days earlier — confirm.* Alternatives: **Madesimo (1,550m)** — bigger, but a ski resort off a side spur, may be shut in June; **Montespluga (1,908m)** — tiny hamlet at the reservoir |
 | 20 | Campodolcino → **SPLÜGEN PASS (2,115m)** → Splügen village | **~1,050m from Campodolcino** instead of ~1,780m from Chiavenna. **The Campodolcino night removes the hardest day of the tour** |
 
 ---
