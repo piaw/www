@@ -36,6 +36,7 @@ jobs:
         env:
           INTERVALS_ATHLETE_ID: ${{ secrets.INTERVALS_ATHLETE_ID }}
           INTERVALS_API_KEY: ${{ secrets.INTERVALS_API_KEY }}
+          COACHING_TIMEZONE: America/Los_Angeles
         run: python claude/garmin_coaching.py
       
       - name: Commit and push if brief changed
