@@ -1,5 +1,10 @@
 $ErrorActionPreference = 'Stop'
 
+$envScript = Join-Path $PSScriptRoot 'strava_env.ps1'
+if (Test-Path $envScript) {
+    . $envScript
+}
+
 $pythonLauncher = Get-Command py -ErrorAction SilentlyContinue
 if (-not $pythonLauncher) {
     Write-Host "Python launcher 'py' was not found on PATH." -ForegroundColor Red
@@ -36,7 +41,7 @@ if ($missing.Count -gt 0) {
         Write-Host "  $name" -ForegroundColor Red
     }
     Write-Host ""
-    Write-Host "Set those variables in this PowerShell session, then run:"
+    Write-Host "Edit strava_env.ps1 with your Strava values, then run:"
     Write-Host "  .\run_strava_download.ps1"
     exit 1
 }
