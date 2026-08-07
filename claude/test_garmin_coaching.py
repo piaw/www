@@ -2,6 +2,7 @@ import sys
 import unittest
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
+from unittest import mock
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
@@ -203,6 +204,46 @@ class GarminCoachingTest(unittest.TestCase):
         self.assertEqual(context.oldest, "2026-08-01")
         self.assertEqual(context.newest, "2026-08-07")
         self.assertEqual(context.latest_activity_date, "2026-08-07")
+
+    def test_america_los_angeles_fallback_without_tzdata(self):
+        def missing_zoneinfo(_key):
+            raise coaching.ZoneInfoNotFoundError("missing tzdata")
+
+        with mock.patch.object(coaching, "ZoneInfo", side_effect=missing_zoneinfo):
+            before_midnight_la = datetime(2026, 8, 8, 6, 30, tzinfo=timezone.utc)
+            after_midnight_la = datetime(2026, 8, 8, 7, 30, tzinfo=timezone.utc)
+            winter_evening_la = datetime(2026, 1, 1, 7, 30, tzinfo=timezone.utc)
+
+            self.assertEqual(
+                coaching.date_range(
+                    coaching.DAYS_BACK,
+                    now=before_midnight_la,
+                    timezone_name=TZ,
+                ),
+                ("2026-08-01", "2026-08-07"),
+            )
+            self.assertEqual(
+                coaching.date_range(
+                    coaching.DAYS_BACK,
+                    now=after_midnight_la,
+                    timezone_name=TZ,
+                ),
+                ("2026-08-02", "2026-08-08"),
+            )
+            self.assertEqual(
+                coaching.local_report_date(
+                    now=winter_evening_la,
+                    timezone_name=TZ,
+                ),
+                date(2025, 12, 31),
+            )
+            self.assertEqual(
+                coaching.parse_datetime_as_local_date(
+                    "2026-08-08T06:15:00Z",
+                    TZ,
+                ),
+                date(2026, 8, 7),
+            )
 
 
 if __name__ == "__main__":

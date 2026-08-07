@@ -22,10 +22,16 @@ import os
 import platform
 import sys
 from dataclasses import dataclass
-from datetime import date, datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone, tzinfo
 from statistics import mean
 from typing import Any, Callable, Dict, Iterable, List, Optional, Tuple
-from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
+try:
+    from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
+except ImportError:
+    ZoneInfo = None
+
+    class ZoneInfoNotFoundError(Exception):
+        pass
 
 try:
     import requests
@@ -50,6 +56,8 @@ GOAL = "base fitness"      # e.g. race prep, weight loss, base fitness
 BASE_URL = "https://intervals.icu/api/v1/athlete"
 
 FetchFn = Callable[[str, Optional[Dict[str, str]]], Any]
+ZERO = timedelta(0)
+ONE_HOUR = timedelta(hours=1)
 
 
 @dataclass(frozen=True)
@@ -70,12 +78,69 @@ def configured_timezone_name() -> str:
     return os.environ.get(TIMEZONE_ENV, DEFAULT_TIMEZONE) or DEFAULT_TIMEZONE
 
 
-def load_timezone(timezone_name: Optional[str] = None) -> ZoneInfo:
+def first_sunday_on_or_after(day: datetime) -> datetime:
+    days_to_go = (6 - day.weekday()) % 7
+    return day + timedelta(days=days_to_go)
+
+
+def pacific_dst_range(year: int) -> Tuple[datetime, datetime]:
+    # Modern US daylight-saving rules: second Sunday in March to first Sunday
+    # in November. ZoneInfo is used whenever available; this is Windows fallback.
+    start = first_sunday_on_or_after(datetime(year, 3, 8, 2))
+    end = first_sunday_on_or_after(datetime(year, 11, 1, 2))
+    return start, end
+
+
+class PacificFallbackTimezone(tzinfo):
+    standard_offset = timedelta(hours=-8)
+    daylight_offset = timedelta(hours=-7)
+
+    def utcoffset(self, dt: Optional[datetime]) -> timedelta:
+        return self.standard_offset + self.dst(dt)
+
+    def dst(self, dt: Optional[datetime]) -> timedelta:
+        if dt is None:
+            return ZERO
+        naive = dt.replace(tzinfo=None)
+        start, end = pacific_dst_range(naive.year)
+        if start <= naive < end:
+            return ONE_HOUR
+        return ZERO
+
+    def tzname(self, dt: Optional[datetime]) -> str:
+        return "PDT" if self.dst(dt) else "PST"
+
+    def fromutc(self, dt: datetime) -> datetime:
+        if dt.tzinfo is not self:
+            raise ValueError("fromutc: dt.tzinfo is not self")
+        naive_utc = dt.replace(tzinfo=None)
+        standard_time = naive_utc + self.standard_offset
+        daylight_time = naive_utc + self.daylight_offset
+        start, end = pacific_dst_range(standard_time.year)
+        start_utc = start - self.standard_offset
+        end_utc = end - self.daylight_offset
+
+        if start_utc <= naive_utc < end_utc:
+            return daylight_time.replace(tzinfo=self)
+        return standard_time.replace(tzinfo=self)
+
+
+PACIFIC_FALLBACK = PacificFallbackTimezone()
+
+
+def load_timezone(timezone_name: Optional[str] = None) -> tzinfo:
     tz_name = timezone_name or configured_timezone_name()
-    try:
-        return ZoneInfo(tz_name)
-    except ZoneInfoNotFoundError as exc:
-        raise ValueError(f"Unknown time zone {tz_name!r}") from exc
+    if ZoneInfo is not None:
+        try:
+            return ZoneInfo(tz_name)
+        except ZoneInfoNotFoundError:
+            pass
+    if tz_name == DEFAULT_TIMEZONE:
+        return PACIFIC_FALLBACK
+    raise ValueError(
+        f"Unknown time zone {tz_name!r}. Install the tzdata package for IANA "
+        "timezone support on this Python installation."
+    )
 
 
 def local_report_date(now: Optional[Any] = None, timezone_name: Optional[str] = None) -> date:
