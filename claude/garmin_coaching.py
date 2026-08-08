@@ -2,10 +2,11 @@
 # -*- coding: utf-8 -*-
 
 """
-Garmin → Intervals.icu → Claude Coaching Brief
------------------------------------------------
-Pulls the last 7 local calendar days of wellness + training data from
-Intervals.icu and formats a ready-to-paste coaching brief for your Claude chat.
+Garmin + Intervals.icu → Claude Coaching Brief
+----------------------------------------------
+Pulls the last 7 local calendar days of wellness/training-load data from
+Intervals.icu plus local Garmin activity files, then formats a ready-to-paste
+coaching brief for your Claude chat.
 
 Setup:
     pip install requests pyperclip
@@ -16,13 +17,16 @@ Usage:
 Config:
     Set INTERVALS_ATHLETE_ID and INTERVALS_API_KEY environment variables.
     Optionally set COACHING_TIMEZONE; defaults to America/Los_Angeles.
+    Optionally set COACHING_ACTIVITY_DATA_DIR; defaults to data/activities.
 """
 
+import json
 import os
 import platform
 import sys
 from dataclasses import dataclass
 from datetime import date, datetime, timedelta, timezone, tzinfo
+from pathlib import Path
 from statistics import mean
 from typing import Any, Callable, Dict, Iterable, List, Optional, Tuple
 try:
@@ -44,18 +48,24 @@ except ImportError:
 ATHLETE_ID_ENV = "INTERVALS_ATHLETE_ID"
 API_KEY_ENV = "INTERVALS_API_KEY"
 TIMEZONE_ENV = "COACHING_TIMEZONE"
+ACTIVITY_DATA_DIR_ENV = "COACHING_ACTIVITY_DATA_DIR"
 
 DEFAULT_TIMEZONE = "America/Los_Angeles"
 DAYS_BACK = 7
 ACTIVITY_PROBE_DAYS = 30
+ACTIVITY_SOURCE_LABEL = "Local Garmin activity files"
 
 # Optional: set to your sport + goal so the brief is pre-contextualised
 SPORT = "cycling"          # e.g. cycling, running, triathlon
 GOAL = "base fitness"      # e.g. race prep, weight loss, base fitness
 
 BASE_URL = "https://intervals.icu/api/v1/athlete"
+SCRIPT_DIR = Path(__file__).resolve().parent
+REPO_ROOT = SCRIPT_DIR.parent
+DEFAULT_ACTIVITY_DATA_DIR = REPO_ROOT / "data" / "activities"
 
 FetchFn = Callable[[str, Optional[Dict[str, str]]], Any]
+ActivityLoader = Callable[[str, str, str], List[Any]]
 ZERO = timedelta(0)
 ONE_HOUR = timedelta(hours=1)
 
@@ -69,6 +79,7 @@ class ReportContext:
     latest_wellness_date: Optional[str]
     latest_activity_date: Optional[str]
     readiness_reliable: bool
+    activity_source: str
     activity_warning: str = ""
     probe_oldest: Optional[str] = None
     probe_newest: Optional[str] = None
@@ -213,17 +224,83 @@ def fetch(path: str, params: Optional[Dict[str, str]] = None) -> Any:
     return resp.json()
 
 
-def ensure_list(payload: Any, endpoint: str) -> List[Any]:
+def ensure_list(payload: Any, description: str) -> List[Any]:
     if not isinstance(payload, list):
         raise ValueError(
-            f"Intervals.icu {endpoint} endpoint returned "
-            f"{type(payload).__name__}; expected a list"
+            f"{description} returned {type(payload).__name__}; expected a list"
         )
     return payload
 
 
 def fetch_activity_list(fetcher: FetchFn, params: Dict[str, str]) -> List[Any]:
-    return ensure_list(fetcher("activities", dict(params)), "activities")
+    return ensure_list(
+        fetcher("activities", dict(params)),
+        "Intervals.icu activities endpoint",
+    )
+
+
+def configured_activity_data_dir() -> Path:
+    raw = os.environ.get(ACTIVITY_DATA_DIR_ENV)
+    if not raw:
+        return DEFAULT_ACTIVITY_DATA_DIR
+    path = Path(raw).expanduser()
+    if not path.is_absolute():
+        path = REPO_ROOT / path
+    return path
+
+
+def is_garmin_activity_payload(payload: Dict[str, Any]) -> bool:
+    activity = payload.get("activity")
+    if payload.get("source") == "garmin" or isinstance(payload.get("garmin"), dict):
+        return True
+    return isinstance(activity, dict) and activity.get("source") == "garmin"
+
+
+def read_garmin_activity_file(path: Path) -> Optional[Dict[str, Any]]:
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise ValueError(f"Garmin activity file is malformed: {path}") from exc
+
+    if not isinstance(payload, dict):
+        raise ValueError(
+            f"Garmin activity file {path} returned "
+            f"{type(payload).__name__}; expected a JSON object"
+        )
+    if not is_garmin_activity_payload(payload):
+        return None
+    return payload
+
+
+def load_garmin_activities(
+    oldest: str,
+    newest: str,
+    timezone_name: str,
+    data_dir: Optional[Path] = None,
+) -> List[Any]:
+    oldest_day = date.fromisoformat(oldest)
+    newest_day = date.fromisoformat(newest)
+    root = data_dir or configured_activity_data_dir()
+
+    if not root.exists():
+        return []
+    if not root.is_dir():
+        raise ValueError(f"Garmin activity data path is not a directory: {root}")
+
+    activities: List[Any] = []
+    for path in sorted(root.glob("*.json")):
+        if path.name.startswith("."):
+            continue
+        payload = read_garmin_activity_file(path)
+        if payload is None:
+            continue
+        activity_date = activity_local_date(payload, timezone_name)
+        if activity_date is None:
+            continue
+        if oldest_day <= activity_date <= newest_day:
+            activities.append(payload)
+
+    return activities
 
 
 def safe_avg(values: Iterable[Optional[float]], decimals: int = 1) -> Optional[float]:
@@ -357,6 +434,7 @@ def build_activity_warning(
     probe_oldest: str,
     probe_newest: str,
     latest_found: Optional[str],
+    activity_source: str = ACTIVITY_SOURCE_LABEL,
 ) -> str:
     latest_line = (
         f"   Most recent activity found during probe: {latest_found}"
@@ -365,16 +443,17 @@ def build_activity_warning(
     )
     return f"""
 !!! ACTIVITY SYNC / DATA QUALITY WARNING !!!
-   Intervals.icu returned 0 activities for {oldest} → {newest}.
+   {activity_source} contain 0 activities for {oldest} → {newest}.
    Checked preceding {ACTIVITY_PROBE_DAYS} days ({probe_oldest} → {probe_newest}).
 {latest_line}
-   Garmin-to-Intervals activities may be empty or stale even while wellness syncs.
+   Garmin activity downloads may be missing or stale even while wellness syncs.
    ATL, CTL, and TSB readiness are unreliable; treat readiness as unknown.
 """.strip()
 
 
 def generate_brief(
     fetcher: FetchFn = fetch,
+    activity_loader: ActivityLoader = load_garmin_activities,
     now: Optional[Any] = None,
     report_date: Optional[date] = None,
     timezone_name: Optional[str] = None,
@@ -384,8 +463,14 @@ def generate_brief(
     oldest, newest = date_range(DAYS_BACK, report_date=local_date)
     params = {"oldest": oldest, "newest": newest}
 
-    wellness = ensure_list(fetcher("wellness", dict(params)), "wellness")
-    activities = fetch_activity_list(fetcher, params)
+    wellness = ensure_list(
+        fetcher("wellness", dict(params)),
+        "Intervals.icu wellness endpoint",
+    )
+    activities = ensure_list(
+        activity_loader(oldest, newest, tz_name),
+        "Garmin activity loader",
+    )
 
     latest_wellness = latest_wellness_date(wellness)
     latest_activity = latest_activity_date(activities, tz_name)
@@ -396,12 +481,19 @@ def generate_brief(
     if not activities:
         first_day = date.fromisoformat(oldest)
         probe_oldest, probe_newest = preceding_date_range(first_day, ACTIVITY_PROBE_DAYS)
-        probe_params = {"oldest": probe_oldest, "newest": probe_newest}
-        older_activities = fetch_activity_list(fetcher, probe_params)
+        older_activities = ensure_list(
+            activity_loader(probe_oldest, probe_newest, tz_name),
+            "Garmin activity loader",
+        )
         latest_activity = latest_activity_date(older_activities, tz_name)
         readiness_reliable = False
         activity_warning = build_activity_warning(
-            oldest, newest, probe_oldest, probe_newest, latest_activity
+            oldest,
+            newest,
+            probe_oldest,
+            probe_newest,
+            latest_activity,
+            ACTIVITY_SOURCE_LABEL,
         )
 
     context = ReportContext(
@@ -412,6 +504,7 @@ def generate_brief(
         latest_wellness_date=latest_wellness,
         latest_activity_date=latest_activity,
         readiness_reliable=readiness_reliable,
+        activity_source=ACTIVITY_SOURCE_LABEL,
         activity_warning=activity_warning,
         probe_oldest=probe_oldest,
         probe_newest=probe_newest,
@@ -521,6 +614,7 @@ def build_brief(
    Period: {context.oldest} → {context.newest} ({context.timezone_name})
    Latest wellness date: {format_optional_date(context.latest_wellness_date)}
    Latest activity date: {format_optional_date(context.latest_activity_date)}
+   Activity source: {context.activity_source}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 🫀  RECOVERY & WELLNESS
@@ -589,7 +683,10 @@ def main() -> None:
     report_date = local_report_date(timezone_name=timezone_name)
     oldest, newest = date_range(DAYS_BACK, report_date=report_date)
 
-    print(f"📡  Fetching data {oldest} → {newest} ({timezone_name}) ...")
+    print(
+        f"📡  Fetching Intervals wellness and Garmin activities "
+        f"{oldest} → {newest} ({timezone_name}) ..."
+    )
 
     try:
         brief, _context = generate_brief(
