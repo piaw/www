@@ -22,6 +22,7 @@ import json
 import os
 import re
 import sys
+from inspect import signature
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Callable, Dict, Iterable, List, Optional, Tuple
@@ -415,23 +416,29 @@ def build_garmin_client() -> Any:
             GarminConnectConnectionError,
             GarminConnectTooManyRequestsError,
         )
-        from garth.exc import GarthException
     except ImportError:
         sys.exit(
             "❌ Missing Python package garminconnect. Install it with:\n"
             "    py -3 -m pip install garminconnect"
         )
 
-    try:
-        api = Garmin(email, password)
-        login_garmin_client(api, email, password, os.environ.get("GARMINTOKENS"))
-        return api
-    except (
+    handled_errors = (
         GarminConnectAuthenticationError,
         GarminConnectConnectionError,
         GarminConnectTooManyRequestsError,
-        GarthException,
-    ) as exc:
+    )
+    try:
+        from garth.exc import GarthException
+
+        handled_errors = handled_errors + (GarthException,)
+    except ImportError:
+        pass
+
+    try:
+        api = create_garmin_client(Garmin, email, password, prompt_mfa_code)
+        login_garmin_client(api, email, password, os.environ.get("GARMINTOKENS"))
+        return api
+    except handled_errors as exc:
         sys.exit(garmin_login_error_message(exc))
 
 
@@ -460,6 +467,18 @@ def prompt_mfa_code() -> str:
     return input("Garmin MFA code: ").strip()
 
 
+def create_garmin_client(
+    garmin_cls: Any,
+    email: str,
+    password: str,
+    prompt_mfa: Callable[[], str],
+) -> Any:
+    parameters = signature(garmin_cls).parameters
+    if "prompt_mfa" in parameters:
+        return garmin_cls(email, password, prompt_mfa=prompt_mfa)
+    return garmin_cls(email, password)
+
+
 def login_garmin_client(
     api: Any,
     email: str,
@@ -467,6 +486,10 @@ def login_garmin_client(
     tokenstore: Optional[str],
     prompt_mfa: Callable[[], str] = prompt_mfa_code,
 ) -> None:
+    if hasattr(api, "client"):
+        api.login(tokenstore=tokenstore)
+        return
+
     if tokenstore_has_tokens(tokenstore):
         api.garth.load(tokenstore)
     else:

@@ -94,6 +94,28 @@ class FakeGarminClient:
         self.unit_system = None
 
 
+class FakeNativeGarminClient:
+    def __init__(self):
+        self.client = object()
+        self.login_tokenstore = None
+
+    def login(self, tokenstore=None):
+        self.login_tokenstore = tokenstore
+
+
+class FakePromptGarmin:
+    def __init__(self, email, password, prompt_mfa=None):
+        self.email = email
+        self.password = password
+        self.prompt_mfa = prompt_mfa
+
+
+class FakeLegacyGarmin:
+    def __init__(self, email, password):
+        self.email = email
+        self.password = password
+
+
 class GarminDownloadTest(unittest.TestCase):
     def test_fetch_recent_activities_stops_at_cutoff(self):
         api = FakeGarmin(
@@ -193,6 +215,19 @@ class GarminDownloadTest(unittest.TestCase):
         self.assertEqual(api.display_name, "Rider")
         self.assertEqual(api.unit_system, "metric")
 
+    def test_native_login_uses_garminconnect_tokenstore_and_mfa_constructor(self):
+        api = FakeNativeGarminClient()
+
+        gd.login_garmin_client(
+            api,
+            "rider@example.com",
+            "secret",
+            "tokens-dir",
+            prompt_mfa=lambda: "123456",
+        )
+
+        self.assertEqual(api.login_tokenstore, "tokens-dir")
+
     def test_login_prompts_for_mfa_and_dumps_new_tokens(self):
         with tempfile.TemporaryDirectory() as tmp:
             api = FakeGarminClient()
@@ -209,6 +244,30 @@ class GarminDownloadTest(unittest.TestCase):
         self.assertEqual(api.garth.login_args, ("rider@example.com", "secret", "123456"))
         self.assertEqual(api.garth.dumped, tmp)
         self.assertEqual(api.full_name, "Test Rider")
+
+    def test_create_garmin_client_passes_mfa_prompt_when_supported(self):
+        prompt = lambda: "123456"
+
+        api = gd.create_garmin_client(
+            FakePromptGarmin,
+            "rider@example.com",
+            "secret",
+            prompt,
+        )
+
+        self.assertEqual(api.email, "rider@example.com")
+        self.assertIs(api.prompt_mfa, prompt)
+
+    def test_create_garmin_client_supports_legacy_constructor(self):
+        api = gd.create_garmin_client(
+            FakeLegacyGarmin,
+            "rider@example.com",
+            "secret",
+            lambda: "123456",
+        )
+
+        self.assertEqual(api.email, "rider@example.com")
+        self.assertEqual(api.password, "secret")
 
     def test_rate_limit_error_message_names_wait_and_token_cache(self):
         message = gd.garmin_login_error_message(
