@@ -25,13 +25,13 @@ else {
 
 $previousErrorActionPreference = $ErrorActionPreference
 $ErrorActionPreference = 'Continue'
-$pythonProbe = @"
+$pythonProbe = @'
 import sys
 print(sys.executable)
-print(sys.version.replace("\n", " "))
+print(sys.version.replace(chr(10), chr(32)))
 import garminconnect
-print(getattr(garminconnect, "__file__", ""))
-"@
+print(garminconnect.__file__)
+'@
 $probeOutput = & $pythonExe @pythonPrefixArgs -c $pythonProbe 2>&1
 $garminConnectExitCode = $LASTEXITCODE
 $ErrorActionPreference = $previousErrorActionPreference
