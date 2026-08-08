@@ -24,7 +24,7 @@ import re
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Optional, Tuple
+from typing import Any, Callable, Dict, Iterable, List, Optional, Tuple
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = REPO_ROOT / "data" / "activities"
@@ -415,6 +415,7 @@ def build_garmin_client() -> Any:
             GarminConnectConnectionError,
             GarminConnectTooManyRequestsError,
         )
+        from garth.exc import GarthException
     except ImportError:
         sys.exit(
             "❌ Missing Python package garminconnect. Install it with:\n"
@@ -423,14 +424,60 @@ def build_garmin_client() -> Any:
 
     try:
         api = Garmin(email, password)
-        api.login()
+        login_garmin_client(api, email, password, os.environ.get("GARMINTOKENS"))
         return api
     except (
         GarminConnectAuthenticationError,
         GarminConnectConnectionError,
         GarminConnectTooManyRequestsError,
+        GarthException,
     ) as exc:
-        sys.exit(f"❌ Garmin Connect login failed: {exc}")
+        sys.exit(garmin_login_error_message(exc))
+
+
+def garmin_login_error_message(exc: Exception) -> str:
+    text = str(exc)
+    if "429" in text or "rate limited" in text.lower():
+        return (
+            "❌ Garmin Connect login failed because Garmin is rate-limiting "
+            "login attempts from this network.\n\n"
+            "Wait a while before retrying. Once a login succeeds, the token cache "
+            "should reduce future login attempts.\n\n"
+            f"Garmin response: {text}"
+        )
+    return f"❌ Garmin Connect login failed: {text}"
+
+
+def tokenstore_has_tokens(tokenstore: Optional[str]) -> bool:
+    if not tokenstore:
+        return False
+    root = Path(tokenstore).expanduser()
+    return (root / "oauth1_token.json").exists() and (root / "oauth2_token.json").exists()
+
+
+def prompt_mfa_code() -> str:
+    print("Garmin emailed or sent an MFA code for this login.")
+    return input("Garmin MFA code: ").strip()
+
+
+def login_garmin_client(
+    api: Any,
+    email: str,
+    password: str,
+    tokenstore: Optional[str],
+    prompt_mfa: Callable[[], str] = prompt_mfa_code,
+) -> None:
+    if tokenstore_has_tokens(tokenstore):
+        api.garth.load(tokenstore)
+    else:
+        api.garth.login(email, password, prompt_mfa=prompt_mfa)
+        if tokenstore:
+            api.garth.dump(tokenstore)
+
+    api.display_name = api.garth.profile["displayName"]
+    api.full_name = api.garth.profile["fullName"]
+    settings = api.garth.connectapi("/userprofile-service/userprofile/user-settings")
+    api.unit_system = settings["userData"]["measurementSystem"]
 
 
 def main() -> None:

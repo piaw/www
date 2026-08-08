@@ -5,6 +5,10 @@ if (Test-Path $envScript) {
     . $envScript
 }
 
+if ([string]::IsNullOrWhiteSpace($env:GARMINTOKENS)) {
+    $env:GARMINTOKENS = Join-Path $PSScriptRoot '.garmin_tokens'
+}
+
 if ($env:GARMIN_PYTHON) {
     $pythonExe = $env:GARMIN_PYTHON
     $pythonPrefixArgs = @()

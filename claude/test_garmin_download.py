@@ -63,6 +63,37 @@ class FakeGarmin:
         return [{"activityId": activity_id, "splitNumber": 1}]
 
 
+class FakeGarth:
+    def __init__(self):
+        self.loaded = None
+        self.login_args = None
+        self.dumped = None
+        self.profile = {
+            "displayName": "Rider",
+            "fullName": "Test Rider",
+        }
+
+    def load(self, tokenstore):
+        self.loaded = tokenstore
+
+    def login(self, email, password, prompt_mfa=None):
+        self.login_args = (email, password, prompt_mfa())
+
+    def dump(self, tokenstore):
+        self.dumped = tokenstore
+
+    def connectapi(self, path):
+        return {"userData": {"measurementSystem": "metric"}}
+
+
+class FakeGarminClient:
+    def __init__(self):
+        self.garth = FakeGarth()
+        self.display_name = None
+        self.full_name = None
+        self.unit_system = None
+
+
 class GarminDownloadTest(unittest.TestCase):
     def test_fetch_recent_activities_stops_at_cutoff(self):
         api = FakeGarmin(
@@ -141,6 +172,52 @@ class GarminDownloadTest(unittest.TestCase):
 
         self.assertEqual(state["last_activity_start_utc"], "2026-08-08T15:00:00Z")
         self.assertIn("last_success_utc", state)
+
+    def test_login_uses_existing_tokenstore_without_prompting_mfa(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            Path(tmp, "oauth1_token.json").write_text("{}", encoding="utf-8")
+            Path(tmp, "oauth2_token.json").write_text("{}", encoding="utf-8")
+            api = FakeGarminClient()
+
+            gd.login_garmin_client(
+                api,
+                "rider@example.com",
+                "secret",
+                tmp,
+                prompt_mfa=lambda: "123456",
+            )
+
+        self.assertEqual(api.garth.loaded, tmp)
+        self.assertIsNone(api.garth.login_args)
+        self.assertIsNone(api.garth.dumped)
+        self.assertEqual(api.display_name, "Rider")
+        self.assertEqual(api.unit_system, "metric")
+
+    def test_login_prompts_for_mfa_and_dumps_new_tokens(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            api = FakeGarminClient()
+
+            gd.login_garmin_client(
+                api,
+                "rider@example.com",
+                "secret",
+                tmp,
+                prompt_mfa=lambda: "123456",
+            )
+
+        self.assertIsNone(api.garth.loaded)
+        self.assertEqual(api.garth.login_args, ("rider@example.com", "secret", "123456"))
+        self.assertEqual(api.garth.dumped, tmp)
+        self.assertEqual(api.full_name, "Test Rider")
+
+    def test_rate_limit_error_message_names_wait_and_token_cache(self):
+        message = gd.garmin_login_error_message(
+            Exception("Mobile login returned 429 — IP rate limited by Garmin")
+        )
+
+        self.assertIn("rate-limiting", message)
+        self.assertIn("Wait a while", message)
+        self.assertIn("token cache", message)
 
 
 if __name__ == "__main__":
