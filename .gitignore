@@ -1,4 +1,6 @@
 claude/athleteid.py
+claude/garmin_env.ps1
+claude/.garmin_tokens/
 claude/run_coaching.ps1
 claude/strava_env.ps1
 claude/strava_setup.py
