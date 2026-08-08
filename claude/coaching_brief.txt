@@ -1,27 +1,36 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 📊 Weekly Training Check-in — August 7, 2026
    Sport: Cycling | Goal: Base Fitness
-   Period: 2026-07-31 → 2026-08-07
+   Period: 2026-08-01 → 2026-08-07 (America/Los_Angeles)
+   Latest wellness date: 2026-08-07
+   Latest activity date: 2026-07-29
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 🫀  RECOVERY & WELLNESS
-   HRV rMSSD (last night): 36.0ms  (-3% vs 7d avg)
+   HRV rMSSD (last night): 45.0ms  (+20% vs 7d avg)
    HRV SDNN  (last night): –
    Avg sleeping HR:         –
    ── 7-day averages ──────────────────
-   HRV rMSSD (7d avg):     37.3ms ↓11%
+   HRV rMSSD (7d avg):     37.6ms →
    HRV SDNN  (7d avg):     –
-   Resting HR (7d avg):    50.0 bpm ↑6%
-   Sleep (avg):        7.1 hrs ↑11%
-   Sleep score (avg):  78.0
-   Weight (latest):    63.529kg  (-0.6kg this week)
+   Resting HR (7d avg):    51.0 bpm →
+   Sleep (avg):        7.2 hrs ↑26%
+   Sleep score (avg):  77.0
+   Weight (latest):    63.11kg  (-1.0kg this week)
+
+!!! ACTIVITY SYNC / DATA QUALITY WARNING !!!
+   Intervals.icu returned 0 activities for 2026-08-01 → 2026-08-07.
+   Checked preceding 30 days (2026-07-02 → 2026-07-31).
+   Most recent activity found during probe: 2026-07-29
+   Garmin-to-Intervals activities may be empty or stale even while wellness syncs.
+   ATL, CTL, and TSB readiness are unreliable; treat readiness as unknown.
 
 ⚡  TRAINING LOAD
    Activities:         0 (–)
    Total time:         0.0 hrs
-   ATL (fatigue):      11
-   CTL (fitness):      69
-   Form (TSB):         57  ✅ Fresh / race-ready
+   ATL (fatigue):      11  (unreliable)
+   CTL (fitness):      69  (unreliable)
+   Form (TSB):         57  Readiness unknown
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Based on the above, please:
