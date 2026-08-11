@@ -1,0 +1,1830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alps Summer Tour 2027 — Training Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,400&family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #07090f;
+  --s1: #0d1219;
+  --s2: #111827;
+  --s3: #1a2333;
+  --border: #1e2d44;
+  --border2: #243548;
+  --text: #dce5f0;
+  --muted: #5a7090;
+  --dim: #374d65;
+  --accent: #e8a320;
+  --accent2: #f0c060;
+  --z1: #3d4f66;
+  --z1t: #8aa5c0;
+  --z2: #1a5fb4;
+  --z2t: #6baef6;
+  --z3: #0d7a55;
+  --z3t: #34c891;
+  --z4: #b56a00;
+  --z4t: #f5a623;
+  --z5: #c04000;
+  --z5t: #ff6b2b;
+  --z6: #a01010;
+  --z6t: #ff3a3a;
+  --str: #5b2d9e;
+  --strt: #a87df5;
+  --rest-col: #101820;
+  --phase0: #0e5a68;
+  --phase0t: #22d3ee;
+  --phase1: #1a3a5c;
+  --phase2: #1a4a2c;
+  --phase3: #4a2a00;
+  --phase4: #3a1a4a;
+  --hru: #9333ea;
+  --hrut: #c084fc;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:13.5px;line-height:1.6;min-height:100vh}
+
+.hero{
+  background:linear-gradient(135deg,#050810 0%,#0a1220 40%,#0d1a2a 70%,#060c16 100%);
+  border-bottom:1px solid var(--border);
+  padding:0;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 60% at 80% 50%,rgba(232,163,32,.06) 0%,transparent 70%),
+             repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(232,163,32,.012) 60px,rgba(232,163,32,.012) 61px),
+             repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(232,163,32,.012) 40px,rgba(232,163,32,.012) 41px);
+  pointer-events:none;
+}
+.hero-inner{max-width:1200px;margin:0 auto;padding:40px 32px 36px;position:relative;z-index:1;display:flex;align-items:flex-start;gap:48px}
+.hero-left{flex:1;min-width:0}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--accent);text-transform:uppercase;margin-bottom:12px}
+h1{font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:800;line-height:1;color:#fff;letter-spacing:-1px;margin-bottom:8px}
+h1 span{color:var(--accent)}
+.hero-sub{font-size:15px;color:var(--muted);margin-bottom:28px;max-width:520px}
+.stats-row{display:flex;gap:24px;flex-wrap:wrap}
+.stat-card{background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:12px 20px;min-width:110px}
+.stat-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.stat-value{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:700;color:var(--accent2);line-height:1}
+.stat-unit{font-size:12px;color:var(--muted);margin-left:3px}
+.hero-right{display:flex;flex-direction:column;gap:10px;min-width:230px}
+.tour-dates{background:var(--s2);border:1px solid var(--border2);border-radius:10px;padding:16px 20px}
+.tour-dates h3{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;color:var(--accent);margin-bottom:10px;letter-spacing:.5px}
+.date-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid var(--border);gap:12px;font-size:12.5px}
+.date-row:last-child{border-bottom:none}
+.date-row .dr-label{color:var(--muted)}
+.date-row .dr-val{color:var(--text);font-weight:500;text-align:right}
+.date-row .dr-val.warn{color:#f59e0b}
+.date-row .dr-val.tbd{color:#60a5fa;font-style:italic}
+
+.nav-bar{background:var(--s1);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:0;align-items:center;overflow-x:auto}
+.tab-btn{background:none;border:none;border-bottom:2px solid transparent;color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:600;letter-spacing:.5px;padding:14px 16px;cursor:pointer;transition:all .2s;white-space:nowrap}
+.tab-btn:hover{color:var(--text)}
+.tab-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+.phase-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:middle}
+
+main{max-width:1200px;margin:0 auto;padding:32px 32px 60px}
+.section{display:none}.section.active{display:block}
+h2.section-title{font-family:'Barlow Condensed',sans-serif;font-size:34px;font-weight:800;letter-spacing:.5px;margin-bottom:6px}
+.section-desc{color:var(--muted);font-size:14px;margin-bottom:28px;max-width:700px}
+
+.zones-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin-bottom:32px}
+.zone-card{border-radius:8px;padding:14px 18px;border-left:4px solid;display:flex;flex-direction:column;gap:4px;background:var(--s2)}
+.zone-header{display:flex;align-items:center;gap:10px}
+.zone-name{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700}
+.zone-badge{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;padding:2px 7px;border-radius:3px;font-weight:500}
+.zone-power{font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:500;margin-top:2px}
+.zone-hr{font-size:12px;color:var(--muted)}
+.zone-desc{font-size:12.5px;color:var(--muted);margin-top:4px}
+
+.phase-header{border-radius:10px;padding:18px 24px;margin-bottom:20px;border:1px solid rgba(255,255,255,.06)}
+.phase-header h3{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:800;letter-spacing:.5px;margin-bottom:4px}
+.phase-header p{font-size:13px;color:var(--muted);max-width:660px}
+.phase-meta{display:flex;gap:20px;margin-top:12px;flex-wrap:wrap}
+.pm-item{font-size:12.5px}
+.pm-item span{color:var(--muted);margin-right:5px}
+.pm-item strong{color:var(--accent2)}
+
+.week-card{background:var(--s2);border:1px solid var(--border);border-radius:10px;margin-bottom:16px;overflow:hidden}
+.week-header{background:var(--s3);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);cursor:pointer;user-select:none}
+.week-header:hover{background:var(--s3)}
+.wh-left{display:flex;align-items:center;gap:14px}
+.wk-num{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:var(--accent)}
+.wk-dates{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted)}
+.wk-theme{font-size:13px;font-weight:600;color:var(--text)}
+.wh-right{display:flex;align-items:center;gap:16px}
+.tss-badge{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);background:var(--s1);padding:3px 9px;border-radius:4px;border:1px solid var(--border)}
+.tss-badge span{color:var(--accent);font-weight:600}
+.chevron{color:var(--muted);font-size:16px;transition:transform .25s}
+.week-card.open .chevron{transform:rotate(180deg)}
+
+.week-body{display:none;padding:16px 20px}
+.week-card.open .week-body{display:block}
+.days-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+@media(max-width:900px){.days-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.days-grid{grid-template-columns:repeat(2,1fr)}}
+
+.day-cell{border-radius:7px;padding:10px 12px;border:1px solid var(--border);background:var(--s1);min-height:100px;display:flex;flex-direction:column;gap:5px}
+.day-name{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.day-rest{background:var(--rest-col);border-color:var(--border);opacity:.75}
+.workout-tag{font-size:10.5px;font-weight:600;padding:2px 7px;border-radius:4px;display:inline-block;margin-bottom:3px;width:fit-content}
+.workout-desc{font-size:12px;color:var(--muted);line-height:1.4}
+.workout-power{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--accent2);margin-top:3px}
+.workout-note{font-size:11px;color:var(--dim);margin-top:4px;font-style:italic}
+.highlight-day{border-color:var(--accent);background:rgba(232,163,32,.05)}
+.hru-day{border-color:var(--hru);background:rgba(147,51,234,.06)}
+
+.tag-z1{background:rgba(61,79,102,.4);color:var(--z1t)}
+.tag-z2{background:rgba(26,95,180,.4);color:var(--z2t)}
+.tag-z3{background:rgba(13,122,85,.4);color:var(--z3t)}
+.tag-z4{background:rgba(181,106,0,.4);color:var(--z4t)}
+.tag-z5{background:rgba(192,64,0,.4);color:var(--z5t)}
+.tag-z6{background:rgba(160,16,16,.4);color:var(--z6t)}
+.tag-str{background:rgba(91,45,158,.4);color:var(--strt)}
+.tag-rest{background:rgba(20,30,40,.4);color:var(--muted)}
+.tag-event{background:rgba(232,163,32,.2);color:var(--accent)}
+.tag-tbd{background:rgba(96,165,250,.2);color:#60a5fa}
+.tag-new{background:rgba(52,200,145,.2);color:var(--z3t)}
+.tag-found{background:rgba(34,211,238,.2);color:var(--phase0t)}
+.tag-hru{background:rgba(147,51,234,.25);color:var(--hrut)}
+
+.overview-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px}
+@media(max-width:700px){.overview-grid{grid-template-columns:1fr}}
+.info-card{background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:22px 24px}
+.info-card h4{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:var(--accent);margin-bottom:12px;letter-spacing:.4px}
+.info-card ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.info-card ul li{display:flex;gap:10px;font-size:13px;line-height:1.4}
+.info-card ul li::before{content:'›';color:var(--accent);flex-shrink:0;margin-top:1px}
+.key-col{font-weight:600;color:var(--text);min-width:130px}
+.val-col{color:var(--muted)}
+
+.tour-table{width:100%;border-collapse:collapse;margin-top:12px}
+.tour-table th{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:left;padding:8px 12px;border-bottom:1px solid var(--border);white-space:nowrap}
+.tour-table td{padding:9px 12px;border-bottom:1px solid var(--border);font-size:13px;vertical-align:top}
+.tour-table tr:last-child td{border-bottom:none}
+.tour-table tr:hover td{background:rgba(255,255,255,.02)}
+.risk-badge{font-size:10px;padding:1px 6px;border-radius:3px;margin-left:6px}
+.risk-mod{background:rgba(181,106,0,.3);color:#f5a623}
+.risk-low{background:rgba(13,122,85,.3);color:#34c891}
+
+.strength-table{width:100%;border-collapse:collapse}
+.strength-table th{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:left;padding:8px 12px;border-bottom:1px solid var(--border)}
+.strength-table td{padding:9px 12px;border-bottom:1px solid var(--border);font-size:13px}
+.strength-table tr:last-child td{border-bottom:none}
+
+.notice{background:rgba(232,163,32,.08);border:1px solid rgba(232,163,32,.2);border-radius:8px;padding:14px 18px;font-size:13px;color:var(--muted);margin:16px 0}
+.notice strong{color:var(--accent2)}
+.notice.blue{background:rgba(96,165,250,.08);border-color:rgba(96,165,250,.25)}
+.notice.blue strong{color:#60a5fa}
+.notice.green{background:rgba(52,200,145,.08);border-color:rgba(52,200,145,.25)}
+.notice.green strong{color:var(--z3t)}
+.notice.cyan{background:rgba(34,211,238,.08);border-color:rgba(34,211,238,.25)}
+.notice.cyan strong{color:var(--phase0t)}
+.notice.purple{background:rgba(147,51,234,.08);border-color:rgba(147,51,234,.25)}
+.notice.purple strong{color:var(--hrut)}
+
+.divider{border:none;border-top:1px solid var(--border);margin:28px 0}
+
+@media(max-width:768px){
+  h1{font-size:38px}
+  .hero-inner{flex-direction:column;gap:24px}
+  .hero-right{min-width:100%}
+  .stats-row{gap:12px}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="eyebrow">▲ Alps Summer Tour 2027 — Athlete Training Dossier</div>
+      <h1>22-Week<br><span>Dolomite</span> Plan</h1>
+      <div class="hero-sub">No day in 2027 — commute framing is gone. Weekdays are now built around <strong style="color:#c084fc">Hills R Us</strong>, Western Wheelers' Wednesday club ride (Hwy 9, Page Mill, Old La Honda, Kings Mountain, West Alpine, Tunitas — announced Monday prior), sitting alongside Saturday's LDT as the plan's second institutional anchor. Dedicated FTP tests are gone too — limited value last cycle, tied to an injury, and the goal here is tour durability, not a bigger number.</div>
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-label">FTP (working estimate)</div>
+          <div class="stat-value">199<span class="stat-unit">W</span></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">VO₂max (last measured)</div>
+          <div class="stat-value">54<span class="stat-unit">ml/kg/min</span></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">FTP Testing</div>
+          <div class="stat-value" style="font-size:15px">None — rolling est.</div>
+        </div>
+        <div class="stat-card" style="border-color:rgba(34,211,238,.4);background:rgba(34,211,238,.07)">
+          <div class="stat-label">Weeks to Tour</div>
+          <div class="stat-value" style="color:var(--phase0t)">22</div>
+        </div>
+        <div class="stat-card" style="border-color:rgba(147,51,234,.4);background:rgba(147,51,234,.07)">
+          <div class="stat-label">Weekly Anchors</div>
+          <div class="stat-value" style="font-size:16px;color:var(--hrut)">HRU + LDT</div>
+        </div>
+        <div class="stat-card" style="border-color:rgba(232,163,32,.4);background:rgba(232,163,32,.07)">
+          <div class="stat-label">Cardiac Target</div>
+          <div class="stat-value" style="color:var(--accent)">0<span class="stat-unit">events ≥150bpm</span></div>
+        </div>
+        <div class="stat-card" style="border-color:rgba(168,125,245,.4);background:rgba(168,125,245,.07)">
+          <div class="stat-label">Tandem Tour</div>
+          <div class="stat-value" style="font-size:18px;color:var(--strt)">w/ Boen (12)</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="tour-dates">
+        <h3>🏔 TOUR DATES <span style="font-size:11px;color:var(--muted);font-weight:400">(assumed)</span></h3>
+        <div class="date-row"><span class="dr-label">Training Starts</span><span class="dr-val">Sat Jan 2 (LDT opener)</span></div>
+        <div class="date-row"><span class="dr-label">Boen's Last Day</span><span class="dr-val">Wed Jun 2</span></div>
+        <div class="date-row"><span class="dr-label">Fly Out</span><span class="dr-val warn">Thu Jun 3 (only 1 day after school)</span></div>
+        <div class="date-row"><span class="dr-label">Arrive</span><span class="dr-val">Fri Jun 4</span></div>
+        <div class="date-row"><span class="dr-label">Shakeout Ride</span><span class="dr-val">Sat Jun 5</span></div>
+        <div class="date-row"><span class="dr-label">First Big Day</span><span class="dr-val">Mon Jun 7</span></div>
+        <div class="date-row"><span class="dr-label">Splügen Fork</span><span class="dr-val tbd">North vs South — open</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav-bar">
+  <div class="nav-inner">
+    <button class="tab-btn active" onclick="showTab('overview')">Overview</button>
+    <button class="tab-btn" onclick="showTab('zones')">Zones</button>
+    <button class="tab-btn" onclick="showTab('phase0')"><span class="phase-dot" style="background:#22d3ee"></span>Foundation</button>
+    <button class="tab-btn" onclick="showTab('phase1')"><span class="phase-dot" style="background:#2563eb"></span>Base</button>
+    <button class="tab-btn" onclick="showTab('phase2')"><span class="phase-dot" style="background:#059669"></span>Build</button>
+    <button class="tab-btn" onclick="showTab('phase3')"><span class="phase-dot" style="background:#ea580c"></span>Peak</button>
+    <button class="tab-btn" onclick="showTab('phase4')"><span class="phase-dot" style="background:#7c3aed"></span>Taper</button>
+    <button class="tab-btn" onclick="showTab('tour')">Tour Guide</button>
+    <button class="tab-btn" onclick="showTab('tandem')" style="color:var(--strt)">Tandem Tips</button>
+    <button class="tab-btn" onclick="showTab('strength')">Strength</button>
+  </div>
+</div>
+
+<main>
+
+<!-- ════ OVERVIEW ════ -->
+<div id="overview" class="section active">
+  <h2 class="section-title">Training Overview</h2>
+  <div class="section-desc">No job in 2027 means no commute — the framework that shaped every weekday in the last two drafts is gone. In its place: <strong style="color:var(--hrut)">Hills R Us</strong> anchors Wednesday the way WW LDT anchors Saturday.</div>
+
+  <div class="info-card" style="margin-bottom:20px;border-color:rgba(147,51,234,.3);background:rgba(147,51,234,.05)">
+    <h4 style="color:var(--hrut)">What Hills R Us Changes</h4>
+    <ul>
+      <li><span class="key-col">What it is</span><span class="val-col">Western Wheelers' Wednesday club ride. Meet 8:45, roll 9:00 — DE group departs first, C+ follows. Route rotates Hwy 9, Page Mill, Old La Honda, Kings Mountain, West Alpine, Tunitas Creek, announced via the WW rides list the Monday prior. Foul weather in the hills keeps the ride in the valley — it self-adjusts for conditions.</span></li>
+      <li><span class="key-col">Bigger than the placeholder it replaces</span><span class="val-col">The old "2–2.5 hr Wednesday ride" was sized for a commute-constrained day. HRU's actual route menu runs closer to 3+ hours with real climbing — durations and TSS targets below are adjusted up accordingly, especially in Base.</span></li>
+      <li><span class="key-col">No dedicated test days</span><span class="val-col">Formal 20-min all-out tests are gone this cycle — limited value in 2026 (the test result routinely got overridden by context anyway) and tied to an injury. Old La Honda's regular appearances in the rotation still give an honest read on fitness whenever you hit it hard within the group, with zero added risk since the ride was happening regardless.</span></li>
+      <li><span class="key-col">One ride, many roles</span><span class="val-col">Same route pool, different intent by phase: capped effort in Foundation, controlled Z2 early Base, Sweet Spot/threshold intervals on its climbs through Build, and in Peak it doubles directly as the Alps Day Simulation — multiple climbs back to back is exactly what a tour day asks for.</span></li>
+    </ul>
+  </div>
+
+  <div class="info-card" style="margin-bottom:20px;border-color:rgba(96,165,250,.3);background:rgba(96,165,250,.05)">
+    <h4 style="color:#60a5fa">Planning Assumptions — Correct These If Wrong</h4>
+    <ul>
+      <li><span class="key-col">No commute</span><span class="val-col">No job in 2027 — every weekday is fully flexible. Monday/Tuesday/Thursday are now standalone rides, not fragmented commute legs, which if anything makes structured intervals easier to execute properly (full warmup/cooldown, chosen terrain, no traffic-light interruptions).</span></li>
+      <li><span class="key-col">Training start</span><span class="val-col">Assumed <strong style="color:var(--accent2)">Sat Jan 2, 2027</strong> — first Saturday of the year, standing in for the actual LDT season opener.</span></li>
+      <li><span class="key-col">Fly-out date</span><span class="val-col">Thursday, not Saturday. Boen's school ends Wed Jun 2 — nearest Thursday is Jun 3, a 1-day buffer. Jun 10 is the fallback if too tight.</span></li>
+      <li><span class="key-col">Where the weeks went</span><span class="val-col">Round 1 (11→15 weeks) extended Base and Build. Round 2 (15→22 weeks) added Foundation. This round (weekday restructure) doesn't change week count — same 22 weeks, same dates, just no commute language and HRU as the Wednesday anchor.</span></li>
+      <li><span class="key-col">No dedicated FTP tests</span><span class="val-col">Dropped this round. 2026's tests had limited standalone value — the Apr 2 result got overridden by context within the same paragraph it was recorded in, and the real signal all cycle came from regular interval efforts, not the dedicated test days. One of those tests is also tied to an injury. Working FTP holds at 199W, nudged only if HRU/LDT data clearly says it's off — no maximal-effort day required to find that out.</span></li>
+      <li><span class="key-col">LDT + HRU schedules</span><span class="val-col">Neither 2027 calendar is published yet. Every Saturday and Wednesday below is a placeholder.</span></li>
+    </ul>
+  </div>
+
+  <div class="overview-grid">
+    <div class="info-card">
+      <h4>Weekly Schedule Template <span style="color:var(--muted);font-weight:400;font-size:12px">(Base onward)</span></h4>
+      <ul>
+        <li><span class="key-col">Monday</span><span class="val-col">Easy ride + Strength</span></li>
+        <li><span class="key-col">Tuesday</span><span class="val-col">Ride — structured intervals depending on phase, now a proper standalone session.</span></li>
+        <li><span class="key-col">Wednesday</span><span class="val-col"><strong style="color:var(--hrut)">Hills R Us</strong> — the anchor session. Meet 8:45, roll 9:00. Route announced Monday prior.</span></li>
+        <li><span class="key-col">Thursday</span><span class="val-col">Easy ride + Strength</span></li>
+        <li><span class="key-col">Friday</span><span class="val-col">Easy spin only.</span></li>
+        <li><span class="key-col">Saturday</span><span class="val-col">WW LDT tandem w/ Boen (assumed).</span></li>
+        <li><span class="key-col">Sunday</span><span class="val-col">Rest, or an easy family ride.</span></li>
+      </ul>
+      <div class="workout-note" style="margin-top:4px">Foundation phase rides HRU too, every week — just at capped, conversational effort. See the Foundation tab.</div>
+    </div>
+    <div class="info-card">
+      <h4>🚲 Tandem with Boen (12)</h4>
+      <ul>
+        <li><span></span><span class="val-col"><strong style="color:var(--strt)">Starting assumption: 35–65W sustained</strong>, up from 2026's proven 30–60W at 11.</span></li>
+        <li><span></span><span class="val-col"><strong style="color:var(--strt)">Cardiac discipline carries forward.</strong> Zero sustained HR ≥150 bpm held across all 23 ride days of 2026.</span></li>
+        <li><span></span><span class="val-col">HRU stays a solo/single-bike session — Boen's in school on Wednesdays until Jun 2. Saturday LDT remains the tandem anchor.</span></li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>Key Principles</h4>
+      <ul>
+        <li><span></span><span class="val-col"><strong style="color:var(--accent2)">Power first, HR second.</strong></span></li>
+        <li><span></span><span class="val-col"><strong style="color:var(--accent2)">HRV over TSB.</strong></span></li>
+        <li><span></span><span class="val-col"><strong style="color:var(--accent2)">6.6–7.0 hrs sleep is your normal, not a deficit.</strong></span></li>
+        <li><span></span><span class="val-col"><strong style="color:var(--accent2)">Free time isn't a license for more volume.</strong> No commute means more flexibility in when/how sessions happen, not a reason to inflate the plan beyond what periodization calls for.</span></li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>Equipment & Measurement</h4>
+      <ul>
+        <li><span class="key-col">HRM situation</span><span class="val-col">COROS warranty dispute — plenty of runway now to resolve before this block matters.</span></li>
+        <li><span class="key-col">FTP reference</span><span class="val-col">199W working estimate, held steady all cycle. No dedicated tests — adjust only if HRU/LDT data clearly says the number's off.</span></li>
+        <li><span class="key-col">Gearing</span><span class="val-col">Confirm 34T/32T has range for Stelvio's 11–14% ramps loaded.</span></li>
+        <li><span class="key-col">Rim brakes</span><span class="val-col">Flawless through ~16,000m of 2026 descending. No change needed.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="notice cyan">
+    <strong>📐 Full history of where the weeks went:</strong><br>
+    <strong>Round 1 (11→15 weeks):</strong> Base 3→6, Build 4→5. Peak/Taper untouched.<br>
+    <strong>Round 2 (15→22 weeks):</strong> Foundation phase added at the front, aligned to when LDT season starts.<br>
+    <strong>This round:</strong> No week-count change — commute framing removed throughout, Hills R Us installed as the Wednesday anchor from Foundation through Peak.
+  </div>
+
+  <div class="notice purple">
+    <strong>📅 Weekly Anchors (both assumed):</strong> <strong>Saturday — WW LDT</strong>, tandem with Boen, escalating pace/difficulty by phase. <strong>Wednesday — Hills R Us</strong>, solo, same route pool throughout (Hwy 9 / Page Mill / OLH / Kings Mtn / West Alpine / Tunitas), with intent shifting from capped-effort in Foundation to full tour-simulation by Peak. Memorial Day (Mon May 31) still sits just 3 days before fly-out — stays easy.
+  </div>
+</div>
+
+<!-- ════ ZONES ════ -->
+<div id="zones" class="section">
+  <h2 class="section-title">Training Zones</h2>
+  <div class="section-desc">Zones off FTP 199W — a working estimate carried forward, not a freshly tested number. No dedicated tests this cycle: 2026's had limited standalone value and one is tied to an injury. Not used during Foundation — that phase runs on RPE/capped-effort only. Zones become relevant starting Base, Week 8.</div>
+
+  <div class="zones-grid">
+    <div class="zone-card" style="border-color:var(--z1)">
+      <div class="zone-header"><span class="zone-name" style="color:var(--z1t)">Z1 — Active Recovery</span><span class="zone-badge" style="background:rgba(61,79,102,.3);color:var(--z1t)">Z1</span></div>
+      <div class="zone-power" style="color:var(--z1t)">&lt;119W &nbsp;|&nbsp; &lt;60% FTP</div>
+      <div class="zone-hr">HR: &lt;~68% max (est. &lt;122 bpm)</div>
+      <div class="zone-desc">Mon/Thu rides. Truly conversational.</div>
+    </div>
+    <div class="zone-card" style="border-color:var(--z2)">
+      <div class="zone-header"><span class="zone-name" style="color:var(--z2t)">Z2 — Endurance</span><span class="zone-badge" style="background:rgba(26,95,180,.3);color:var(--z2t)">Z2</span></div>
+      <div class="zone-power" style="color:var(--z2t)">119–159W &nbsp;|&nbsp; 60–80% FTP</div>
+      <div class="zone-hr">HR: ~68–83% max (est. 122–148 bpm)</div>
+      <div class="zone-desc">The workhorse. Most of Base and most of the Dolomites/Bernina route lives here.</div>
+    </div>
+    <div class="zone-card" style="border-color:var(--z3)">
+      <div class="zone-header"><span class="zone-name" style="color:var(--z3t)">Z3 — Tempo</span><span class="zone-badge" style="background:rgba(13,122,85,.3);color:var(--z3t)">Z3</span></div>
+      <div class="zone-power" style="color:var(--z3t)">159–179W &nbsp;|&nbsp; 80–90% FTP</div>
+      <div class="zone-hr">HR: ~84–94% max (est. 148–168 bpm)</div>
+      <div class="zone-desc">Sustained pace for the steeper Dolomite/Stelvio ramps.</div>
+    </div>
+    <div class="zone-card" style="border-color:var(--z4)">
+      <div class="zone-header"><span class="zone-name" style="color:var(--z4t)">Z4 — Sweet Spot</span><span class="zone-badge" style="background:rgba(181,106,0,.3);color:var(--z4t)">SS</span></div>
+      <div class="zone-power" style="color:var(--z4t)">179–189W &nbsp;|&nbsp; 90–95% FTP</div>
+      <div class="zone-hr">HR: ~94–98% max (est. 168–176 bpm)</div>
+      <div class="zone-desc">Primary interval type on HRU's climbs across Base's back half and Build.</div>
+    </div>
+    <div class="zone-card" style="border-color:var(--z5)">
+      <div class="zone-header"><span class="zone-name" style="color:var(--z5t)">Z5 — Threshold</span><span class="zone-badge" style="background:rgba(192,64,0,.3);color:var(--z5t)">FTP</span></div>
+      <div class="zone-power" style="color:var(--z5t)">189–209W &nbsp;|&nbsp; 95–105% FTP</div>
+      <div class="zone-hr">HR: ~98–105% max (est. 176–189 bpm)</div>
+      <div class="zone-desc">2–4 × 8–12 min efforts. Build and Peak.</div>
+    </div>
+    <div class="zone-card" style="border-color:var(--z6)">
+      <div class="zone-header"><span class="zone-name" style="color:var(--z6t)">Z6 — VO₂max</span><span class="zone-badge" style="background:rgba(160,16,16,.3);color:var(--z6t)">V02</span></div>
+      <div class="zone-power" style="color:var(--z6t)">209–239W &nbsp;|&nbsp; 105–120% FTP</div>
+      <div class="zone-hr">HR: &gt;105% max (est. &gt;189 bpm)</div>
+      <div class="zone-desc">Short 2–5 min efforts. Peak phase only.</div>
+    </div>
+  </div>
+
+  <div class="notice">
+    <strong>📊 No dedicated FTP tests this cycle.</strong> 199W stays the working number throughout. If a hard HRU or LDT effort consistently produces 20-min power well above or below what these zones predict, nudge the baseline and recalculate — that reads as a better signal than one manufactured all-out day, and it comes free from training you're doing anyway.
+  </div>
+</div>
+
+<!-- ════ PHASE 0 — FOUNDATION ════ -->
+<div id="phase0" class="section">
+  <div class="phase-header" style="background:rgba(14,90,104,.25);border-color:rgba(34,211,238,.2)">
+    <h3 style="color:var(--phase0t)">● Phase 0: Foundation</h3>
+    <p>The LDT season opens in January — training now opens with it. Both institutional rides start Week 1: WW LDT on Saturday, Hills R Us on Wednesday. HRU is hilly by nature (Hwy 9, Page Mill, OLH, Kings Mtn, West Alpine, Tunitas), so Foundation's progression isn't "when do hills appear" — it's "how much do you hold back on them." Anatomical Adaptation strength runs alongside.</p>
+    <div class="phase-meta">
+      <div class="pm-item"><span>Weeks:</span><strong>Jan 2 – Feb 19 (7 weeks)</strong></div>
+      <div class="pm-item"><span>Target Weekly TSS:</span><strong>270–400, ramping</strong></div>
+      <div class="pm-item"><span>Key Intensity:</span><strong>Capped effort — RPE based</strong></div>
+      <div class="pm-item"><span>Strength Phase:</span><strong>Anatomical Adaptation (2–3×12–15)</strong></div>
+    </div>
+  </div>
+
+  <div class="week-card" id="wk1">
+    <div class="week-header" onclick="toggleWeek('wk1')">
+      <div class="wh-left">
+        <span class="wk-num">WK 1</span>
+        <div>
+          <span class="workout-tag tag-found" style="margin:0 0 2px">FOUNDATION</span>
+          <div class="wk-theme">Both Season Openers</div>
+          <div class="wk-dates">Sat Jan 2 – Fri Jan 8</div>
+        </div>
+      </div>
+      <div class="wh-right">
+        <div class="tss-badge">Target: <span>~270</span></div>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="week-body">
+      <div class="notice cyan" style="margin-top:0"><strong>Most flexible week in the whole plan.</strong> January is typically the Bay Area's wettest month, and with no job there's nothing forcing a ride to happen on a bad-weather day. HRU already builds this in — foul weather in the hills keeps it in the valley.</div>
+      <div class="days-grid">
+        <div class="day-cell highlight-day">
+          <div class="day-name">Sat Jan 2</div>
+          <span class="workout-tag tag-tbd">WW LDT (assumed) — season opener</span>
+          <div class="workout-desc">First club LDT of the year, tandem with Boen. Likely shorter/easier than mid-season rides.</div>
+        </div>
+        <div class="day-cell day-rest">
+          <div class="day-name">Sun Jan 3</div>
+          <span class="workout-tag tag-rest">Rest</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Mon Jan 4</div>
+          <span class="workout-tag tag-z1">Easy Ride + Foundation Strength</span>
+          <div class="workout-desc">Bodyweight squats, glute bridges, planks, general mobility. Light load, high reps — movement quality, not weight on the bar.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Tue Jan 5</div>
+          <span class="workout-tag tag-z1">Easy Ride</span>
+        </div>
+        <div class="day-cell hru-day">
+          <div class="day-name">Wed Jan 6</div>
+          <span class="workout-tag tag-hru">Hills R Us — season opener</span>
+          <div class="workout-desc">First HRU of the year. Whatever the announced route, ride it — but explicitly cap effort on the climbs (Z1/Z2 even on OLH or Kings Mtn). Let the group go if they push. No shame in bailing early on your first one back.</div>
+          <div class="workout-power">Hold back deliberately. No targets yet.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Thu Jan 7</div>
+          <span class="workout-tag tag-z1">Easy Ride + Foundation Strength</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Fri Jan 8</div>
+          <span class="workout-tag tag-z1">Easy Spin or Rest</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card" id="wk2">
+    <div class="week-header" onclick="toggleWeek('wk2')">
+      <div class="wh-left">
+        <span class="wk-num">WK 2</span>
+        <div>
+          <span class="workout-tag tag-found" style="margin:0 0 2px">FOUNDATION</span>
+          <div class="wk-theme">Building the Habit</div>
+          <div class="wk-dates">Sat Jan 9 – Fri Jan 15</div>
+        </div>
+      </div>
+      <div class="wh-right">
+        <div class="tss-badge">Target: <span>~290</span></div>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="week-body">
+      <div class="days-grid">
+        <div class="day-cell highlight-day">
+          <div class="day-name">Sat Jan 9</div>
+          <span class="workout-tag tag-tbd">WW LDT (assumed)</span>
+        </div>
+        <div class="day-cell day-rest">
+          <div class="day-name">Sun Jan 10</div>
+          <span class="workout-tag tag-rest">Rest</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Mon Jan 11</div>
+          <span class="workout-tag tag-z1">Easy Ride + Foundation Strength</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Tue Jan 12</div>
+          <span class="workout-tag tag-z1">Easy Ride</span>
+        </div>
+        <div class="day-cell hru-day">
+          <div class="day-name">Wed Jan 13</div>
+          <span class="workout-tag tag-hru">Hills R Us — capped effort</span>
+          <div class="workout-desc">Same approach as Week 1. Consistency over intensity — the effort cap matters more than which climbs are on the route this week.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Thu Jan 14</div>
+          <span class="workout-tag tag-z1">Easy Ride + Foundation Strength</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Fri Jan 15</div>
+          <span class="workout-tag tag-z1">Easy Spin or Rest</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card" id="wk3">
+    <div class="week-header" onclick="toggleWeek('wk3')">
+      <div class="wh-left">
+        <span class="wk-num">WK 3</span>
+        <div>
+          <span class="workout-tag tag-found" style="margin:0 0 2px">FOUNDATION</span>
+          <div class="wk-theme">Foundation Continues</div>
+          <div class="wk-dates">Sat Jan 16 – Fri Jan 22</div>
+        </div>
+      </div>
+      <div class="wh-right">
+        <div class="tss-badge">Target: <span>~310</span></div>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="week-body">
+      <div class="days-grid">
+        <div class="day-cell highlight-day">
+          <div class="day-name">Sat Jan 16</div>
+          <span class="workout-tag tag-tbd">WW LDT (assumed)</span>
+        </div>
+        <div class="day-cell day-rest">
+          <div class="day-name">Sun Jan 17</div>
+          <span class="workout-tag tag-rest">Rest</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Mon Jan 18</div>
+          <span class="workout-tag tag-z1">Easy Ride + Foundation Strength</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Tue Jan 19</div>
+          <span class="workout-tag tag-z1">Easy Ride</span>
+        </div>
+        <div class="day-cell hru-day">
+          <div class="day-name">Wed Jan 20</div>
+          <span class="workout-tag tag-hru">Hills R Us — capped effort</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Thu Jan 21</div>
+          <span class="workout-tag tag-z1">Easy Ride + Foundation Strength</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Fri Jan 22</div>
+          <span class="workout-tag tag-z1">Easy Spin or Rest</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card" id="wk4">
+    <div class="week-header" onclick="toggleWeek('wk4')">
+      <div class="wh-left">
+        <span class="wk-num">WK 4</span>
+        <div>
+          <span class="workout-tag tag-found" style="margin:0 0 2px">FOUNDATION</span>
+          <div class="wk-theme">Foundation Continues</div>
+          <div class="wk-dates">Sat Jan 23 – Fri Jan 29</div>
+        </div>
+      </div>
+      <div class="wh-right">
+        <div class="tss-badge">Target: <span>~330</span></div>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="week-body">
+      <div class="days-grid">
+        <div class="day-cell highlight-day">
+          <div class="day-name">Sat Jan 23</div>
+          <span class="workout-tag tag-tbd">WW LDT (assumed)</span>
+        </div>
+        <div class="day-cell day-rest">
+          <div class="day-name">Sun Jan 24</div>
+          <span class="workout-tag tag-rest">Rest</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Mon Jan 25</div>
+          <span class="workout-tag tag-z1">Easy Ride + Foundation Strength</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Tue Jan 26</div>
+          <span class="workout-tag tag-z1">Easy Ride</span>
+        </div>
+        <div class="day-cell hru-day">
+          <div class="day-name">Wed Jan 27</div>
+          <span class="workout-tag tag-hru">Hills R Us — capped effort</span>
+          <div class="workout-desc">Fourth week in — the group and the route should start feeling familiar.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Thu Jan 28</div>
+          <span class="workout-tag tag-z1">Easy Ride + Foundation Strength</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Fri Jan 29</div>
+          <span class="workout-tag tag-z1">Easy Spin or Rest</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card" id="wk5">
+    <div class="week-header" onclick="toggleWeek('wk5')">
+      <div class="wh-left">
+        <span class="wk-num">WK 5</span>
+        <div>
+          <span class="workout-tag tag-found" style="margin:0 0 2px">FOUNDATION</span>
+          <div class="wk-theme">Effort Cap Lifts</div>
+          <div class="wk-dates">Sat Jan 30 – Fri Feb 5</div>
+        </div>
+      </div>
+      <div class="wh-right">
+        <div class="tss-badge">Target: <span>~350</span></div>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="week-body">
+      <div class="notice purple" style="margin-top:0"><strong>First week without the deliberate hold-back.</strong> Ride HRU's climbs at honest, natural effort — still not structured intervals, just no longer artificially suppressing what the terrain asks for.</div>
+      <div class="days-grid">
+        <div class="day-cell highlight-day">
+          <div class="day-name">Sat Jan 30</div>
+          <span class="workout-tag tag-tbd">WW LDT (assumed)</span>
+        </div>
+        <div class="day-cell day-rest">
+          <div class="day-name">Sun Jan 31</div>
+          <span class="workout-tag tag-rest">Rest</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Mon Feb 1</div>
+          <span class="workout-tag tag-z1">Easy Ride + Foundation Strength</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Tue Feb 2</div>
+          <span class="workout-tag tag-z1">Easy Ride</span>
+        </div>
+        <div class="day-cell hru-day">
+          <div class="day-name">Wed Feb 3</div>
+          <span class="workout-tag tag-hru">Hills R Us — natural effort</span>
+          <div class="workout-desc">Ride the climbs as they come, no artificial cap. Still Foundation-level overall — one honest effort day, not a hard interval day.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Thu Feb 4</div>
+          <span class="workout-tag tag-z1">Easy Ride + Foundation Strength</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Fri Feb 5</div>
+          <span class="workout-tag tag-z1">Easy Spin or Rest</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card" id="wk6">
+    <div class="week-header" onclick="toggleWeek('wk6')">
+      <div class="wh-left">
+        <span class="wk-num">WK 6</span>
+        <div>
+          <span class="workout-tag tag-found" style="margin:0 0 2px">FOUNDATION</span>
+          <div class="wk-theme">Consistency Check</div>
+          <div class="wk-dates">Sat Feb 6 – Fri Feb 12</div>
+        </div>
+      </div>
+      <div class="wh-right">
+        <div class="tss-badge">Target: <span>~370</span></div>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="week-body">
+      <div class="notice" style="margin-top:0">Five weeks of consistent riding behind you, both institutional rides now a fixed part of the week. If it feels automatic, Foundation is doing its job.</div>
+      <div class="days-grid">
+        <div class="day-cell highlight-day">
+          <div class="day-name">Sat Feb 6</div>
+          <span class="workout-tag tag-tbd">WW LDT (assumed)</span>
+        </div>
+        <div class="day-cell day-rest">
+          <div class="day-name">Sun Feb 7</div>
+          <span class="workout-tag tag-rest">Rest</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Mon Feb 8</div>
+          <span class="workout-tag tag-z1">Easy Ride + Foundation Strength</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Tue Feb 9</div>
+          <span class="workout-tag tag-z1">Easy Ride</span>
+        </div>
+        <div class="day-cell hru-day">
+          <div class="day-name">Wed Feb 10</div>
+          <span class="workout-tag tag-hru">Hills R Us — natural effort</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Thu Feb 11</div>
+          <span class="workout-tag tag-z1">Easy Ride + Foundation Strength</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Fri Feb 12</div>
+          <span class="workout-tag tag-z1">Easy Spin or Rest</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card" id="wk7">
+    <div class="week-header" onclick="toggleWeek('wk7')">
+      <div class="wh-left">
+        <span class="wk-num">WK 7</span>
+        <div>
+          <span class="workout-tag tag-found" style="margin:0 0 2px">FOUNDATION</span>
+          <div class="wk-theme">Bridge to Base</div>
+          <div class="wk-dates">Sat Feb 13 – Fri Feb 19</div>
+        </div>
+      </div>
+      <div class="wh-right">
+        <div class="tss-badge">Target: <span>~400</span></div>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="week-body">
+      <div class="notice cyan" style="margin-top:0"><strong>Last Foundation week.</strong> Anatomical Adaptation strength ends here — Hypertrophy begins Monday of Week 8. HRU rides itself doesn't change at all going into Base; only the strength load and Tuesday's structure shift.</div>
+      <div class="days-grid">
+        <div class="day-cell highlight-day">
+          <div class="day-name">Sat Feb 13</div>
+          <span class="workout-tag tag-tbd">WW LDT (assumed)</span>
+        </div>
+        <div class="day-cell day-rest">
+          <div class="day-name">Sun Feb 14</div>
+          <span class="workout-tag tag-rest">Rest</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Mon Feb 15</div>
+          <span class="workout-tag tag-z1">Easy Ride + Foundation Strength</span>
+          <div class="workout-desc">Last Anatomical Adaptation session.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Tue Feb 16</div>
+          <span class="workout-tag tag-z1">Easy Ride</span>
+        </div>
+        <div class="day-cell hru-day">
+          <div class="day-name">Wed Feb 17</div>
+          <span class="workout-tag tag-hru">Hills R Us — natural effort</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Thu Feb 18</div>
+          <span class="workout-tag tag-z1">Easy Ride + Foundation Strength</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Fri Feb 19</div>
+          <span class="workout-tag tag-z1">Easy Spin or Rest</span>
+          <div class="workout-desc">Base begins tomorrow.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ PHASE 1 — BASE ════ -->
+<div id="phase1" class="section">
+  <div class="phase-header" style="background:rgba(26,58,92,.25);border-color:rgba(37,99,235,.2)">
+    <h3 style="color:var(--z2t)">● Phase 1: Aerobic Base</h3>
+    <p>Same six weeks, same dates as before. What changes: HRU now carries actual training intent instead of capped effort, and Tuesday becomes a real standalone interval session instead of a commute fragment.</p>
+    <div class="phase-meta">
+      <div class="pm-item"><span>Weeks:</span><strong>Feb 20 – Apr 2 (6 weeks)</strong></div>
+      <div class="pm-item"><span>Target Weekly TSS:</span><strong>410–540, ramping</strong></div>
+      <div class="pm-item"><span>Key Intensity:</span><strong>Z2 Endurance → Sweet Spot progression on HRU's climbs</strong></div>
+      <div class="pm-item"><span>Strength Phase:</span><strong>Hypertrophy (4×8–10)</strong></div>
+    </div>
+  </div>
+
+  <div class="week-card" id="wk8">
+    <div class="week-header" onclick="toggleWeek('wk8')">
+      <div class="wh-left">
+        <span class="wk-num">WK 8</span>
+        <div>
+          <div class="wk-theme">Reactivate</div>
+          <div class="wk-dates">Sat Feb 20 – Fri Feb 26</div>
+        </div>
+      </div>
+      <div class="wh-right">
+        <div class="tss-badge">Target: <span>~430</span></div>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="week-body">
+      <div class="notice blue" style="margin-top:0"><strong>Structured training begins.</strong> HRU stops being capped-effort and starts being ridden with a real Z2 target — the terrain does the work, you just stop holding back on the flats and spinning the climbs.</div>
+      <div class="days-grid">
+        <div class="day-cell highlight-day">
+          <div class="day-name">Sat Feb 20</div>
+          <span class="workout-tag tag-tbd">WW LDT (assumed)</span>
+          <div class="workout-desc">Tandem C+ with Boen.</div>
+          <div class="workout-power">Captain: 115–135W.</div>
+        </div>
+        <div class="day-cell day-rest">
+          <div class="day-name">Sun Feb 21</div>
+          <span class="workout-tag tag-rest">Rest / family hike</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Mon Feb 22</div>
+          <span class="workout-tag tag-z1">Easy Ride + Strength</span>
+          <div class="workout-desc">Hypertrophy Session A begins — Back Squat, RDL, Step-Up, Hip Thrust, Plank. First loaded session after seven weeks of Anatomical Adaptation.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Tue Feb 23</div>
+          <span class="workout-tag tag-z1">Easy Ride</span>
+        </div>
+        <div class="day-cell hru-day">
+          <div class="day-name">Wed Feb 24</div>
+          <span class="workout-tag tag-hru">Hills R Us — Z2 controlled</span>
+          <div class="workout-desc">Ride the full route at genuine Z2. Whatever climbs are on tap, hold 119–159W rather than matching the group's pace up them.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Thu Feb 25</div>
+          <span class="workout-tag tag-z1">Easy Ride + Strength</span>
+          <div class="workout-desc">Session B — Single-Leg Press, Nordic Curl, Lateral Band Walk, Pull-Ups, Dead Bug.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Fri Feb 26</div>
+          <span class="workout-tag tag-z1">Easy Spin</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card" id="wk9">
+    <div class="week-header" onclick="toggleWeek('wk9')">
+      <div class="wh-left">
+        <span class="wk-num">WK 9</span>
+        <div>
+          <div class="wk-theme">Base Consistency</div>
+          <div class="wk-dates">Sat Feb 27 – Fri Mar 5</div>
+        </div>
+      </div>
+      <div class="wh-right">
+        <div class="tss-badge">Target: <span>~420</span></div>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="week-body">
+      <div class="days-grid">
+        <div class="day-cell highlight-day">
+          <div class="day-name">Sat Feb 27</div>
+          <span class="workout-tag tag-tbd">WW LDT (assumed)</span>
+        </div>
+        <div class="day-cell day-rest">
+          <div class="day-name">Sun Feb 28</div>
+          <span class="workout-tag tag-rest">Rest</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Mon Mar 1</div>
+          <span class="workout-tag tag-z1">Easy Ride + Strength</span>
+          <div class="workout-desc">Hypertrophy Session A.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Tue Mar 2</div>
+          <span class="workout-tag tag-z1">Easy Ride</span>
+        </div>
+        <div class="day-cell hru-day">
+          <div class="day-name">Wed Mar 3</div>
+          <span class="workout-tag tag-hru">Hills R Us — Z2 controlled</span>
+          <div class="workout-desc">Second week of holding the full route to genuine Z2, same as Week 8. No test, no pressure — just another rep of not matching the group's pace up whatever's on tap.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Thu Mar 4</div>
+          <span class="workout-tag tag-z1">Easy Ride + Strength</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Fri Mar 5</div>
+          <span class="workout-tag tag-z1">Easy Spin</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card" id="wk10">
+    <div class="week-header" onclick="toggleWeek('wk10')">
+      <div class="wh-left">
+        <span class="wk-num">WK 10</span>
+        <div>
+          <div class="wk-theme">Sweet Spot Intro</div>
+          <div class="wk-dates">Sat Mar 6 – Fri Mar 12</div>
+        </div>
+      </div>
+      <div class="wh-right">
+        <div class="tss-badge">Target: <span>~470</span></div>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="week-body">
+      <div class="days-grid">
+        <div class="day-cell highlight-day">
+          <div class="day-name">Sat Mar 6</div>
+          <span class="workout-tag tag-tbd">WW LDT (assumed)</span>
+        </div>
+        <div class="day-cell day-rest">
+          <div class="day-name">Sun Mar 7</div>
+          <span class="workout-tag tag-rest">Rest / family ride</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Mon Mar 8</div>
+          <span class="workout-tag tag-z1">Easy Ride + Strength</span>
+          <div class="workout-desc">Hypertrophy Session A.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Tue Mar 9</div>
+          <span class="workout-tag tag-z3">Ride — First Hard Efforts</span>
+          <div class="workout-desc">Standalone session now — proper warmup, pick a local hill, push it with intent. No more waiting for a commute hill to show up.</div>
+        </div>
+        <div class="day-cell hru-day">
+          <div class="day-name">Wed Mar 10</div>
+          <span class="workout-tag tag-hru">Hills R Us — Sweet Spot ×2</span>
+          <div class="workout-desc">Treat the first serious climb on the route as SS interval 1 (15 min). Spin easy to the next. Treat that as interval 2. New FTP-based wattage from Monday's test.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Thu Mar 11</div>
+          <span class="workout-tag tag-z1">Easy Ride + Strength</span>
+          <div class="workout-desc">Hypertrophy Session B.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Fri Mar 12</div>
+          <span class="workout-tag tag-z1">Easy Spin</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card" id="wk11">
+    <div class="week-header" onclick="toggleWeek('wk11')">
+      <div class="wh-left">
+        <span class="wk-num">WK 11</span>
+        <div>
+          <span class="workout-tag tag-new" style="margin:0 0 2px">NEW (Round 1)</span>
+          <div class="wk-theme">Aerobic Volume Build</div>
+          <div class="wk-dates">Sat Mar 13 – Fri Mar 19</div>
+        </div>
+      </div>
+      <div class="wh-right">
+        <div class="tss-badge">Target: <span>~510</span></div>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="week-body">
+      <div class="days-grid">
+        <div class="day-cell highlight-day">
+          <div class="day-name">Sat Mar 13</div>
+          <span class="workout-tag tag-tbd">WW LDT (assumed)</span>
+        </div>
+        <div class="day-cell day-rest">
+          <div class="day-name">Sun Mar 14</div>
+          <span class="workout-tag tag-rest">Rest / family ride</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Mon Mar 15</div>
+          <span class="workout-tag tag-z1">Easy Ride + Strength</span>
+          <div class="workout-desc">Hypertrophy Session A.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Tue Mar 16</div>
+          <span class="workout-tag tag-z2">Easy Ride</span>
+        </div>
+        <div class="day-cell hru-day highlight-day">
+          <div class="day-name">Wed Mar 17</div>
+          <span class="workout-tag tag-hru">Hills R Us + extension</span>
+          <div class="workout-desc">Ride the full HRU route, then add 30–45 min easy Z2 afterward on your own — pure aerobic accumulation on top of the club ride's natural volume.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Thu Mar 18</div>
+          <span class="workout-tag tag-z1">Easy Ride + Strength</span>
+          <div class="workout-desc">Hypertrophy Session B.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Fri Mar 19</div>
+          <span class="workout-tag tag-z1">Easy Spin</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card" id="wk12">
+    <div class="week-header" onclick="toggleWeek('wk12')">
+      <div class="wh-left">
+        <span class="wk-num">WK 12</span>
+        <div>
+          <span class="workout-tag tag-new" style="margin:0 0 2px">NEW (Round 1)</span>
+          <div class="wk-theme">Sweet Spot Progression</div>
+          <div class="wk-dates">Sat Mar 20 – Fri Mar 26</div>
+        </div>
+      </div>
+      <div class="wh-right">
+        <div class="tss-badge">Target: <span>~530</span></div>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="week-body">
+      <div class="days-grid">
+        <div class="day-cell highlight-day">
+          <div class="day-name">Sat Mar 20</div>
+          <span class="workout-tag tag-tbd">WW LDT (assumed)</span>
+        </div>
+        <div class="day-cell day-rest">
+          <div class="day-name">Sun Mar 21</div>
+          <span class="workout-tag tag-rest">Rest</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Mon Mar 22</div>
+          <span class="workout-tag tag-z1">Easy Ride + Strength</span>
+          <div class="workout-desc">Hypertrophy Session A.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Tue Mar 23</div>
+          <span class="workout-tag tag-z4">Sweet Spot Ride</span>
+        </div>
+        <div class="day-cell hru-day">
+          <div class="day-name">Wed Mar 24</div>
+          <span class="workout-tag tag-hru">Hills R Us — Sweet Spot ×3</span>
+          <div class="workout-desc">Three climbs on the route as three SS intervals (15–20 min each). If the route only offers two, repeat the best one.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Thu Mar 25</div>
+          <span class="workout-tag tag-z1">Easy Ride + Strength</span>
+          <div class="workout-desc">Hypertrophy Session B.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Fri Mar 26</div>
+          <span class="workout-tag tag-z1">Easy Spin</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card" id="wk13">
+    <div class="week-header" onclick="toggleWeek('wk13')">
+      <div class="wh-left">
+        <span class="wk-num">WK 13</span>
+        <div>
+          <span class="workout-tag tag-new" style="margin:0 0 2px">NEW (Round 1)</span>
+          <div class="wk-theme">Base Closes Out</div>
+          <div class="wk-dates">Sat Mar 27 – Fri Apr 2</div>
+        </div>
+      </div>
+      <div class="wh-right">
+        <div class="tss-badge">Target: <span>~440</span></div>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="week-body">
+      <div class="notice" style="margin-top:0"><strong>Six weeks of structured Base work behind you, seven of Foundation before that.</strong> Build's threshold intervals start next week off the same 199W working number — no test needed to justify the jump.</div>
+      <div class="days-grid">
+        <div class="day-cell highlight-day">
+          <div class="day-name">Sat Mar 27</div>
+          <span class="workout-tag tag-tbd">WW LDT (assumed)</span>
+        </div>
+        <div class="day-cell day-rest">
+          <div class="day-name">Sun Mar 28</div>
+          <span class="workout-tag tag-rest">Rest</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Mon Mar 29</div>
+          <span class="workout-tag tag-z1">Easy Ride + Strength</span>
+          <div class="workout-desc">Final Hypertrophy session — Power phase starts next week.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Tue Mar 30</div>
+          <span class="workout-tag tag-z1">Easy Ride</span>
+        </div>
+        <div class="day-cell hru-day">
+          <div class="day-name">Wed Mar 31</div>
+          <span class="workout-tag tag-hru">Hills R Us — SS consolidation</span>
+          <div class="workout-desc">One more Sweet Spot session on the route's climbs (2 × 15–20 min), closing out Base the same way it's been trained all along — no special test day to mark the transition.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Thu Apr 1</div>
+          <span class="workout-tag tag-z1">Easy Ride + Light Strength</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Fri Apr 2</div>
+          <span class="workout-tag tag-z1">Easy Spin</span>
+          <div class="workout-desc">Last easy day before Build begins.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ PHASE 2 — BUILD ════ -->
+<div id="phase2" class="section">
+  <div class="phase-header" style="background:rgba(13,74,44,.25);border-color:rgba(5,150,105,.2)">
+    <h3 style="color:var(--z3t)">● Phase 2: Build</h3>
+    <p>Same five weeks, same dates. HRU's climbs now carry the threshold/over-under structure directly — the route's natural hill sequence becomes the interval set.</p>
+    <div class="phase-meta">
+      <div class="pm-item"><span>Weeks:</span><strong>Apr 3 – May 7 (5 weeks)</strong></div>
+      <div class="pm-item"><span>Target Weekly TSS:</span><strong>510–660</strong></div>
+      <div class="pm-item"><span>Key Intensity:</span><strong>Sweet Spot + Threshold intervals on HRU's climbs</strong></div>
+      <div class="pm-item"><span>Strength Phase:</span><strong>Power (3×5–6)</strong></div>
+    </div>
+  </div>
+
+  <div class="week-card" id="wk14">
+    <div class="week-header" onclick="toggleWeek('wk14')">
+      <div class="wh-left">
+        <span class="wk-num">WK 14</span>
+        <div>
+          <div class="wk-theme">Build Begins</div>
+          <div class="wk-dates">Sat Apr 3 – Fri Apr 9</div>
+        </div>
+      </div>
+      <div class="wh-right">
+        <div class="tss-badge">Target: <span>~570</span></div>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="week-body">
+      <div class="days-grid">
+        <div class="day-cell highlight-day">
+          <div class="day-name">Sat Apr 3</div>
+          <span class="workout-tag tag-tbd">WW LDT (assumed)</span>
+        </div>
+        <div class="day-cell day-rest">
+          <div class="day-name">Sun Apr 4</div>
+          <span class="workout-tag tag-rest">Rest</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Mon Apr 5</div>
+          <span class="workout-tag tag-z1">Easy Ride + Strength</span>
+          <div class="workout-desc">Power Session A — Back Squat (explosive), Box Jump 3×5, RDL, Hip Thrust, Pallof Press.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Tue Apr 6</div>
+          <span class="workout-tag tag-z5">Threshold Ride</span>
+          <div class="workout-desc">Standalone session, chosen hill. 3–5 hard efforts, lap button bottom-to-top.</div>
+        </div>
+        <div class="day-cell hru-day">
+          <div class="day-name">Wed Apr 7</div>
+          <span class="workout-tag tag-hru">Hills R Us — threshold ×4</span>
+          <div class="workout-desc">Treat the route's climbs as <strong>4 × 8–12 min</strong> threshold efforts. Recover fully between — let the group's flat/descent sections do that work for you.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Thu Apr 8</div>
+          <span class="workout-tag tag-z1">Easy Ride + Strength</span>
+          <div class="workout-desc">Power Session B — Single-Leg Box Step-Down, Nordic Curl, Jump Squat 3×5, Row, Copenhagen Plank.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Fri Apr 9</div>
+          <span class="workout-tag tag-z1">Easy Spin</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card" id="wk15">
+    <div class="week-header" onclick="toggleWeek('wk15')">
+      <div class="wh-left">
+        <span class="wk-num">WK 15</span>
+        <div>
+          <span class="workout-tag tag-new" style="margin:0 0 2px">NEW (Round 1)</span>
+          <div class="wk-theme">Threshold Progression</div>
+          <div class="wk-dates">Sat Apr 10 – Fri Apr 16</div>
+        </div>
+      </div>
+      <div class="wh-right">
+        <div class="tss-badge">Target: <span>~590</span></div>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="week-body">
+      <div class="notice green" style="margin-top:0"><strong>Bridge week.</strong> More threshold volume before the back-to-back LDT weekend.</div>
+      <div class="days-grid">
+        <div class="day-cell highlight-day">
+          <div class="day-name">Sat Apr 10</div>
+          <span class="workout-tag tag-tbd">WW LDT (assumed)</span>
+        </div>
+        <div class="day-cell day-rest">
+          <div class="day-name">Sun Apr 11</div>
+          <span class="workout-tag tag-rest">Rest</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Mon Apr 12</div>
+          <span class="workout-tag tag-z1">Easy Ride + Strength</span>
+          <div class="workout-desc">Power Session A.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Tue Apr 13</div>
+          <span class="workout-tag tag-z5">Threshold Ride</span>
+        </div>
+        <div class="day-cell hru-day">
+          <div class="day-name">Wed Apr 14</div>
+          <span class="workout-tag tag-hru">Hills R Us — threshold volume</span>
+          <div class="workout-desc"><strong>4 × 10–14 min</strong> on the route's climbs — longer than Week 14, same full recovery between.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Thu Apr 15</div>
+          <span class="workout-tag tag-z1">Easy Ride + Strength</span>
+          <div class="workout-desc">Power Session B.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Fri Apr 16</div>
+          <span class="workout-tag tag-z1">Easy Spin</span>
+          <div class="workout-desc">Save legs for the back-to-back weekend ahead.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card" id="wk16">
+    <div class="week-header" onclick="toggleWeek('wk16')">
+      <div class="wh-left">
+        <span class="wk-num">WK 16</span>
+        <div>
+          <div class="wk-theme">Back-to-Back Weekend</div>
+          <div class="wk-dates">Sat Apr 17 – Fri Apr 23</div>
+        </div>
+      </div>
+      <div class="wh-right">
+        <div class="tss-badge">Target: <span>~640</span></div>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="week-body">
+      <div class="days-grid">
+        <div class="day-cell highlight-day">
+          <div class="day-name">Sat Apr 17</div>
+          <span class="workout-tag tag-tbd">WW LDT (assumed)</span>
+          <div class="workout-desc">If the 2027 calendar includes a 2-day format (Cazadero-style), this is Day 1.</div>
+        </div>
+        <div class="day-cell highlight-day">
+          <div class="day-name">Sun Apr 18</div>
+          <span class="workout-tag tag-z2">Day 2 (if 2-day) or family ride</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Mon Apr 19</div>
+          <span class="workout-tag tag-z1">Easy Ride + Strength</span>
+          <div class="workout-desc">Power Session A.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Tue Apr 20</div>
+          <span class="workout-tag tag-z4">Sweet Spot Ride</span>
+        </div>
+        <div class="day-cell hru-day">
+          <div class="day-name">Wed Apr 21</div>
+          <span class="workout-tag tag-hru">Hills R Us — Sweet Spot ×3</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Thu Apr 22</div>
+          <span class="workout-tag tag-z1">Easy Ride + Strength</span>
+          <div class="workout-desc">Power Session B.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Fri Apr 23</div>
+          <span class="workout-tag tag-z1">Easy Spin</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card" id="wk17">
+    <div class="week-header" onclick="toggleWeek('wk17')">
+      <div class="wh-left">
+        <span class="wk-num">WK 17</span>
+        <div>
+          <div class="wk-theme">Recovery Week</div>
+          <div class="wk-dates">Sat Apr 24 – Fri Apr 30</div>
+        </div>
+      </div>
+      <div class="wh-right">
+        <div class="tss-badge">Target: <span>~430</span></div>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="week-body">
+      <div class="notice" style="margin-top:0"><strong>Deliberate step-down</strong> — same 3:1 pattern that produced the HRV rebound after Cazadero in 2026.</div>
+      <div class="days-grid">
+        <div class="day-cell">
+          <div class="day-name">Sat Apr 24</div>
+          <span class="workout-tag tag-tbd">WW LDT (assumed) — moderate</span>
+        </div>
+        <div class="day-cell day-rest">
+          <div class="day-name">Sun Apr 25</div>
+          <span class="workout-tag tag-rest">Rest</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Mon Apr 26</div>
+          <span class="workout-tag tag-z1">Easy Ride + Light Strength</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Tue Apr 27</div>
+          <span class="workout-tag tag-z1">Easy Ride</span>
+        </div>
+        <div class="day-cell hru-day">
+          <div class="day-name">Wed Apr 28</div>
+          <span class="workout-tag tag-hru">Hills R Us — deliberately easy</span>
+          <div class="workout-desc">Ride it, but don't chase the fast group this week. Z3 moderate at most on the climbs. Check HRV first.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Thu Apr 29</div>
+          <span class="workout-tag tag-z1">Easy Ride + Light Strength</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Fri Apr 30</div>
+          <span class="workout-tag tag-z1">Easy Spin</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card" id="wk18">
+    <div class="week-header" onclick="toggleWeek('wk18')">
+      <div class="wh-left">
+        <span class="wk-num">WK 18</span>
+        <div>
+          <div class="wk-theme">Peak Build</div>
+          <div class="wk-dates">Sat May 1 – Fri May 7</div>
+        </div>
+      </div>
+      <div class="wh-right">
+        <div class="tss-badge">Target: <span>~660</span></div>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="week-body">
+      <div class="days-grid">
+        <div class="day-cell highlight-day">
+          <div class="day-name">Sat May 1</div>
+          <span class="workout-tag tag-tbd">WW LDT (assumed) — big day</span>
+          <div class="workout-desc">Biggest Build-phase Saturday.</div>
+        </div>
+        <div class="day-cell day-rest">
+          <div class="day-name">Sun May 2</div>
+          <span class="workout-tag tag-rest">Rest / easy family ride</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Mon May 3</div>
+          <span class="workout-tag tag-z1">Easy Ride + Strength</span>
+          <div class="workout-desc">Last Power session before Maintenance phase.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Tue May 4</div>
+          <span class="workout-tag tag-z6">Over-Unders Ride</span>
+        </div>
+        <div class="day-cell hru-day highlight-day">
+          <div class="day-name">Wed May 5</div>
+          <span class="workout-tag tag-hru">Hills R Us — over-unders</span>
+          <div class="workout-desc">Heaviest TSS day of Build. Surge the steep pitches of each climb, settle on any flat shelf, surge again — HRU's terrain does the over-under structure for you.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Thu May 6</div>
+          <span class="workout-tag tag-z1">Easy Ride + Strength</span>
+          <div class="workout-desc">Power Session B.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Fri May 7</div>
+          <span class="workout-tag tag-z1">Easy Spin</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ PHASE 3 — PEAK ════ -->
+<div id="phase3" class="section">
+  <div class="phase-header" style="background:rgba(74,42,0,.25);border-color:rgba(234,88,12,.2)">
+    <h3 style="color:var(--z5t)">● Phase 3: Peak</h3>
+    <p>Same two weeks, same dates. In Week 20, HRU stops being a vehicle for intervals and becomes the Alps Day Simulation directly — a long club ride touching multiple named climbs back to back is what a tour day actually is.</p>
+    <div class="phase-meta">
+      <div class="pm-item"><span>Weeks:</span><strong>May 8 – May 21 (2 weeks)</strong></div>
+      <div class="pm-item"><span>Target Weekly TSS:</span><strong>580–700</strong></div>
+      <div class="pm-item"><span>Key Intensity:</span><strong>VO₂max + Over-Unders + Tour Simulation</strong></div>
+      <div class="pm-item"><span>Strength Phase:</span><strong>Maintenance (2×12)</strong></div>
+    </div>
+  </div>
+
+  <div class="week-card" id="wk19">
+    <div class="week-header" onclick="toggleWeek('wk19')">
+      <div class="wh-left">
+        <span class="wk-num">WK 19</span>
+        <div>
+          <div class="wk-theme">VO₂max Sharpening</div>
+          <div class="wk-dates">Sat May 8 – Fri May 14</div>
+        </div>
+      </div>
+      <div class="wh-right">
+        <div class="tss-badge">Target: <span>~590</span></div>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="week-body">
+      <div class="notice" style="margin-top:0"><strong>The sharpest work in the whole plan.</strong> No test to anchor the week — just the hardest short efforts you'll do all cycle, setting up next week's benchmark day and Alps simulation.</div>
+      <div class="days-grid">
+        <div class="day-cell highlight-day">
+          <div class="day-name">Sat May 8</div>
+          <span class="workout-tag tag-tbd">WW LDT (assumed)</span>
+        </div>
+        <div class="day-cell day-rest">
+          <div class="day-name">Sun May 9</div>
+          <span class="workout-tag tag-rest">Rest</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Mon May 10</div>
+          <span class="workout-tag tag-z1">Easy Ride + Strength</span>
+          <div class="workout-desc">Maintenance 2×12.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Tue May 11</div>
+          <span class="workout-tag tag-z6">Over-Unders Ride</span>
+        </div>
+        <div class="day-cell hru-day highlight-day">
+          <div class="day-name">Wed May 12</div>
+          <span class="workout-tag tag-hru">Hills R Us — VO₂max efforts</span>
+          <div class="workout-desc">Short, hard, 2–5 min pushes on the steepest pitches the route offers — Z6-style, off the standing 199W estimate. No maximal test, just the sharpest structured effort of the cycle.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Thu May 13</div>
+          <span class="workout-tag tag-z1">Easy Ride + Light Strength</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Fri May 14</div>
+          <span class="workout-tag tag-z1">Easy Spin</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card" id="wk20">
+    <div class="week-header" onclick="toggleWeek('wk20')">
+      <div class="wh-left">
+        <span class="wk-num">WK 20</span>
+        <div>
+          <div class="wk-theme">Tour Simulation Week</div>
+          <div class="wk-dates">Sat May 15 – Fri May 21</div>
+        </div>
+      </div>
+      <div class="wh-right">
+        <div class="tss-badge">Target: <span>~610</span></div>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="week-body">
+      <div class="days-grid">
+        <div class="day-cell highlight-day" style="border-color:var(--accent)">
+          <div class="day-name">Sat May 15</div>
+          <span class="workout-tag tag-z3">Benchmark Climb Day</span>
+          <div class="workout-desc">Long solo climbing effort at new-FTP zones. Last real benchmark before taper.</div>
+        </div>
+        <div class="day-cell day-rest">
+          <div class="day-name">Sun May 16</div>
+          <span class="workout-tag tag-rest">Rest</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Mon May 17</div>
+          <span class="workout-tag tag-z1">Easy Ride + Strength</span>
+          <div class="workout-desc">Maintenance 2×12.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Tue May 18</div>
+          <span class="workout-tag tag-z6">VO₂max Ride</span>
+        </div>
+        <div class="day-cell hru-day highlight-day" style="border-color:var(--accent)">
+          <div class="day-name">Wed May 19</div>
+          <span class="workout-tag tag-hru">🏔 Hills R Us = Alps Day Simulation</span>
+          <div class="workout-desc">This week HRU <strong>is</strong> the tour-simulation ride — no separate session needed. Ride the whole route at tour pace: under 150W flats, Z3 on every climb, lap button at each summit, eat every 30 min without fail. Multiple named climbs back to back is exactly what a Dolomites stage day demands.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Thu May 20</div>
+          <span class="workout-tag tag-z1">Easy Ride + Activation</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Fri May 21</div>
+          <span class="workout-tag tag-z1">Easy Spin</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ PHASE 4 — TAPER ════ -->
+<div id="phase4" class="section">
+  <div class="phase-header" style="background:rgba(58,26,74,.25);border-color:rgba(124,58,237,.2)">
+    <h3 style="color:var(--strt)">● Phase 4: Taper</h3>
+    <p>Same as before. HRU is optional this phase — ride it very easy for the social outing if you want, or skip it. It's not carrying training intent anymore.</p>
+    <div class="phase-meta">
+      <div class="pm-item"><span>Weeks:</span><strong>May 22 – Jun 3 (13 days)</strong></div>
+      <div class="pm-item"><span>Target TSS:</span><strong>Wk21: ~320 &nbsp;|&nbsp; Wk22: ~130</strong></div>
+      <div class="pm-item"><span>Volume:</span><strong>–40–50% from peak</strong></div>
+      <div class="pm-item"><span>Intensity:</span><strong>Sharpeners early, not late</strong></div>
+    </div>
+  </div>
+
+  <div class="week-card" id="wk21">
+    <div class="week-header" onclick="toggleWeek('wk21')">
+      <div class="wh-left">
+        <span class="wk-num">WK 21</span>
+        <div>
+          <div class="wk-theme">Begin Taper</div>
+          <div class="wk-dates">Sat May 22 – Fri May 28</div>
+        </div>
+      </div>
+      <div class="wh-right">
+        <div class="tss-badge">Target: <span>~320</span></div>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="week-body">
+      <div class="days-grid">
+        <div class="day-cell highlight-day">
+          <div class="day-name">Sat May 22</div>
+          <span class="workout-tag tag-tbd">WW LDT (assumed) — last full-intensity</span>
+          <div class="workout-desc">Moderate-hard. Last LDT with real intensity before the fade to fly-out.</div>
+        </div>
+        <div class="day-cell day-rest">
+          <div class="day-name">Sun May 23</div>
+          <span class="workout-tag tag-rest">Rest</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Mon May 24</div>
+          <span class="workout-tag tag-z1">Ride + Activation</span>
+          <div class="workout-desc">Bodyweight only — squats, glute bridges, core.</div>
+        </div>
+        <div class="day-cell highlight-day">
+          <div class="day-name">Tue May 25</div>
+          <span class="workout-tag tag-z4">Sharp 60–90 min</span>
+          <div class="workout-desc">One good threshold climb effort, 1–2 reps.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Wed May 26</div>
+          <span class="workout-tag tag-z1">Easy Spin (skip HRU or ride very easy)</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Thu May 27</div>
+          <span class="workout-tag tag-z3">Climbing Sharpener</span>
+          <div class="workout-desc">One Z3 climb lap, everything else easy.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Fri May 28</div>
+          <span class="workout-tag tag-z1">Easy Ride</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card" id="wk22">
+    <div class="week-header" onclick="toggleWeek('wk22')">
+      <div class="wh-left">
+        <span class="wk-num">WK 22</span>
+        <div>
+          <div class="wk-theme">Final Taper → Fly Thu Jun 3</div>
+          <div class="wk-dates">Sat May 29 – Thu Jun 3</div>
+        </div>
+      </div>
+      <div class="wh-right">
+        <div class="tss-badge">Target: <span>~130</span></div>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="week-body">
+      <div class="notice" style="margin-top:0"><strong>Trust the training.</strong> Six-day final week. Memorial Day sits just 3 days before departure: deliberately easy.</div>
+      <div class="days-grid">
+        <div class="day-cell">
+          <div class="day-name">Sat May 29</div>
+          <span class="workout-tag tag-z2">Easy LDT / family ride</span>
+          <div class="workout-desc">Light. The fitness is already built.</div>
+        </div>
+        <div class="day-cell day-rest">
+          <div class="day-name">Sun May 30</div>
+          <span class="workout-tag tag-rest">Rest</span>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Mon May 31 — Memorial Day</div>
+          <span class="workout-tag tag-z2">Easy/moderate only</span>
+          <div class="workout-desc"><strong>Only 3 days before fly-out.</strong> Optional easy-moderate family tandem spin at most.</div>
+        </div>
+        <div class="day-cell">
+          <div class="day-name">Tue Jun 1</div>
+          <span class="workout-tag tag-z1">Easy Ride</span>
+          <div class="workout-desc">Start packing — bike box, gear list.</div>
+        </div>
+        <div class="day-cell highlight-day">
+          <div class="day-name">Wed Jun 2 — Boen's Last Day</div>
+          <span class="workout-tag tag-rest">Rest / easy + final packing</span>
+          <div class="workout-desc">School ends today. HRU is optional and probably skippable — everything finished tonight, tomorrow is a travel day.</div>
+        </div>
+        <div class="day-cell day-rest highlight-day" style="border-color:var(--accent)">
+          <div class="day-name">Thu Jun 3</div>
+          <span class="workout-tag tag-event">✈ FLY OUT</span>
+          <div class="workout-desc">Munich or Zurich — TBD. Arrive Fri Jun 4.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ TOUR GUIDE ════ -->
+<div id="tour" class="section">
+  <h2 class="section-title">Tour Route Guide</h2>
+  <div class="section-desc">The fork at Splügen is still open, so this isn't a locked day-by-day itinerary — it's the common spine plus what's known about each branch, sized to tell the training block what to prepare for.</div>
+
+  <div class="notice blue">
+    <strong>🌐 Open decisions:</strong> Munich vs. Zurich flight. North branch (San Bernardino out-and-back → Bergün → Albula → Scuol → Landeck) vs. South/Option D (San Bernardino crossed → Bellinzona → Nufenen → Grimsel → Rosenlaui → Zurich — Boen has specifically requested Nufenen). Silvretta Hochalpenstrasse is closed until 2030. None of this changes the training prescription.
+  </div>
+
+  <div class="info-card" style="margin-bottom:24px">
+    <h4>Common Spine</h4>
+    <table class="tour-table">
+      <thead><tr><th>Stop</th><th>Nights</th><th>Key Climb</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Munich/Zurich → Dolomites</td><td>—</td><td>—</td><td>Approach, TBD routing</td></tr>
+        <tr><td><strong>Misurina</strong></td><td>2</td><td>Dolomite passes (TBD specifics)</td><td>Cortina/Tre Cime area</td></tr>
+        <tr><td><strong>Val Gardena</strong></td><td>3</td><td>Dolomite passes (TBD specifics)</td><td>Sella group area</td></tr>
+        <tr><td>→ <strong>Trafoi</strong></td><td>—</td><td>Approach to Stelvio Prato side</td><td>Replaces Prad overnight</td></tr>
+        <tr><td><strong>Stelvio Pass</strong></td><td>day climb</td><td>2,758m · 24–25km · 7.4–7.6% avg (max 11–14%) · 48 hairpins</td><td>Second-highest paved pass in the Alps. Signature day of the tour.</td></tr>
+        <tr><td><strong>Bormio</strong></td><td>3</td><td>Stelvio descent: 21km · 7.1% avg (tunnels to 14%)</td><td>Base for Stelvio recovery + onward routing</td></tr>
+        <tr><td>Livigno</td><td>—</td><td>—</td><td>Connector</td></tr>
+        <tr><td><strong>Bernina Pass</strong></td><td>day climb</td><td>2,328m · south side (Tirano) 33km @ 5.7% avg, or short north side ~600m from Pontresina</td><td>Tirano side is the long one; from the Engadin it's a gentle roll</td></tr>
+        <tr><td><strong>Pontresina</strong></td><td>2</td><td>—</td><td>Engadin base</td></tr>
+        <tr><td>→ <strong>Campodolcino</strong></td><td>—</td><td>—</td><td>Replaces Chiavenna overnight</td></tr>
+        <tr><td><strong>Splügen Pass</strong></td><td>day climb</td><td>2,114m · north side (from Splügen) 8.8km @ 7.4%, 650m gain</td><td>South approach from Campodolcino is higher-starting than from Chiavenna</td></tr>
+        <tr><td colspan="4" style="text-align:center;color:#60a5fa;font-style:italic">— FORK: North or South/Option D —</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="overview-grid">
+    <div class="info-card">
+      <h4>North Branch</h4>
+      <ul>
+        <li><span></span><span class="val-col">San Bernardino (2,065m) out-and-back → Bergün → <strong>Albula Pass (2,306m)</strong> → Scuol → Landeck → various finishes.</span></li>
+        <li><span></span><span class="val-col">Boen has ridden both sides of Albula before (2024).</span></li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>South Branch / Option D</h4>
+      <ul>
+        <li><span></span><span class="val-col">San Bernardino (2,065m) crossed → Bellinzona → <strong>Nufenen Pass (2,478m)</strong> → <strong>Grimsel Pass (2,164m)</strong> → Rosenlaui → Zurich.</span></li>
+        <li><span></span><span class="val-col">Boen has specifically requested Nufenen.</span></li>
+        <li><span></span><span class="val-col">Nine new passes for Boen sit on the common spine, not on either branch.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="info-card" style="margin-bottom:24px">
+    <h4>Key Training Demands vs. 2026</h4>
+    <ul>
+      <li><span></span><span class="val-col"><strong style="color:var(--accent2)">Higher sustained altitude.</strong> Stelvio 2,758m, Bernina 2,328m, Nufenen 2,478m (if South), Splügen 2,114m, San Bernardino 2,065m.</span></li>
+      <li><span></span><span class="val-col"><strong style="color:var(--accent2)">Steeper average gradients.</strong> Stelvio's Prato side runs 7.4–7.6% average with 11–14% ramps across 24km.</span></li>
+      <li><span></span><span class="val-col"><strong style="color:var(--accent2)">One monster single-day climb.</strong> Stelvio — 1,800m+ gain in one push.</span></li>
+      <li><span></span><span class="val-col"><strong style="color:var(--accent2)">Long technical descending.</strong> 48 hairpins. Rim brake technique carries over directly.</span></li>
+    </ul>
+  </div>
+
+  <div class="info-card">
+    <h4>Pass Status Monitoring (closer to departure)</h4>
+    <ul>
+      <li><span></span><span class="val-col">Stelvio typically opens mid-to-late May (2026: Trafoi side opened May 22). Confirm via <strong>pirovano.it/en/stelvio-road-conditions</strong> closer to the date.</span></li>
+      <li><span></span><span class="val-col">Splügen, San Bernardino, Nufenen, Grimsel, and Albula typically open well before Stelvio. <strong>alpen-paesse.ch</strong> tracks live status.</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ════ TANDEM TIPS ════ -->
+<div id="tandem" class="section">
+  <h2 class="section-title" style="color:var(--strt)">Tandem Tips — Riding with Boen (Age 12)</h2>
+  <div class="section-desc">A year older than the 2026 tour, and the communication protocol from that tour worked — it carries forward unchanged.</div>
+
+  <div class="overview-grid">
+    <div class="info-card">
+      <h4>Boen's Projected Contribution at 12</h4>
+      <ul>
+        <li><span class="key-col">Stoker Power</span><span class="val-col">Working assumption: <strong>35–65W</strong> sustained, up from 2026's proven 30–60W at 11. Recalibrate after the first few rides.</span></li>
+        <li><span class="key-col">System Weight</span><span class="val-col">Similar order of magnitude to 2026's ~370–420 lbs.</span></li>
+        <li><span class="key-col">System Math</span><span class="val-col">130W captain + 50W Boen = 180W combined, 28% assist.</span></li>
+        <li><span class="key-col">Cardiac discipline</span><span class="val-col">Zero sustained HR ≥150 bpm held across all 23 ride days of 2026. Same standard applies.</span></li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>Power Targets on the Route (Tandem Captain)</h4>
+      <ul>
+        <li><span class="key-col">Long Climbs (Boen active)</span><span class="val-col" style="color:var(--z3t)">Similar band to 2026's 126–149W. No dedicated retest this cycle to recalibrate against — holds unless HRU/LDT data says otherwise.</span></li>
+        <li><span class="key-col">Stelvio-Scale Days</span><span class="val-col" style="color:var(--z2t)">Protect harder than usual — the biggest sustained effort of the tour.</span></li>
+        <li><span class="key-col">Steep Ramps (11–14%)</span><span class="val-col" style="color:var(--z4t)">More common than 2026's French cols.</span></li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>Communication Protocol (unchanged — it worked)</h4>
+      <ul>
+        <li><span></span><span class="val-col"><strong style="color:var(--accent2)">"Push!" / "Easy"</strong></span></li>
+        <li><span></span><span class="val-col"><strong style="color:var(--accent2)">"Cadence up"</strong></span></li>
+        <li><span></span><span class="val-col"><strong style="color:var(--accent2)">"Standing now"</strong></span></li>
+        <li><span></span><span class="val-col"><strong style="color:var(--accent2)">"Tunnel!" / "Bump!" / "Braking!"</strong></span></li>
+        <li><span></span><span class="val-col"><strong style="color:var(--accent2)">Give him a job on descents.</strong> Counting the 48 Stelvio hairpins.</span></li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>Training Boen Before the Tour</h4>
+      <ul>
+        <li><span></span><span class="val-col"><strong style="color:var(--accent2)">3–4+ tandem rides before departure</strong> — 22 weeks of Saturdays gives far more opportunity than either prior draft.</span></li>
+        <li><span></span><span class="val-col"><strong>Add one steep-pitch session</strong> — a short 12–15% test hill on the tandem, once Base begins.</span></li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>Fueling Boen on Stage Days</h4>
+      <ul>
+        <li><span></span><span class="val-col">30–45g carbs/hr minimum on rides over 90 minutes.</span></li>
+        <li><span></span><span class="val-col">Stoker feed bag, own responsibility for eating on schedule.</span></li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>Tandem-Specific Gear Checklist</h4>
+      <ul>
+        <li><span class="key-col">Gearing</span><span class="val-col">Confirm 34T/32T has range for Stelvio's 11–14% ramps loaded.</span></li>
+        <li><span class="key-col">Brakes</span><span class="val-col">Rim brakes proven flawless through ~16,000m of 2026 descending.</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="strength" class="section">
+  <h2 class="section-title">Strength Training</h2>
+  <div class="section-desc">Five phases, unchanged by the weekday restructure. No commute meant strength timing was already flexible; nothing here needed adjusting.</div>
+
+  <div class="overview-grid" style="margin-bottom:24px">
+    <div class="info-card" style="border-color:rgba(34,211,238,.3)">
+      <h4 style="color:var(--phase0t)">Phase 0: Anatomical Adaptation (Jan 2 – Feb 19)</h4>
+      <ul>
+        <li><span></span><span class="val-col"><strong>Sets × Reps:</strong> 2–3×12–15 @ 50–60% 1RM or bodyweight</span></li>
+        <li><span></span><span class="val-col"><strong>Focus:</strong> Movement quality, joint/tendon prep, injury-proofing</span></li>
+        <li><span></span><span class="val-col"><strong>Rest:</strong> 60–75 sec</span></li>
+        <li><span></span><span class="val-col"><strong>Both sessions:</strong> Bodyweight/light squats, glute bridges, planks, band walks, light step-ups, hip 90-90 and ankle/thoracic mobility.</span></li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>Phase 1: Hypertrophy (Feb 20 – Apr 2)</h4>
+      <ul>
+        <li><span></span><span class="val-col"><strong>Sets × Reps:</strong> 4×8–10 @ 70–75% 1RM</span></li>
+        <li><span></span><span class="val-col"><strong>Rest:</strong> 90–120 sec</span></li>
+        <li><span></span><span class="val-col"><strong>Mon (Sess A):</strong> Back Squat, RDL, Step-Up, Hip Thrust, Plank</span></li>
+        <li><span></span><span class="val-col"><strong>Thu (Sess B):</strong> Single-Leg Press, Nordic Curl, Lateral Band Walk, Pull-Ups, Dead Bug</span></li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>Phase 2: Power (Apr 3 – May 7)</h4>
+      <ul>
+        <li><span></span><span class="val-col"><strong>Sets × Reps:</strong> 3×5–6 @ 80–85% 1RM, explosive intent</span></li>
+        <li><span></span><span class="val-col"><strong>Rest:</strong> 2–3 min</span></li>
+        <li><span></span><span class="val-col"><strong>Mon (Sess A):</strong> Back Squat (explosive), Box Jump 3×5, RDL, Hip Thrust, Pallof Press</span></li>
+        <li><span></span><span class="val-col"><strong>Thu (Sess B):</strong> Single-Leg Box Step-Down, Nordic Curl, Jump Squat 3×5, Row, Copenhagen Plank</span></li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>Phase 3: Maintenance (May 8 – May 21)</h4>
+      <ul>
+        <li><span></span><span class="val-col"><strong>Sets × Reps:</strong> 2×12 @ 60–65% 1RM</span></li>
+        <li><span></span><span class="val-col"><strong>Rest:</strong> 60–90 sec</span></li>
+        <li><span></span><span class="val-col"><strong>Both sessions:</strong> Squat, RDL, Step-Up, Single-Leg Press, Core.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="info-card" style="margin-bottom:24px">
+    <h4>Phase 4: Activation (May 22 – Jun 3)</h4>
+    <ul>
+      <li><span></span><span class="val-col"><strong>No loaded lifting</strong> in the final 13 days.</span></li>
+      <li><span></span><span class="val-col"><strong>Bodyweight only:</strong> Air squats 2×20, Glute bridges 2×20, Single-leg balance, Hip 90-90 stretching</span></li>
+      <li><span></span><span class="val-col">Duration: 15–20 min max.</span></li>
+    </ul>
+  </div>
+
+  <div class="info-card">
+    <h4>Key Exercises for Steeper Alpine Cycling</h4>
+    <table class="strength-table" style="margin-top:12px">
+      <thead>
+        <tr>
+          <th>Exercise</th>
+          <th>Why It Matters for Dolomites/Stelvio</th>
+          <th>Cues</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Back Squat</strong></td><td>Primary power generator for sustained steep climbing — more relevant this year given Stelvio's 11–14% ramps</td><td>Full depth, knee tracking, bar on traps</td></tr>
+        <tr><td><strong>Romanian Deadlift (RDL)</strong></td><td>Posterior chain strength for long days in the saddle</td><td>Hinge at hip, soft knee</td></tr>
+        <tr><td><strong>Weighted Step-Up</strong></td><td>Mimics single-leg climbing motion</td><td>Full hip extension at top</td></tr>
+        <tr><td><strong>Nordic Hamstring Curl</strong></td><td>Eccentric strength for long braking on the 48-hairpin Stelvio descent</td><td>Control the fall, 3–5 sec descent</td></tr>
+        <tr><td><strong>Hip Thrust / Glute Bridge</strong></td><td>Glute activation for Hour 5+ of a Stelvio-scale climbing day</td><td>Drive through heels</td></tr>
+        <tr><td><strong>Copenhagen Plank → progressions</strong></td><td>Hip adductor strength for efficient pedaling when fatigued</td><td>Side-lying → band walk → Copenhagen</td></tr>
+        <tr><td><strong>Pull-Ups / Rows</strong></td><td>Upper body pulling reduces neck/shoulder fatigue over a long tour</td><td>Full range of motion</td></tr>
+        <tr><td><strong>Dead Bug</strong></td><td>Core stability across steeper gradients</td><td>Lower back pinned to floor</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</main>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function toggleWeek(id) {
+  const card = document.getElementById(id);
+  card.classList.toggle('open');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  ['wk1','wk8','wk14','wk19','wk21'].forEach(id => {
+    const card = document.getElementById(id);
+    if (card) card.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
